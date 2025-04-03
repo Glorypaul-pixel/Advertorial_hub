@@ -1,0 +1,155 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .BlogHead {
+    padding: 4rem 2rem 1rem 2rem;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+  }
+  
+  .BlogHead h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .BlogHead p {
+    font-size: 1.5rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .blogSaas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 3rem;
+  }
+  
+  .blogSaas img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .blogSaasText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: default;
+  }
+  
+  .blogSaasText h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+  }
+  
+  .blogSaasText h1 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #03132c;
+  }
+  
+  .blogSaasText p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .blogSaasText h6 {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .blogSaas {
+      flex-direction: column;
+    }
+  
+    .blogSaas img {
+      width: 100%;
+    }
+  
+    .blogSaasText {
+      width: 100%;
+    }
+  }
+  
+  .blogCard {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(400px, 1fr)
+    ); 
+    gap: 1.5rem;
+    padding: 2rem;
+    margin: 1rem 1rem 8rem 1rem;
+  }
+  
+  .blogCard div {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .blogCard div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .blogCard img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .blogCard h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #333;
+    text-align: center;
+  }
+  
+  .blogCard p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .BlogCard1,
+  .BlogCard2,
+  .BlogCard3,
+  .BlogCard4,
+  .BlogCard5,
+  .BlogCard6 {
+    padding: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .blogCard {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .blogCard {
+      grid-template-columns: 1fr;
+    }
+  }
+  

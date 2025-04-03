@@ -1,0 +1,19 @@
+/* Layout container */
+.layout-container {
+  display: flex;
+}
+
+/* Main content styles */
+.main-content {
+  margin-left: 0;
+  padding: 1.5rem; /* equivalent to p-6 */
+  width: 100%;
+  background-color: #f7fafc; /* equivalent to bg-gray-100 */
+}
+
+/* Apply margin-left to main content when the sidebar is visible (screen width >= 768px) */
+@media (min-width: 768px) {
+  .main-content {
+    margin-left: 274px;
+  }
+}

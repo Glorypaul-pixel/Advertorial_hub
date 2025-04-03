@@ -1,0 +1,82 @@
+.integration {
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  margin-bottom: 8rem;
+}
+
+.integration h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.integration p {
+  font-size: 1.25rem;
+  color: #666;
+  /* max-width: 800px; */
+  /* margin: 0 auto 3rem auto; */
+}
+
+.integrateCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+.integrateCard1Img,
+.integrateCard2Img,
+.integrateCard3Img,
+.integrateCard4Img,
+.integrateCard5Img,
+.integrateCard6Img,
+.integrateCard7Img,
+.integrateCard8Img
+ {
+  background-color: #f3f6fb;
+}
+.integrateCard div {
+  object-fit: contain;
+
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.integrateCard div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.2);
+}
+
+.integrateCard div img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background-color: #f3f6fb;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.integrateCard p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 4px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .integrateCard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .integrateCard {
+    grid-template-columns: 1fr;
+  }
+}

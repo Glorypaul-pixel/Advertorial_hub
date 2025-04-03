@@ -1,0 +1,335 @@
+.heading-text {
+  color: #0A0D14;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100%;
+  padding: 36px 0;
+  letter-spacing: -0.5%;
+}
+
+/* main section  */
+.setting-container{
+width: 60%;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 32px;
+}
+.my-information{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.information-header {
+  color: #0A0D14;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.5%;
+}
+.settings-form{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.settings-subform{
+  width: 100%;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+ border-radius: 12px; 
+}
+.input-name{
+  outline: none;
+  border-bottom: 1px solid #E2E4E9;
+  padding: 20px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  
+}
+
+.input-name::placeholder{
+color: #525866;
+}
+.subform{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 0;
+
+}
+.label{
+  padding: 0 16px;
+  color: #525866;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.input-email{
+  outline: none;
+  padding: 0 16px;
+}
+.email-msg{
+  outline: none;
+  border-top: 1px solid #E2E4E9;
+  padding: 20px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #525866;
+}
+.button-inactive{
+  background: #FFFFFF;
+  width: 184px;
+  padding: 10px 0;
+  color: #868C98;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: 100px;
+}
+article{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  
+}
+.change-button{
+  color: #016CE8;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+}
+.input-password{
+  outline: none;
+}
+.input-password::placeholder{ color: #0A0D14;}
+.security-detail{
+  border-top: 1px solid #E2E4E9;
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span{
+    cursor: pointer;
+  }
+  
+}
+.security-textc{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #525866;
+     span{
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+      color: #0A0D14;
+     }
+}
+.button-active{
+  background: #016CE8;
+  width: 184px;
+  padding: 10px 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.management-container{
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+}
+.management-textc{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  border-bottom: solid 1px #E2E4E9;
+  color: #525866;
+     span{
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+      color: #0A0D14;
+     }
+}
+.management-detail{
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.management-t{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #0A0D14;
+}
+.button-blue{
+  background: #016CE8;
+  width: 100%;
+  padding: 12px 0;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 100px;
+
+
+}
+.delete-accountB{
+  border: 1px solid #DF1C41;
+  color: #DF1C41;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+/* overlay sections  */
+.settings-overlay{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #344054B2;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay-container{
+  background: #FFFFFF;
+  width: 535px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px;
+  border-radius: 12px;
+}
+.overlay-header{
+  color: #0A0D14;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.overlay-form1{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.overlay-form2{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.overlay-form3{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.overlay-label{
+  color: #0A0D14;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+.overlay-input{
+  outline: none;
+  border: 1px solid #E2E4E9;
+  padding: 10px;
+  border-radius: 8px;
+}
+.overlay-button{
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.preference-active{
+  flex: 1;
+  background: #20232D;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 14px 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.preference-inactive{
+  flex: 1;
+  color: #0A0D14;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 14px 0;
+  border-radius: 8px;
+  border: 1px solid #E2E4E9;
+  cursor: pointer;
+}
+
+.code-container{
+  display: flex;
+  gap: 16px;
+}
+.new-passc{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.sms-call{
+  color: #0A0D14;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  b{
+    color: #016CE8;
+  }
+}
+.overlay-delete-button{
+  background: #DF1C41;
+  width: 100%;
+  padding: 12px 0;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .setting-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .setting-container {
+    width: 80%;
+  }
+}

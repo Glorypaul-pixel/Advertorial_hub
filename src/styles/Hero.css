@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* .heroSection {
+  overflow: hidden;
+} */
+.heroText {
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.heroText span {
+  color: #c6221f;
+  /* font-family:fantasy; */
+}
+.btnStart {
+  background-color: #016ce8;
+  border-radius: 2rem;
+  padding: 1rem 3rem;
+  color: white;
+  border: none;
+}
+.btnStart:hover {
+  cursor: pointer;
+  background-color: #4699f7;
+}
+.heroText h1 {
+  font-size: 5rem;
+  color: #0a0d14;
+}
+.heroText p {
+  font-size: 2rem;
+  color: #525866;
+}
+.heroImage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-left: 3rem;
+  padding: 3rem 0;
+}
+.rightimg-container {
+  position: relative;
+  display: inline-block; /* Ensures the container wraps around the images */
+}
+
+.image-bg {
+  display: block;
+  /* width: 100%;  */
+  height: auto;
+}
+
+.image-overlay {
+  position: absolute;
+  padding: 4px 0 0 2rem;
+  border-radius: 2rem 0 0 0;
+  background: white;
+  top: 60%; /* Adjust this to center vertically */
+  left: 54%; /* Adjust this to center horizontally */
+  transform: translate(-50%, -50%); /* Centers the overlay image */
+  width: 90%; /* Adjust size as needed */
+}

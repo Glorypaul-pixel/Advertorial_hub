@@ -1,0 +1,239 @@
+/* Page container */
+.Pricepage-container {
+  /* width: 100%; */
+  margin: 2rem 3rem 15rem 3rem;
+}
+
+/* Main content */
+.PriceMainContent {
+  /* width: 100%; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin: 4rem 0;
+}
+
+/* Head section */
+.PriceHeadSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Pricemain-heading {
+  color: #0a0d14;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100%;
+}
+
+@media (min-width: 640px) {
+  .Pricemain-heading {
+    font-size: 56px;
+  }
+}
+
+.billing-buttons {
+  background-color: #f6f8fa;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 2rem;
+}
+
+.monthly-billing {
+  background-color: #016ce8;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 2rem;
+  line-height: 20px;
+  border: none;
+}
+.monthly-billing:hover {
+  color: #016ce8;
+  transition: background 0.2s, color 0.3s;
+  background-color: white;
+  border: 1px solid #016ce8;
+}
+.annual-billing {
+  background-color: #f6f8fa;
+  padding: 1rem 2rem;
+  color: #525866;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 2rem;
+  line-height: 20px;
+  border: none;
+  /* width: 100%; */
+}
+.annual-billing:hover {
+  color: white;
+  background-color: #016ce8;
+}
+/* Pricing section */
+.pricing-section {
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+/* Pricing card */
+.pricing-card {
+  width: 100%;
+  max-width: 330px;
+  height: fit-content;
+  display: flex;
+  padding: 2rem;
+
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 48px;
+  /* padding-bottom: 48px; */
+  border-radius: 10px;
+  border: 1px solid #e2e4e9;
+}
+.pricing-card h2 {
+  font-size: 1.6rem;
+}
+
+.Priceplan-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.Priceplan-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.Priceplan-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0a0d14;
+  display: flex;
+  flex-direction: column;
+
+  line-height: 100%;
+}
+.plan-titlelight {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  line-height: 100%;
+}
+.Priceplan-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #525866;
+  line-height: 24px;
+}
+.plan-subtitlelight {
+  font-size: 18px;
+  font-weight: 400;
+  color: #e2e4e9;
+  line-height: 24px;
+}
+.plan-price {
+  font-size: 40px;
+  font-weight: 600;
+  color: #0a0d14;
+  display: flex;
+  flex-direction: column;
+
+  line-height: 100%;
+}
+.plan-pricelight {
+  font-size: 40px;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  line-height: 100%;
+}
+
+.lifetime {
+  font-size: 18px;
+  font-weight: 400;
+  color: #525866;
+}
+
+.current-plan-btn,
+.get-started-btn {
+  width: 100%;
+  padding: 11px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 2rem;
+  border: 1px solid #e2e4e9;
+  color: #525866;
+  line-height: 18px;
+}
+
+.current-plan-btn {
+  background-color: transparent;
+}
+
+.get-started-btn {
+  background-color: #ffffff;
+  color: #525866;
+}
+
+/* Features */
+.Priceplan-features {
+  display: flex;
+  flex-direction: column;
+}
+.Pricefeature span,
+.Pricefeaturelight span {
+  padding-right: 1rem;
+}
+.Priceplan-heade span 
+.Pricefeature {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 400;
+  color: #0a0d14;
+  line-height: 20px;
+}
+.featurelight {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 20px;
+}
+.business-plan {
+  background-color: #016ce8;
+  color: #ffffff;
+}
+@media (min-width: 640px) {
+  .pricing-card {
+    height: 613px;
+  }
+
+  .pricing-card.business-plan {
+    background-color: #016ce8;
+    color: #ffffff;
+  }
+
+  .pricing-card.team-plan {
+    border: 1px solid #e2e4e9;
+  }
+}

@@ -1,0 +1,112 @@
+.aboutBodyText {
+  text-align: center;
+  padding: 4rem 3rem;
+}
+
+.aboutBodyHead {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.aboutBodyHead h2 {
+  background-color: #d9e8ff;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  color: #03132c; /* Dark text for contrast */
+  font-size: 0.9rem; /* Smaller text size */
+  font-weight: 700; /* Bold font */
+  text-align: center; /* Center text */
+  width: 5%;
+}
+.aboutBodyText h1 {
+  font-size: 3.5rem;
+}
+.aboutBodyText p {
+  font-size: 1.3rem;
+  padding: 0 10rem;
+  color: #525866;
+}
+.aboutBodyHub {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+
+  padding: 20px;
+}
+
+.hub1 {
+  flex: 1;
+  /* text-align: center; */
+  padding: 2rem;
+  background-color: #016ce8; /* Light blue background */
+  border-radius: 1rem;
+  width: 250px; /* Ensuring same width */
+  height: 350px; /* Ensuring same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.hub2,
+.hub3 {
+  flex: 1;
+  /* text-align: center; */
+  padding: 2rem;
+  color: #016ce8;
+  background-color: #d9e8ff; /* Light blue background */
+  border-radius: 1rem;
+  width: 250px; /* Ensuring same width */
+  height: 350px; /* Ensuring same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgHub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.hub2 h4,
+.hub3 h4{
+padding:0 4rem;
+}
+.aboutBodyHub h4 {
+  font-size: 2rem;
+  /* color: #333; */
+}
+
+/* Custom CSS for aboutBodyAim */
+.aboutBodyAim {
+  background-color: #03132c; /* Dark background */
+  text-align: center;
+  color: white;
+  padding: 4rem 0; /* Add padding for spacing */
+}
+
+.aboutBodyMission,
+.aboutBodyValue {
+  margin-bottom: 2rem; /* Add spacing between the sections */
+}
+
+.aboutBodyMission h1,
+.aboutBodyValue h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+
+.aboutBodyMission p,
+.aboutBodyValue p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  max-width: 80%;
+  margin: 0 auto;
+}

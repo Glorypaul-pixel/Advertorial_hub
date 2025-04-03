@@ -1,0 +1,89 @@
+/* Prevent horizontal scrolling */
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3; /* Ensures it stays above other content */
+}
+
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-logo {
+  height: 2.5rem;
+  width: 2.5rem;
+  object-fit: contain;
+
+}
+
+.header-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+
+}
+
+.header-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-nav {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: 500;
+    color: #666;
+  }
+
+  .header-nav a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+
+  .header-nav a:hover {
+    color: #111;
+  }
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.login-btn {
+  padding: 1rem 2rem;
+  background: white;
+  border: 1px solid #016ce8;
+  color: #016ce8;
+  border-radius: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #016ce8;
+  color: white;
+}
+.btnStart {
+  background-color: #016ce8;
+  border-radius: 2rem;
+  padding: 1rem 3rem;
+  color: white;
+  border: none;
+}
+.btnStart:hover {
+  cursor: pointer;
+  background-color: #4699f7;
+}

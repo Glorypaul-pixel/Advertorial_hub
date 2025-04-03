@@ -1,0 +1,139 @@
+/* General Styles */
+.advertHead {
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0;
+  margin-top: 6rem;
+  transform: translateY(-20px);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.advertHead h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #0a0d14;
+}
+
+.advertHead p {
+  font-size: 1.6rem;
+  color: #525866;
+  width: 40%;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+
+/* Grid Layout for Advert Goals */
+.advertGoals {
+  display: grid;
+  margin: 3rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(350px, 1fr)
+  ); /* Responsive Grid */
+  gap: 3rem;
+  padding: 5px;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out 0.5s forwards;
+}
+
+/* Individual Goal Boxes */
+.advertGoals > div {
+  background-color: #f8f9fa;
+  padding: 20px;
+  /* text-align: center; */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popIn 0.6s ease-in-out forwards;
+}
+
+.advertGoals > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.advertGoals > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.advertGoals > div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.advertGoals > div:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.advertGoals > div:nth-child(6) {
+  animation-delay: 1s;
+}
+
+.advertGoals > div:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Placeholder */
+.advertGoals > div > div {
+  width: 80px;
+  height: 80px;
+  background-color: #ddd;
+  /* margin: 0 auto 10px; */
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeIn 0.6s ease-in-out 0.4s forwards;
+}
+
+/* Headings */
+.advertGoals h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Paragraph */
+.advertGoals p {
+  font-size: 1rem;
+  color: #666;
+}
+/* images */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .advertGoals {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .advertGoals {
+    grid-template-columns: 1fr; /* 1 item per row for smaller screens */
+  }
+}

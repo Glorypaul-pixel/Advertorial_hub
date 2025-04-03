@@ -1,0 +1,172 @@
+.BgColorExplore {
+  background-color: #1b1440; /* Blue background */
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* Prevents horizontal scroll */
+  width: 100%;
+  text-align: center;
+}
+
+/*  */
+
+/*  */
+
+.ExploreIcons img {
+  width: 50px;
+  height: auto;
+  position: absolute;
+  animation: moveIcon 8s linear infinite;
+}
+
+@keyframes moveIcon {
+  0% {
+    transform: translateX(100vw) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(50vw) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-10vw) scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+/* Assign different delays so they move separately */
+.ExploreIcons img:nth-child(1) {
+  animation-delay: 0s;
+}
+.ExploreIcons img:nth-child(2) {
+  animation-delay: 1s;
+}
+.ExploreIcons img:nth-child(3) {
+  animation-delay: 2s;
+}
+.ExploreIcons img:nth-child(4) {
+  animation-delay: 3s;
+}
+.ExploreIcons img:nth-child(5) {
+  animation-delay: 4s;
+}
+.ExploreIcons img:nth-child(6) {
+  animation-delay: 5s;
+}
+.ExploreIcons img:nth-child(7) {
+  animation-delay: 6s;
+}
+.ExploreIcons img:nth-child(8) {
+  animation-delay: 7s;
+}
+
+/* Background Image */
+.ExplorebgImg {
+  background-image: url("/images/spiral.png");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Animation: Smooth infinite scroll */
+.ExploreIcons {
+  display: flex;
+  z-index: -1;
+  gap: 2rem;
+  animation: scroll 10s linear infinite;
+}
+
+/* Keyframe for smooth infinite loop */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Explore Integration Button */
+
+.exploreButton {
+  padding: 0.8rem 2rem;
+  background-color: #fff;
+  color: #1b1440;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2;
+  display: block;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Explore Icons Container */
+.ExploreIconsContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 20%; /* Centers it inside the spiral */
+  left: 0%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 1;
+}
+
+.ExploreIcons img {
+  width: 50px;
+  height: auto;
+}
+
+/* Explore Content */
+.exploreContent {
+  margin-top: 14rem;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 8rem;
+}
+
+.exploreContent h1 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 80%;
+}
+/* Style for the Link component */
+.custom-link {
+  color: #333; /* Initial text color */
+  text-decoration: none; /* Remove the underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.custom-link:hover {
+  color: #1d69e6; /* Blue color on hover */
+}
+
+.custom-link:focus {
+  color: #1d69e6; /* Keep blue color when focused */
+}
+
+.custom-link:visited {
+  color: #333; /* Ensure the visited link does not stay purple */
+}

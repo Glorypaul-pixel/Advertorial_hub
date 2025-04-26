@@ -1,9 +1,30 @@
-html, body {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  a {
-    text-decoration: none;
-  }
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+body,
+html,
+main,
+#__next {
+  overflow: visible !important;
+  height: auto !important;
+}
+body {
+  font-family: var(--font-ibm-plex-sans), sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-source-serif-pro), serif;
+}
+.heroText span {
+  font-family: var(--font-source-serif-pro), sans-serif;
+  font-style: italic;
+}

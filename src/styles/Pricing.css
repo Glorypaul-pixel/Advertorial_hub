@@ -1,20 +1,67 @@
-/* Page container */
-.Pricepage-container {
-  /* width: 100%; */
-  margin: 2rem 3rem 15rem 3rem;
+/* ===== Billing Buttons ===== */
+
+.billing-buttons {
+  background-color: #f6f8fa;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 2rem;
 }
 
-/* Main content */
+.monthly-billing:hover,
+.annual-billing:hover {
+  color: #016ce8;
+  transition: background 0.2s, color 0.3s;
+  background-color: white;
+  /* border: 1px solid #016ce8; */
+}
+.annual-billing,
+.monthly-billing {
+  background-color: #f6f8fa;
+  padding: 1rem 2rem;
+  color: #016ce8;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 2rem;
+  line-height: 20px;
+  border: none;
+}
+.monthly-billing.active,
+.annual-billing.active {
+  background-color: #016ce8;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+/* Shared active class */
+.billing-buttons button.active {
+  background-color: #016ce8;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+}
+
+/* Optional: override hover effect if active */
+.billing-buttons button.active:hover {
+  background-color: #016ce8;
+  color: #ffffff;
+  border: none;
+}
+
+/* ===== Page Container ===== */
+.Pricepage-container {
+  margin: 2rem 3rem 15rem;
+}
+
+/* ===== Main Content ===== */
 .PriceMainContent {
-  /* width: 100%; */
-  margin: 0 auto;
+  margin: 4rem 0;
   display: flex;
   flex-direction: column;
   gap: 64px;
-  margin: 4rem 0;
 }
 
-/* Head section */
+/* ===== Header Section ===== */
 .PriceHeadSection {
   width: 100%;
   display: flex;
@@ -32,136 +79,85 @@
   line-height: 100%;
 }
 
-@media (min-width: 640px) {
-  .Pricemain-heading {
-    font-size: 56px;
-  }
-}
 
-.billing-buttons {
-  background-color: #f6f8fa;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-radius: 2rem;
-}
 
-.monthly-billing {
-  background-color: #016ce8;
-  padding: 1rem 2rem;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 2rem;
-  line-height: 20px;
-  border: none;
-}
-.monthly-billing:hover {
-  color: #016ce8;
-  transition: background 0.2s, color 0.3s;
-  background-color: white;
-  border: 1px solid #016ce8;
-}
-.annual-billing {
-  background-color: #f6f8fa;
-  padding: 1rem 2rem;
-  color: #525866;
-  font-size: 14px;
-  font-weight: 400;
-  border-radius: 2rem;
-  line-height: 20px;
-  border: none;
-  /* width: 100%; */
-}
-.annual-billing:hover {
-  color: white;
-  background-color: #016ce8;
-}
-/* Pricing section */
+/* ===== Pricing Section ===== */
 .pricing-section {
-  /* width: 100%; */
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: space-between;
 }
 
-/* Pricing card */
+/* ===== Pricing Card ===== */
 .pricing-card {
   width: 100%;
   max-width: 330px;
-  height: fit-content;
   display: flex;
-  padding: 2rem;
-
   flex-direction: column;
-  gap: 2px;
-  padding-top: 48px;
-  /* padding-bottom: 48px; */
+  padding: 48px 2rem 2rem;
   border-radius: 10px;
   border: 1px solid #e2e4e9;
 }
+
 .pricing-card h2 {
   font-size: 1.6rem;
 }
 
-.Priceplan-details {
-  display: flex;
-  flex-direction: column;
-}
-
+/* ===== Plan Details ===== */
+.Priceplan-details,
 .Priceplan-header {
   display: flex;
   flex-direction: column;
 }
 
-.Priceplan-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #0a0d14;
-  display: flex;
-  flex-direction: column;
-
-  line-height: 100%;
-}
+.Priceplan-title,
 .plan-titlelight {
   font-size: 24px;
   font-weight: 600;
-  color: #ffffff;
   display: flex;
   flex-direction: column;
-
   line-height: 100%;
 }
-.Priceplan-subtitle {
-  font-size: 18px;
-  font-weight: 400;
-  color: #525866;
-  line-height: 24px;
+
+.Priceplan-title {
+  color: #0a0d14;
 }
+
+.plan-titlelight {
+  color: #ffffff;
+}
+
+.Priceplan-subtitle,
 .plan-subtitlelight {
   font-size: 18px;
   font-weight: 400;
-  color: #e2e4e9;
   line-height: 24px;
 }
-.plan-price {
-  font-size: 40px;
-  font-weight: 600;
-  color: #0a0d14;
-  display: flex;
-  flex-direction: column;
 
-  line-height: 100%;
+.Priceplan-subtitle {
+  color: #525866;
 }
+
+.plan-subtitlelight {
+  color: #e2e4e9;
+}
+
+.plan-price,
 .plan-pricelight {
   font-size: 40px;
   font-weight: 600;
-  color: #ffffff;
   display: flex;
   flex-direction: column;
-
   line-height: 100%;
+}
+
+.plan-price {
+  color: #0a0d14;
+}
+
+.plan-pricelight {
+  color: #ffffff;
 }
 
 .lifetime {
@@ -170,6 +166,7 @@
   color: #525866;
 }
 
+/* ===== Buttons ===== */
 .current-plan-btn,
 .get-started-btn {
   width: 100%;
@@ -189,51 +186,167 @@
 
 .get-started-btn {
   background-color: #ffffff;
-  color: #525866;
 }
 
-/* Features */
+/* ===== Features ===== */
 .Priceplan-features {
   display: flex;
   flex-direction: column;
 }
+
 .Pricefeature span,
 .Pricefeaturelight span {
   padding-right: 1rem;
 }
-.Priceplan-heade span 
-.Pricefeature {
-  display: flex;
-  align-items: center;
 
-  font-size: 16px;
-  font-weight: 400;
-  color: #0a0d14;
-  line-height: 20px;
-}
+.Pricefeature,
 .featurelight {
   display: flex;
   align-items: center;
   font-size: 16px;
   font-weight: 400;
-  color: #ffffff;
   line-height: 20px;
 }
+
+.Pricefeature {
+  color: #0a0d14;
+}
+
+.featurelight {
+  color: #ffffff;
+}
+
 .business-plan {
   background-color: #016ce8;
   color: #ffffff;
 }
-@media (min-width: 640px) {
+
+/* ===== Media Queries ===== */
+
+/* Large Desktops */
+@media (min-width: 1440px) {
+  .Pricepage-container {
+    margin: 2rem 8rem 15rem;
+  }
+
+  .pricing-section {
+    justify-content: center;
+    gap: 32px;
+  }
+
   .pricing-card {
-    height: 613px;
+    max-width: 360px;
   }
 
-  .pricing-card.business-plan {
-    background-color: #016ce8;
-    color: #ffffff;
+  .Pricemain-heading {
+    font-size: 64px;
+  }
+}
+
+/* Laptops and Desktops */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .Pricepage-container {
+    margin: 2rem 5rem 10rem;
   }
 
-  .pricing-card.team-plan {
-    border: 1px solid #e2e4e9;
+  .pricing-section {
+    justify-content: space-around;
+    gap: 24px;
   }
+
+  .pricing-card {
+    max-width: 320px;
+  }
+
+  .Pricemain-heading {
+    font-size: 48px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .Pricepage-container {
+    margin: 2rem;
+  }
+
+  .PriceMainContent {
+    gap: 48px;
+  }
+
+  .pricing-section {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .pricing-card {
+    max-width: 100%;
+  }
+
+  .Pricemain-heading {
+    font-size: 36px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .Pricepage-container {
+    margin: 1rem;
+  }
+
+  .PriceMainContent {
+    gap: 32px;
+  }
+
+  .pricing-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .pricing-card {
+    width: 100%;
+  }
+
+  .Pricemain-heading {
+    font-size: 28px;
+  }
+
+  .billing-buttons {
+    /* flex-direction: column; */
+    width: 100%;
+  }
+
+  .monthly-billing,
+  .annual-billing {
+    text-align: center;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 414px) {
+  .Pricemain-heading {
+    font-size: 24px;
+  }
+
+  .plan-price {
+    font-size: 32px;
+  }
+
+  .Priceplan-title,
+  .plan-titlelight {
+    font-size: 20px;
+  }
+
+  .Priceplan-subtitle,
+  .plan-subtitlelight,
+  .lifetime {
+    font-size: 16px;
+  }
+
+  .pricing-card {
+    max-width: 250px;
+  }
+  
 }

@@ -1,28 +1,16 @@
 /* Page Container */
-.page-container {
+.Create-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F6F8FA;
+  background-color: #f6f8fa;
   padding: 20px;
   flex-direction: column;
 }
 
-/* Background Pattern */
-/* .background-pattern {
-  background: linear-gradient(to right, #4f4f4f0e 1.3px, transparent 0.1px),
-              linear-gradient(to bottom, #4f4f4f0e 1.3px, transparent 0.1px);
-  background-size: 100px 100px; */
-  /* width: 100%; */
-  /* height: 200px; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-/* } */
-/*  */
 /* Form Container */
-.form-container {
-  background-color: #FFFFFF;
+.Create-form-container {
+  background-color: #ffffff;
   width: 100%;
   max-width: 500px;
   padding: 32px;
@@ -33,10 +21,13 @@
   gap: 20px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
-a{
+
+/* Links */
+a {
   text-decoration: none;
   cursor: pointer;
 }
+
 /* Head Section */
 .head-section {
   display: flex;
@@ -46,7 +37,7 @@ a{
 }
 
 .title {
-  color: #0A0D14;
+  color: #0a0d14;
   font-size: 28px;
   font-weight: 600;
 }
@@ -57,7 +48,7 @@ a{
 }
 
 .login-link {
-  color: #016CE8;
+  color: #016ce8;
   cursor: pointer;
 }
 
@@ -84,20 +75,22 @@ a{
 .label {
   font-size: 14px;
   font-weight: 500;
-  color: #0A0D14;
+  color: #0a0d14;
 }
 
-.input-field, .password-field {
-  width: 100%;
+.input-field,
+.password-field {
+  /* width: 100%; */
   padding: 10px;
-  border: 1px solid #E2E4E9;
+  border: 1px solid #e2e4e9;
   border-radius: 8px;
   outline: none;
   transition: border 0.3s ease-in-out;
 }
 
-.input-field:focus, .password-field:focus {
-  border-color: #016CE8;
+.input-field:focus,
+.password-field:focus {
+  border-color: #016ce8;
 }
 
 /* Password Section */
@@ -105,7 +98,7 @@ a{
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid #E2E4E9;
+  border: 1px solid #e2e4e9;
   border-radius: 8px;
   padding: 10px;
 }
@@ -128,17 +121,17 @@ a{
 
 .terms-link,
 .privacy-link {
-  color: #016CE8;
+  color: #016ce8;
   cursor: pointer;
 }
 
 /* Create Account Button */
 .create-account-button {
-  background-color: #016CE8;
+  background-color: #016ce8;
   width: 100%;
   padding: 14px;
   border-radius: 26px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -160,11 +153,11 @@ a{
 .divider-line {
   flex: 1;
   height: 1px;
-  background-color: #E2E4E9;
+  background-color: #e2e4e9;
 }
 
 .or-text {
-  color: #868C98;
+  color: #868c98;
   font-size: 12px;
 }
 
@@ -183,7 +176,7 @@ a{
   justify-content: center;
   gap: 8px;
   border-radius: 26px;
-  border: 1px solid #E2E4E9;
+  border: 1px solid #e2e4e9;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
@@ -192,15 +185,121 @@ a{
   background-color: #f0f0f0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .page-container {
-    padding: 10px;
-  }
+/* Base Responsive Design */
 
-  .form-container {
+/* Large Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .Create-form-container {
+    max-width: 600px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .create-account-button {
+    font-size: 18px;
+  }
+  .auth-button {
+    font-size: 18px;
+  }
+}
+
+/* Tablet Landscape (1024px to 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .Create-form-container {
+    max-width: 550px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .subtitle {
+    font-size: 16px;
+  }
+  .create-account-button {
+    font-size: 16px;
+  }
+  .auth-button {
+    font-size: 16px;
+  }
+}
+
+/* Tablet Portrait (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .Create-form-container {
+    padding: 28px;
+    margin: 1.5rem;
+  }
+  .title {
+    font-size: 26px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+  .create-account-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+  .auth-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile (480px to 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .Create-container {
+    padding: 0;
+  }
+  .Create-form-container {
     width: 100%;
     padding: 24px;
-    border-radius: 0;
+    margin: 1rem;
+    border-radius: 10px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .subtitle {
+    font-size: 12px;
+  }
+  .create-account-button {
+    padding: 0;
+    font-size: 14px;
+  }
+  .auth-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile (up to 479px) */
+@media (max-width: 479px) {
+  .Create-container {
+    padding: 10px;
+  }
+  .Create-form-container {
+    padding: 20px;
+  }
+  .title {
+    font-size: 22px;
+  }
+  .subtitle {
+    font-size: 12px;
+  }
+  .create-account-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+  .auth-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+  .Create-form-container {
+    background-color: #fff;
+    width: 90%;
+    max-width: 300px;
+
   }
 }

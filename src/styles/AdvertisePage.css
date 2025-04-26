@@ -136,4 +136,37 @@
   .advertGoals {
     grid-template-columns: 1fr; /* 1 item per row for smaller screens */
   }
+
+  .advertHead h2 {
+    font-size: 2rem;
+  }
+  .advertHead p {
+    font-size: 1rem;
+    color: #525866;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 0rem;
+}
+}
+@media (max-width: 414px) {
+  .advertHead h2 {
+    font-size: 1.8rem;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+  }
+
+  .advertHead p {
+    font-size: 1rem;
+    color: #525866;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 0.6rem;
+  }
+  .advertGoals {
+    display: grid;
+    margin: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
 }

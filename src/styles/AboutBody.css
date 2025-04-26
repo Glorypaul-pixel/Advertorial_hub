@@ -1,3 +1,5 @@
+/* =================== Base Styles =================== */
+
 .aboutBodyText {
   text-align: center;
   padding: 4rem 3rem;
@@ -10,61 +12,62 @@
   justify-content: center;
   margin: 0 auto;
 }
+
 .aboutBodyHead h2 {
   background-color: #d9e8ff;
-  padding: 0.7rem;
+  padding: 0.7rem 1.2rem;
   border-radius: 1rem;
-  color: #03132c; /* Dark text for contrast */
-  font-size: 0.9rem; /* Smaller text size */
-  font-weight: 700; /* Bold font */
-  text-align: center; /* Center text */
-  width: 5%;
+  color: #03132c;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
 }
+
 .aboutBodyText h1 {
   font-size: 3.5rem;
+  margin: 1rem 0;
 }
+
 .aboutBodyText p {
   font-size: 1.3rem;
   padding: 0 10rem;
   color: #525866;
+  line-height: 1.6;
 }
+
 .aboutBodyHub {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 20px;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
 
-  padding: 20px;
+.hub1,
+.hub2,
+.hub3 {
+  flex: 1 1 300px;
+  padding: 2rem;
+  border-radius: 1rem;
+  height: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .hub1 {
-  flex: 1;
-  /* text-align: center; */
-  padding: 2rem;
-  background-color: #016ce8; /* Light blue background */
-  border-radius: 1rem;
-  width: 250px; /* Ensuring same width */
-  height: 350px; /* Ensuring same height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #016ce8;
   color: white;
 }
+
 .hub2,
 .hub3 {
-  flex: 1;
-  /* text-align: center; */
-  padding: 2rem;
+  background-color: #d9e8ff;
   color: #016ce8;
-  background-color: #d9e8ff; /* Light blue background */
-  border-radius: 1rem;
-  width: 250px; /* Ensuring same width */
-  height: 350px; /* Ensuring same height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .imgHub {
@@ -73,26 +76,27 @@
   align-items: center;
   margin-bottom: 10px;
 }
+
 .hub2 h4,
-.hub3 h4{
-padding:0 4rem;
-}
-.aboutBodyHub h4 {
-  font-size: 2rem;
-  /* color: #333; */
+.hub3 h4 {
+  padding: 0 4rem;
 }
 
-/* Custom CSS for aboutBodyAim */
+.aboutBodyHub h4 {
+  font-size: 2rem;
+}
+
 .aboutBodyAim {
-  background-color: #03132c; /* Dark background */
+  background-color: #03132c;
   text-align: center;
   color: white;
-  padding: 4rem 0; /* Add padding for spacing */
+  padding: 4rem 0;
+  margin: 0;
 }
 
 .aboutBodyMission,
 .aboutBodyValue {
-  margin-bottom: 2rem; /* Add spacing between the sections */
+  margin-bottom: 2rem;
 }
 
 .aboutBodyMission h1,
@@ -109,4 +113,152 @@ padding:0 4rem;
   line-height: 1.8;
   max-width: 80%;
   margin: 0 auto;
+}
+
+/* =================== Responsive Breakpoints =================== */
+
+/* Large Screens — Wide Monitors */
+@media (min-width: 1440px) {
+  .aboutBodyContent {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .aboutBodyText p {
+    padding: 0 15rem;
+  }
+  .aboutBodyText h1 {
+    font-size: 4rem;
+  }
+  .aboutBodyHub {
+    justify-content: center;
+    gap: 30px;
+  }
+  .hub1,
+  .hub2,
+  .hub3 {
+    height: 380px;
+  }
+  .aboutBodyMission h1,
+  .aboutBodyValue h1 {
+    font-size: 3rem;
+  }
+  .aboutBodyMission p,
+  .aboutBodyValue p {
+    font-size: 1.8rem;
+    max-width: 60%;
+  }
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+  .aboutBodyText p {
+    padding: 0 5rem;
+  }
+  .aboutBodyText h1 {
+    font-size: 2.8rem;
+  }
+  .aboutBodyHub {
+    justify-content: center;
+  }
+  .hub1,
+  .hub2,
+  .hub3 {
+    height: 320px;
+  }
+}
+
+/* Small Screens (Phones) */
+@media (max-width: 768px) {
+  .aboutBodyText {
+    padding: 2rem 1rem;
+  }
+  .aboutBodyHead h2 {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    width: auto;
+  }
+  .aboutBodyText h1 {
+    font-size: 2.2rem;
+  }
+  .aboutBodyText p {
+    font-size: 1.1rem;
+    padding: 0 2rem;
+  }
+  .aboutBodyHub {
+    align-items: center;
+  }
+  .hub1,
+  .hub2,
+  .hub3 {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .hub2 h4,
+  .hub3 h4 {
+    padding: 0 2rem;
+    text-align: center;
+  }
+  .aboutBodyMission h1,
+  .aboutBodyValue h1 {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  .aboutBodyMission p,
+  .aboutBodyValue p {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+}
+
+/* Ultra Small Screens (414px and below) */
+@media (max-width: 414px) {
+  .hub1,
+  .hub2,
+  .hub3 {
+    height: auto;
+    margin-bottom: 20px;
+    padding: 1rem;
+  }
+  .aboutBodyText {
+    padding: 1.5rem 1rem;
+  }
+  .aboutBodyHead h2 {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .aboutBodyText h1 {
+    font-size: 1.8rem;
+  }
+  .aboutBodyText p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  .hub2 h4,
+  .hub3 h4 {
+    padding: 0 1rem;
+  }
+  .hub2 h4,
+  .hub3 h4,
+  .hub1 h4 {
+    font-size: 1.5rem;
+  }
+  .aboutBodyMission h1,
+  .aboutBodyValue h1 {
+    font-size: 1.8rem;
+    padding: 0.5rem;
+  }
+  .aboutBodyMission p,
+  .aboutBodyValue p {
+    font-size: 1rem;
+    max-width: 85%;
+  }
+
+  .imgHub img {
+    width: 60%;
+    height: auto;
+  }
+  .aboutBodyHub {
+    padding: 1rem;
+  }
 }

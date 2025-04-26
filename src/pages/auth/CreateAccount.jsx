@@ -1,20 +1,83 @@
 "use client";
+import { useState } from "react";
+import Link from "next/link";
 import { icons } from "@/lib/Icons";
 import "../../styles/CreateAccount.css";
 import Header from "../../components/Header";
 
-const page = () => {
+const CreateAccount = () => {
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const validateForm = () => {
+    if (!email || !firstName || !lastName || !password) {
+      setError("Please fill in all fields.");
+      return false;
+    }
+    if (!termsAccepted) {
+      setError("You must accept the Terms and Privacy.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        "https://advertorial-backend.onrender.com/api/auth/register", // Correct backend endpoint
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            firstName,
+            lastName,
+            password,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Error response from server:", errorText);
+        throw new Error(
+          errorText || "Account creation failed! Please try again."
+        );
+      }
+
+      const data = await response.json();
+
+      console.log("Registration Successful:", data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="">
+    <div>
       <Header />
-      <div className="page-container">
-        {/* Background Test */}
+      <div className="Create-container">
         <span className="background-pattern">
           <div className="gradient-overlay"></div>
         </span>
-        {/* Container */}
-        <section className="form-container">
-          {/* Head Section */}
+
+        <section className="Create-form-container">
           <div className="head-section">
             <h1 className="title">Create your account</h1>
             <p className="subtitle">
@@ -23,71 +86,106 @@ const page = () => {
             </p>
           </div>
 
-          {/* Form Section */}
-          <form action="" className="form">
-            {/* Auth by Email */}
+          <form onSubmit={handleSubmit} className="form">
             <section className="input-section">
-              {/* Email */}
               <div className="input-group">
-                <label htmlFor="name" className="label">
+                <label htmlFor="email" className="label">
                   Email Address
                 </label>
-                <input type="email" id="name" className="input-field" />
+                <input
+                  type="email"
+                  id="email"
+                  className="input-field"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
 
-              {/* First Name */}
               <div className="input-group">
                 <label htmlFor="first_name" className="label">
                   First Name
                 </label>
-                <input type="text" id="first_name" className="input-field" />
+                <input
+                  type="text"
+                  id="first_name"
+                  className="input-field"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                />
               </div>
 
-              {/* Last Name */}
               <div className="input-group">
                 <label htmlFor="last_name" className="label">
                   Last Name
                 </label>
-                <input type="text" id="last_name" className="input-field" />
+                <input
+                  type="text"
+                  id="last_name"
+                  className="input-field"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
               </div>
 
-              {/* Password */}
               <div className="input-group">
                 <label htmlFor="password" className="label">
                   Password
                 </label>
-                  <input type="password" id="password" className="password-field password-input" />
-                
+                <input
+                  type="password"
+                  id="password"
+                  className="password-field password-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </div>
 
-              {/* Terms and Privacy */}
               <div className="terms-privacy">
-                <input type="checkbox" id="terms" className="checkbox" />
+                <input
+                  type="checkbox"
+                  id="terms"
+                  className="checkbox"
+                  checked={termsAccepted}
+                  onChange={(e) => setTermsAccepted(e.target.checked)}
+                />
                 <p className="terms-text">
-                  I accept the <b className="terms-link">Terms</b> and{" "}
-                  <b className="privacy-link">Privacy</b>
+                  I accept the{" "}
+                  <Link href="/auth/Terms">
+                    <b className="/auth/Terms">Terms</b>
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/auth/Policy">
+                    <b className="privacy-link">Privacy</b>
+                  </Link>
                 </p>
               </div>
             </section>
-
-            {/* Auth by Other Means */}
+            {error && <p className="error-text">{error}</p>}{" "}
+            {/* Display error message if any */}
             <section className="auth-other-means">
-              {/* Button */}
-              <button className="create-account-button">Create Account</button>
+              <button
+                type="submit"
+                className="create-account-button"
+                disabled={loading}
+              >
+                {loading ? "Creating Account..." : "Create Account"}
+              </button>
 
-              {/* OR Divider */}
               <div className="or-divider">
                 <span className="divider-line"></span>
                 <span className="or-text">OR</span>
                 <span className="divider-line"></span>
               </div>
 
-              {/* Auth Buttons */}
               <div className="auth-buttons">
-                <button className="auth-button">
+                <button type="button" className="auth-button">
                   <span>{icons.google}</span> Sign up with Google
                 </button>
-                <button className="auth-button">
+                <button type="button" className="auth-button">
                   <span>{icons.facebook}</span> Sign up with Facebook
                 </button>
               </div>
@@ -99,4 +197,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CreateAccount;

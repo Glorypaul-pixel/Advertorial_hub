@@ -1,22 +1,59 @@
 "use client";
-import { icons } from "@/lib/Icons"; // Ensure this file exists
+import { useState } from "react";
+import { icons } from "@/lib/Icons";
 import "../../styles/Login.css";
 import Link from "next/link";
 import Header from "../../components/Header";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch(
+        "https://advertorial-backend.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.message || "Login failed!");
+      }
+
+      console.log("Login Successful:", data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="">
       <Header />
       <div className="page-container">
-        {/* Background Pattern */}
         <span className="background-pattern">
           <div className="gradient-overlay"></div>
         </span>
 
-        {/* Container */}
         <section className="form-container">
-          {/* Head Section */}
           <div className="head-section">
             <h1 className="title">Log In</h1>
             <div className="subtitle">
@@ -27,45 +64,55 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Form Section */}
-          <form action="" className="form">
-            {/* Auth by Email */}
+          <form onSubmit={handleSubmit} className="form">
             <section className="input-section">
-              {/* Email */}
               <div className="input-group">
                 <label htmlFor="email" className="label">
                   Email Address
                 </label>
-                <input type="email" id="email" className="input-field" />
+                <input
+                  type="email"
+                  id="email"
+                  className="input-field"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
 
-              {/* Password */}
               <div className="input-group">
                 <label htmlFor="password" className="label">
                   Password
                 </label>
-                <input type="password" id="password" className="input-field" />
+                <input
+                  type="password"
+                  id="password"
+                  className="input-field"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </div>
             </section>
 
-            {/* Auth by Other Means */}
-            <section className="auth-other-means">
-              {/* Login Button */}
-              <button className="login-button">Log In</button>
+            {error && <p className="error-text">{error}</p>}
 
-              {/* OR Divider */}
+            <section className="auth-other-means">
+              <button type="submit" className="login-button" disabled={loading}>
+                {loading ? "Logging in..." : "Log In"}
+              </button>
+
               <div className="or-divider">
                 <span className="divider-line"></span>
                 <span className="or-text">OR</span>
                 <span className="divider-line"></span>
               </div>
 
-              {/* Auth Buttons */}
               <div className="auth-buttons">
-                <button className="auth-button">
+                <button type="button" className="auth-button">
                   <span>{icons?.google || "🔵"}</span> Sign up with Google
                 </button>
-                <button className="auth-button">
+                <button type="button" className="auth-button">
                   <span>{icons?.facebook || "🔵"}</span> Sign up with Facebook
                 </button>
               </div>

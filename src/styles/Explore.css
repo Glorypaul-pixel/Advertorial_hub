@@ -170,3 +170,127 @@
 .custom-link:visited {
   color: #333; /* Ensure the visited link does not stay purple */
 }
+/* Mobile-first adjustments */
+@media (min-width: 1440px) {
+  .BgColorExplore {
+    padding: 6rem 0;
+  }
+
+  .ExplorebgImg {
+    width: 60%;
+    height: 400px;
+    background-size: contain;
+  }
+
+  .ExploreIcons img {
+    width: 60px;
+  }
+
+  .exploreContent {
+    margin-top: 16rem;
+    margin-bottom: 10rem;
+  }
+
+  .exploreContent h1 {
+    font-size: 2.5rem;
+    max-width: 60%;
+  }
+
+  .exploreButton,
+  .btnStart {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .ExploreIconsContainer {
+    top: 18%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ExplorebgImg {
+    height: 200px;
+    width: 90%;
+    background-size: cover;
+  }
+
+  .ExploreIcons img {
+    width: 40px;
+  }
+
+  .exploreContent h1 {
+    font-size: 1.5rem;
+    max-width: 90%;
+  }
+
+  .exploreButton,
+  .btnStart {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ExploreIconsContainer {
+    top: 25%;
+  }
+
+  .ExploreIcons {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ExploreIcons img {
+    width: 35px;
+  }
+
+  .exploreContent {
+    margin-top: 10rem;
+  }
+
+  .exploreButton,
+  .btnStart {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .BgColorExplore {
+    padding: 3rem 1rem;
+  }
+
+  .ExplorebgImg {
+    height: 150px;
+  }
+
+  .ExploreIcons img {
+    width: 30px;
+  }
+
+  .exploreContent h1 {
+    font-size: 1.2rem;
+    max-width: 95%;
+    padding-bottom: 2rem;
+  }
+
+  .exploreButton,
+  .btnStart {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .ExploreIconsContainer {
+    top: 15%;
+  }
+
+  .ExploreIcons {
+    animation: none; /* Disable horizontal scroll on very small screens */
+    flex-wrap: wrap;
+  }
+  .BgColorExplore {
+    padding: 1rem 0;
+    overflow: hidden;
+    /* width: 100%; */
+  }
+}

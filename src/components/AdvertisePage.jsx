@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/AdvertisePage.css";
 const AdvertisePage = () => {
   return (
-    <div>
+    <div id="advertHead">
       <div className="advertHead">
         <h2>Advertising solutions to meet your goals</h2>
         <p>

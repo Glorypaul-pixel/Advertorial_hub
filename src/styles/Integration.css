@@ -32,8 +32,7 @@
 .integrateCard5Img,
 .integrateCard6Img,
 .integrateCard7Img,
-.integrateCard8Img
- {
+.integrateCard8Img {
   background-color: #f3f6fb;
 }
 .integrateCard div {
@@ -78,5 +77,22 @@
 @media (max-width: 480px) {
   .integrateCard {
     grid-template-columns: 1fr;
+  }
+  .integration {
+    padding: 0 2rem ;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 8rem;
+}
+.integration h1 {
+  font-size: 2rem;
+}
+.integration p {
+  font-size: 1rem;
+}
+  .integrateCard {
+
+    /* gap: 2rem; */
+    padding: 0;
   }
 }

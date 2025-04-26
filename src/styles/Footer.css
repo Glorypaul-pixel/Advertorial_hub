@@ -106,8 +106,8 @@
 @media (min-width: 1024px) {
   .footerBg {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 sections side by side */
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 1.5rem;
     text-align: left;
     position: relative;
   }
@@ -137,9 +137,10 @@
 /* Horizontal HR for Small Screens */
 @media (max-width: 768px) {
   .footerBg {
-    flex-direction: column;
+    /* flex-direction: column; */
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
+    gap: 0;
   }
 
   .footerLogo,
@@ -148,7 +149,7 @@
   .footerContact {
     width: 100%;
     text-align: left;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .footerImg img {
@@ -160,6 +161,29 @@
     width: 100%;
     height: 1px; /* Thin horizontal line */
     background-color: rgba(0, 0, 0, 0.2);
-    margin: 1rem 0;
+    margin: 0;
   }
+}
+@media (max-width: 480px) {
+  .footerBg {
+    /* flex-direction: column; */
+    text-align: center;
+    padding: 1rem;
+    gap: 0;
+  }
+
+  .footerLogo,
+  .footerResource,
+  .footerAbout,
+  .footerContact {
+    width: 30%;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  .footerImg img {
+    margin: 0 auto;
+    width: 90px;
+  }
+ 
 }

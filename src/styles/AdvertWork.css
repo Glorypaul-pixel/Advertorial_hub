@@ -1,7 +1,12 @@
 .Advertwork {
   background-color: #1b1440;
   border-radius: 2rem 2rem 0 0;
-} /* Container for the steps */
+  /* padding: 0; */
+}
+#AdvertWork {
+  overflow: hidden;
+}
+/* Container for the steps */
 .worksHead h1 {
   color: white;
   text-align: center;
@@ -20,6 +25,7 @@
   border-radius: 10px;
   width: fit-content;
   color: #cdd0d5;
+  cursor: pointer;
 }
 
 /* Hover effect - Moves hover background dynamically */
@@ -52,8 +58,7 @@
   background-color: #4a90e2;
 }
 /* Styling for Home CreateAccount */
-.advertForm {
-}
+
 .Advertpagecontainer {
   display: flex;
   align-items: center;
@@ -74,6 +79,34 @@
 }
 .createSubtitle {
   line-height: 0.1px;
+}
+.slider-wrapper {
+  width: 100%;
+}
+
+.slider-container {
+  display: flex;
+  width: 100%; /* Four slides */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  background-color: #cac2ff;
+  min-height: 400px;
+}
+
+.stepTitle {
+  font-size: 2rem;
+  color: #1b1440;
+  text-align: center;
+}
+
+.stepText {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #333;
 }
 
 /* PRICING */
@@ -112,12 +145,6 @@
   line-height: 100%;
 }
 
-@media (min-width: 640px) {
-  .Pricemain-heading {
-    font-size: 56px;
-  }
-}
-
 .billing-buttons {
   background-color: #f6f8fa;
   display: flex;
@@ -126,40 +153,27 @@
   border-radius: 2rem;
 }
 
+.monthly-billing:hover,
+.annual-billing:hover {
+  color: #016ce8;
+  transition: background 0.2s, color 0.3s;
+  background-color: white;
+  /* border: 1px solid #016ce8; */
+}
+.annual-billing,
 .monthly-billing {
-  background-color: #016ce8;
+  background-color: #f6f8fa;
   padding: 1rem 2rem;
-  color: #ffffff;
+  color: #016ce8;
   font-size: 14px;
   font-weight: 600;
   border-radius: 2rem;
   line-height: 20px;
   border: none;
 }
-.monthly-billing:hover {
-  color: #016ce8;
-  transition: background 0.2s, color 0.3s;
-  background-color: white;
-  border: 1px solid #016ce8;
-}
-.annual-billing {
-  background-color: #f6f8fa;
-  padding: 1rem 2rem;
-  color: #525866;
-  font-size: 14px;
-  font-weight: 400;
-  border-radius: 2rem;
-  line-height: 20px;
-  border: none;
-  /* width: 100%; */
-}
-.annual-billing:hover {
-  color: white;
-  background-color: #016ce8;
-}
+
 /* Pricing section */
 .pricing-section {
-  /* width: 100%; */
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -230,8 +244,8 @@
   font-weight: 600;
   color: #0a0d14;
   display: flex;
-  flex-direction: column;
 
+  flex-direction: column;
   line-height: 100%;
 }
 .plan-pricelight {
@@ -302,17 +316,247 @@
   background-color: #016ce8;
   color: #ffffff;
 }
-@media (min-width: 640px) {
+.monthly-billing.active,
+.annual-billing.active {
+  background-color: #016ce8;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+/* Shared active class */
+.billing-buttons button.active {
+  background-color: #016ce8;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+}
+
+/* Optional: override hover effect if active */
+.billing-buttons button.active:hover {
+  background-color: #016ce8;
+  color: #ffffff;
+  border: none;
+}
+
+/* 1440px Screen */
+@media (max-width: 1440px) {
+  /* .Advertwork { */
+    /* padding: 3rem;
+  } */
+
+  .worksSlot {
+    width: 80%; /* Increase width for larger screens */
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .slider-container {
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ensure the slider stays full width */
+  }
+
   .pricing-card {
-    height: 613px;
+    max-width: 320px;
+    padding: 2.5rem;
   }
 
-  .pricing-card.business-plan {
-    background-color: #016ce8;
-    color: #ffffff;
+  .PriceMainContent {
+    gap: 80px;
   }
 
-  .pricing-card.team-plan {
-    border: 1px solid #e2e4e9;
+  .PriceHeadSection {
+    gap: 30px;
   }
+
+  .pricing-section {
+    gap: 20px;
+  }
+
+  .pricing-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .Pricemain-heading {
+    font-size: 60px;
+  }
+
+  .slider-wrapper {
+    padding: 0;
+  }
+
+  .monthly-billing,
+  .annual-billing {
+    padding: 1rem 2.5rem;
+  }
+}
+
+/* 768px Screen */
+@media (max-width: 768px) {
+  .Advertwork {
+    padding: 0rem;
+  }
+
+  .worksSlot {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+
+  .slider-wrapper {
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .pricing-card {
+    max-width: 280px;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  .PriceMainContent {
+    gap: 60px;
+  }
+
+  .PriceHeadSection {
+    gap: 25px;
+  }
+
+  .pricing-section {
+    gap: 15px;
+  }
+
+  .pricing-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .Pricemain-heading {
+    font-size: 2rem;
+  }
+
+  .monthly-billing,
+  .annual-billing {
+    padding: 1rem 2rem;
+  }
+}
+
+/* 414px Screen */
+@media (max-width: 414px) {
+  .Advertwork {
+    padding: 0rem;
+  }
+
+  .worksSlot {
+    padding: 0rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 0.6rem;
+    justify-content: center;
+
+    gap: 20px;
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 9px;
+    cursor: pointer;
+    margin: 1rem 0;
+  }
+  .active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .slider-wrapper {
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Active state - Highlight current step */
+  .active {
+    background-color: #4a90e2;
+    font-weight: bold;
+    padding: 0.1rem 0.5rem;
+    color: white;
+    border-radius: 1rem;
+  }
+
+  .worksHead h1 {
+    font-size: 1.8rem;
+    padding: 1rem;
+    padding-top: 2rem;
+  }
+  .pricing-section {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .Pricemain-heading h1 {
+    font-size: 1.8rem;
+  }
+  .slider-container {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+  .pricing-card {
+    max-width: 350px;
+    padding: 1rem;
+  }
+
+  .PriceMainContent {
+    gap: 50px;
+  }
+
+  .PriceHeadSection {
+    gap: 20px;
+  }
+
+  .pricing-section {
+    gap: 2rem;
+  }
+
+  .pricing-card h2 {
+    font-size: 1.4rem;
+  }
+  .Pricepage-container {
+    /* width: 100%; */
+    margin: 2rem;
+    gap: 2rem;
+  }
+  .monthly-billing,
+  .annual-billing {
+    padding: 0.8rem 1.8rem;
+  }
+
+  .Priceplan-title,
+  .Priceplan-subtitle {
+    font-size: 1rem;
+  }
+
+  .Priceplan-details {
+    gap: 1rem;
+  }
+
+  .Priceplan-header {
+    gap: 1rem;
+  }
+  .Advertpagecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    flex-direction: column;
+  }
+ 
 }

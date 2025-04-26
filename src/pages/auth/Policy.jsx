@@ -6,11 +6,11 @@ const Policy = () => {
   return (
     <div>
       <Header />
-      <div className="container">
-        <h1 className="title">Privacy Policy</h1>
+      <div className="Policy-container">
+        <h1 className="Policy-title">Privacy Policy</h1>
         <p className="updated">Last Updated: November 07, 2024</p>
 
-        <section className="section">
+        <section className="Policy-section">
           <h2>Advertorial Global Privacy Statement</h2>
           <p>
             This Policy explains when and why we collect personal information

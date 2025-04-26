@@ -3,9 +3,10 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-/* .heroSection {
+
+.heroSection {
   overflow: hidden;
-} */
+}
 .heroText {
   text-align: center;
   width: 75%;
@@ -63,4 +64,95 @@ body {
   left: 54%; /* Adjust this to center horizontally */
   transform: translate(-50%, -50%); /* Centers the overlay image */
   width: 90%; /* Adjust size as needed */
+}
+/* ========== MEDIA QUERIES ========== */
+
+/* 1440px and above (large screens) */
+@media (min-width: 1440px) {
+  .heroText h1 {
+    font-size: 5rem;
+  }
+
+  .heroText p {
+    font-size: 2rem;
+  }
+
+  .btnStart {
+    font-size: 1.1rem;
+  }
+
+  .lady-img,
+  .image-bg,
+  .image-overlay {
+    max-width: 100%;
+  }
+}
+
+/* 768px to 1023px (tablets) */
+@media (max-width: 768px) {
+  .heroSection {
+    flex-direction: column;
+  }
+
+  .heroText {
+    width: 90%;
+  }
+
+  .heroText h1 {
+    font-size: 3rem;
+  }
+
+  .heroText p {
+    font-size: 1.3rem;
+  }
+
+  .heroImage {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    gap: 1.5rem;
+  }
+
+  .image-overlay {
+    width: 80%;
+    padding-left: 1rem;
+  }
+  .lady-img {
+    display: none;
+  }
+}
+
+/* 414px and below (mobile) */
+@media (max-width: 414px) {
+  .heroText {
+    width: 95%;
+    padding: 1rem 0;
+  }
+
+  .heroText h1 {
+    font-size: 2rem;
+  }
+
+  .heroText p {
+    font-size: 1rem;
+  }
+
+  .btnStart {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  .heroImage {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 0rem;
+    padding: 0;
+  }
+  .image-bg  {
+    /* padding: 3rem; */
+    max-width: 100%;
+  }
+  .image-overlay {
+    padding-right: 1rem;
+  }
 }

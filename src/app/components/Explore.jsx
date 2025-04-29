@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Explore.css";
+import "@/styles/Explore.css";
 import Link from "next/link";
 
 const Explore = () => {

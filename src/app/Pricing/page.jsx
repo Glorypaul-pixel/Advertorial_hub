@@ -1,9 +1,7 @@
 "use client";
 import { useState } from "react";
-import { icons } from "../../lib/Icons";
-import "../../styles/Pricing.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { icons } from "@/lib/Icons";
+import "@/styles/Pricing.css";
 
 const Pricing = () => {
   const [billing, setBilling] = useState("monthly");
@@ -16,7 +14,6 @@ const Pricing = () => {
 
   return (
     <div>
-      <Header />
       <div className="Pricepage-container">
         <main className="PriceMainContent">
           <section className="PriceHeadSection">
@@ -130,7 +127,6 @@ const Pricing = () => {
           </section>
         </main>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -49,11 +49,6 @@
   border-radius: 2rem;
 }
 
-/* Dynamic hover effect */
-/* .step:hover {
-  color: #4a90e2;
-} */
-
 .active:hover::after {
   background-color: #4a90e2;
 }
@@ -63,8 +58,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 1rem;
   flex-direction: column;
+}
+.form-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  padding: 32px;
+  margin: 2rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .advertSignUp {
   background-color: #cac2ff;
@@ -341,7 +348,7 @@
 /* 1440px Screen */
 @media (max-width: 1440px) {
   /* .Advertwork { */
-    /* padding: 3rem;
+  /* padding: 3rem;
   } */
 
   .worksSlot {
@@ -400,6 +407,10 @@
     width: 90%;
     margin: 0 auto;
     padding: 0.5rem;
+  }
+
+  .form-container {
+    width: 80%;
   }
 
   .slider-wrapper {
@@ -558,5 +569,4 @@
     margin: 1rem;
     flex-direction: column;
   }
- 
 }

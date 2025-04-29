@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import "../styles/Footer.css";
+import "@/styles/Footer.css";
 import Link from "next/link";
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Logo & Description */}
         <div className="footerLogo">
           <div className="footerImg">
-            <Link href="/" >
+            <Link href="/">
               <img src="/images/logo.png" alt="Logo" />
             </Link>
           </div>

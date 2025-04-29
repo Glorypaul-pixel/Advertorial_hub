@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Hero.css";
+import "@/styles/Hero.css";
 import Link from "next/link";
 const Hero = () => {
   return (
@@ -10,7 +10,8 @@ const Hero = () => {
           AdvertorialHub
         </h1>
         <p>
-          To reach the right people on social media, you need the right tools. <br />
+          To reach the right people on social media, you need the right tools.{" "}
+          <br />
           With Advertorial Hub, you{"'"}ve got everything you need!
         </p>
         <Link href="/auth/CreateAccount">

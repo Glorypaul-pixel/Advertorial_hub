@@ -1,11 +1,8 @@
 import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import "@/styles/Blog.css";
 const Blog = () => {
   return (
     <div>
-      <Header />
       <div className="BlogContainer">
         <div className="blogHero">
           <div className="BlogHead">
@@ -101,7 +98,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,11 +1,9 @@
 import React from "react";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import "../../styles/Policy.css";
+
+import "@/styles/Policy.css";
 const Policy = () => {
   return (
     <div>
-      <Header />
       <div className="Policy-container">
         <h1 className="Policy-title">Privacy Policy</h1>
         <p className="updated">Last Updated: November 07, 2024</p>
@@ -21,8 +19,8 @@ const Policy = () => {
             will also send you an email when we change this Policy.By using our
             website, you're agreeing to be bound by this Policy. Any questions
             regarding this Policy and our privacy practices should be sent by
-            email to  privacy@advertorialhub.io. Alternatively, you can telephone
-            our data officer on following phone number: +2348132581551
+            email to  privacy@advertorialhub.io. Alternatively, you can
+            telephone our data officer on following phone number: +2348132581551
           </p>
         </section>
 
@@ -30,13 +28,9 @@ const Policy = () => {
           <h2>Who are we?</h2>
           <p>
             We’re Intersion SPRL, a limited liability company incorporated in
-            Belgium. Our two main websites are 
-            {" "}
-            <a href="https://advertorialhub.io">
-              https://advertorialhub.io
-            </a>{" "}
-            and
-            {" "}
+            Belgium. Our two main websites are{" "}
+            <a href="https://advertorialhub.io">https://advertorialhub.io</a>{" "}
+            and{" "}
             <a href="https://app.advertorialhub.io">
               https://app.advertorialhub.io
             </a>
@@ -150,10 +144,10 @@ const Policy = () => {
             message unless you have given your prior consent. We will not
             contact you for marketing purposes by post if you have indicated
             that you do not wish to be contacted. You can change your marketing
-            preferences at any time by contacting us by email: {" "}
+            preferences at any time by contacting us by email:{" "}
             <a href="mailto:privacy@advertorialhub.io">
               privacy@advertorialhub.io
-            </a> {" "}
+            </a>{" "}
             or call us at +2348132581551. .
           </p>
         </section>
@@ -294,7 +288,6 @@ const Policy = () => {
           <p>We keep this Policy under regular review.</p>
         </section>
       </div>
-      <Footer />
     </div>
   );
 };

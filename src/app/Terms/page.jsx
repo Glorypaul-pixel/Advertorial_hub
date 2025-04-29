@@ -1,7 +1,7 @@
 import React from "react";
-import "../../styles/Terms.css";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import "@/styles/Terms.css";
+import Footer from "@/app/components/Footer";
+import Header from "@/app/components/Header";
 const Terms = () => {
   return (
     <div>

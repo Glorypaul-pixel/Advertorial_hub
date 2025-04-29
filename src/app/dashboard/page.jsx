@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { icons } from "../../lib/Icons";
-import "../styles/Seetingshome.css";
+// import "../styles/Seetingshome.css";
 
 export default function HomePage() {
   const [showList, setShowList] = useState(false);

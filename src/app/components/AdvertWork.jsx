@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import "@/styles/CreateAccount.css";
-import "../styles/AdvertWork.css";
+import "@/styles/AdvertWork.css";
 import { icons } from "@/lib/Icons";
 
 const steps = [

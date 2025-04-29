@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/AdvertisePage.css";
+import "@/styles/AdvertisePage.css";
 const AdvertisePage = () => {
   return (
     <div id="advertHead">

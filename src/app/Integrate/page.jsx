@@ -1,12 +1,9 @@
 import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Explore from "@/components/Explore";
+import Explore from "@/app/components/Explore";
 import "@/styles/Integration.css";
 const Integration = () => {
   return (
     <div>
-      <Header />
       <div className="integration">
         <h1>Integration</h1>
         <p>
@@ -65,7 +62,6 @@ const Integration = () => {
         </div>
       </div>
       <Explore />
-      <Footer />
     </div>
   );
 };

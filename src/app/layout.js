@@ -1,12 +1,8 @@
-import Header from "../components/Header";
+import Header from "@/app/components/Header";
 import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import AdvertWork from "@/components/AdvertWork";
-import AdvertisePage from "@/components/AdvertisePage";
-import Explore from "@/components/Explore";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import "@/styles/globals.css";
+import Footer from "@/app/components/Footer";
 import { IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -45,26 +41,12 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${ibmPlexSans.variable} ${sourceSerifPro.variable}`}
     >
-      <head>
-        <title>Advertorial Hub</title>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header>
-          <Header />
-        </header>
-        <main>
-          <Hero />
-          <AdvertisePage />
-          <AdvertWork />
-
-          <Explore />
-        </main>{" "}
-        {/* This renders the page content */}
-        <footer>
-          <Footer />
-        </footer>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

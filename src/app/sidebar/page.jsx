@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { icons } from "../../lib/Icons";
-import "../styles/Sidebar.css";
+// import "../styles/Sidebar.css";
 
 function Sidebar() {
   const pathname = usePathname();

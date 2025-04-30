@@ -1,7 +1,7 @@
 "use client";
 import { icons } from "@/lib/Icons";
 import { useState } from "react";
-import "../../styles/Settings.css";
+import "@/styles/Settings.css";
 
 export default function SettingsPage() {
   const [changePassword, setChangePassoword] = useState(false);

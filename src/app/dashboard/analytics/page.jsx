@@ -1,6 +1,6 @@
 "use client";
 import { icons } from "@/lib/Icons";
-import "../../styles/Analytics.css";
+import "@/styles/Analytics.css";
 
 export default function AnalyticsPage() {
   return (

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { signIn } from "next-auth/react"; // Import signIn function from NextAuth.js
 import { icons } from "@/lib/Icons"; // Ensure this file exists
-import "@/styles/CreateAccount.css"; // Make sure the CSS is correctly located
+import "@/styles/CreateAccount.css"; // Ensure the CSS is correctly located
 
 const CreateAccount = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +15,8 @@ const CreateAccount = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(""); // To display success messages
+  const router = useRouter();
 
   const validateForm = () => {
     if (!email || !firstName || !lastName || !password) {
@@ -23,12 +27,14 @@ const CreateAccount = () => {
       setError("You must accept the Terms and Privacy.");
       return false;
     }
+    // You can add more validation for email format or password strength if needed
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
 
     if (!validateForm()) return;
 
@@ -49,19 +55,40 @@ const CreateAccount = () => {
         }
       );
 
+      const responseBody = await response.json();
+
       if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText || "Account creation failed!");
+        // Handle duplicate user
+        if (response.status === 409) {
+          throw new Error("An account with this email already exists.");
+        }
+
+        // Handle other server errors
+        throw new Error(responseBody.message || "Account creation failed!");
       }
 
-      const data = await response.json();
-      console.log("Registration Successful:", data);
-      // Optionally redirect to login or verification page here
+      console.log("Registration Successful:", responseBody);
+
+      setSuccess(
+        "Account successfully created! Please check your email for verification."
+      );
+      router.push("/authentication/Success");
+      router.push("/authentication/Login");
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "An error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
+  };
+
+  // Sign in with Google
+  const handleGoogleSignup = () => {
+    signIn("google");
+  };
+
+  // Sign in with Facebook
+  const handleFacebookSignup = () => {
+    signIn("facebook");
   };
 
   return (
@@ -74,8 +101,13 @@ const CreateAccount = () => {
         <div className="head-section">
           <h1 className="title">Create your account</h1>
           <p className="subtitle">
-            Quickly create your advertorial account or
-            <b className="login-link"> Log In</b>
+            Quickly create your advertorial account or{" "}
+            <b
+              className="login-link"
+              onClick={() => router.push("/authentication/Login")}
+            >
+              Log In
+            </b>
           </p>
         </div>
 
@@ -162,9 +194,9 @@ const CreateAccount = () => {
               </p>
             </div>
           </section>
-
           {error && <p className="error-text">{error}</p>}
-
+          {success && <p className="success-text">{success}</p>}{" "}
+          {/* Display success message */}
           <section className="auth-other-means">
             <button
               type="submit"
@@ -181,10 +213,18 @@ const CreateAccount = () => {
             </div>
 
             <div className="auth-buttons">
-              <button type="button" className="auth-button">
+              <button
+                type="button"
+                className="auth-button"
+                onClick={handleGoogleSignup} // Use NextAuth.js sign-in for Google
+              >
                 <span>{icons.google}</span> Sign up with Google
               </button>
-              <button type="button" className="auth-button">
+              <button
+                type="button"
+                className="auth-button"
+                onClick={handleFacebookSignup} // Use NextAuth.js sign-in for Facebook
+              >
                 <span>{icons.facebook}</span> Sign up with Facebook
               </button>
             </div>

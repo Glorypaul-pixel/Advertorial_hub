@@ -1,0 +1,57 @@
+.verify-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+.verify-card {
+  max-width: 480px;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  text-align: center;
+}
+
+.verify-header {
+  background-color: #004ba8;
+  padding: 1.5rem;
+}
+
+.verify-logo {
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.verify-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.verify-body {
+  padding: 2rem;
+}
+
+.verify-message {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.verify-button {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #0066ff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+}

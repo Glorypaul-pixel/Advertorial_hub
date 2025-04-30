@@ -51,6 +51,11 @@ a {
   color: #016ce8;
   cursor: pointer;
 }
+.error-text {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
 
 /* Form */
 .form {
@@ -300,6 +305,5 @@ a {
     background-color: #fff;
     width: 90%;
     max-width: 300px;
-
   }
 }

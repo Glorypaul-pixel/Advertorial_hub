@@ -22,5 +22,8 @@
         "./*"
       ]
     }
+  },
+  "devDependencies": {
+    "eslint": "^9.25.1"
   }
 }

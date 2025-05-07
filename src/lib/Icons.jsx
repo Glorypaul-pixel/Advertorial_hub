@@ -57,8 +57,8 @@ export const icons = {
           x2="7.5"
           y2="0.5"
           gradientUnits="userSpaceOnUse">
-          <stop stop-color="#0062E0" />
-          <stop offset="1" stop-color="#19AFFF" />
+          <stop stopColor="#0062E0" />
+          <stop offset="1" stopColor="#19AFFF" />
         </linearGradient>
       </defs>
     </svg>
@@ -113,9 +113,9 @@ export const icons = {
       <path
         d="M23 6L13.5 15.5L8.5 10.5L1 18M23 6H17M23 6V12"
         stroke="#CDD0D5"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+       strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),
@@ -154,8 +154,8 @@ export const icons = {
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+       fillRule="evenodd"
+       clipRule="evenodd"
         d="M3.83404 0C1.71656 0 0 1.71656 0 3.83404V9.99397V14.2099V72.6111C0 74.7286 1.71656 76.4452 3.83404 76.4452H102.166C104.283 76.4452 106 74.7286 106 72.6111V9.99396C106 7.87648 104.283 6.15992 102.166 6.15992H31.2219L29.465 2.2594C28.8455 0.884244 27.4774 0 25.9692 0H3.83404Z"
         fill="#999FAD"
       />
@@ -238,8 +238,8 @@ export const icons = {
           width="28"
           height="20"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -272,8 +272,8 @@ export const icons = {
           width="32"
           height="32"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -340,8 +340,8 @@ export const icons = {
           width="12"
           height="12"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -410,8 +410,8 @@ export const icons = {
           width="28"
           height="20"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -444,8 +444,8 @@ export const icons = {
           width="32"
           height="32"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -529,8 +529,8 @@ export const icons = {
           width="12"
           height="12"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -582,9 +582,9 @@ export const icons = {
         <path
           d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
           stroke="#475467"
-          stroke-width="2.33333"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+         strokeWidth="2.33333"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -605,9 +605,9 @@ export const icons = {
       <path
         d="M7.5 12L10.5 15L16.5 9"
         stroke="white"
-        stroke-width="2.33333"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+       strokeWidth="2.33333"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),
@@ -651,9 +651,9 @@ export const icons = {
       <path
         d="M7.5 12L10.5 15L16.5 9"
         stroke="white"
-        stroke-width="2.33333"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+       strokeWidth="2.33333"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),
@@ -669,9 +669,9 @@ export const icons = {
         <path
           d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
           stroke="#475467"
-          stroke-width="2.33333"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+         strokeWidth="2.33333"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -704,7 +704,7 @@ export const icons = {
             <path
               d="M68.6117 73.1501C68.6117 79.264 65.3091 84.8516 59.8656 88.9342C54.4219 93.017 46.87 95.5626 38.4992 95.5626C30.1284 95.5626 22.5765 93.017 17.1328 88.9342C11.6894 84.8516 8.38672 79.264 8.38672 73.1501C8.38672 67.0361 11.6894 61.4485 17.1328 57.3659C22.5765 53.2831 30.1284 50.7375 38.4992 50.7375C46.87 50.7375 54.4219 53.2831 59.8656 57.3659C65.3091 61.4485 68.6117 67.0361 68.6117 73.1501Z"
               stroke="url(#paint1_radial_936_9359)"
-              stroke-width="1.375"
+             strokeWidth="1.375"
               shape-rendering="crispEdges"
             />
           </g>
@@ -721,7 +721,7 @@ export const icons = {
               cy="30.7999"
               r="14.7125"
               stroke="url(#paint3_radial_936_9359)"
-              stroke-width="1.375"
+             strokeWidth="1.375"
               shape-rendering="crispEdges"
             />
           </g>
@@ -735,8 +735,8 @@ export const icons = {
           width="77"
           height="85"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -769,8 +769,8 @@ export const icons = {
           width="69.5996"
           height="62.2"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -821,8 +821,8 @@ export const icons = {
           width="38.7998"
           height="46.8"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -873,8 +873,8 @@ export const icons = {
           r="1"
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(38.4992 50.0501) rotate(90) scale(46.2 61.6)">
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stop-opacity="0" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_936_9359"
@@ -883,8 +883,8 @@ export const icons = {
           r="1"
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(38.4992 50.05) rotate(90) scale(46.2 61.6)">
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stop-opacity="0" />
         </radialGradient>
         <radialGradient
           id="paint2_radial_936_9359"
@@ -893,8 +893,8 @@ export const icons = {
           r="1"
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(38.4996 15.3999) rotate(90) scale(30.8)">
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stop-opacity="0" />
         </radialGradient>
         <radialGradient
           id="paint3_radial_936_9359"
@@ -903,8 +903,8 @@ export const icons = {
           r="1"
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(38.4996 15.3999) rotate(90) scale(30.8)">
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stop-opacity="0" />
         </radialGradient>
         <clipPath id="clip0_936_9359">
           <rect width="77" height="77" rx="38.5" fill="white" />
@@ -974,8 +974,8 @@ export const icons = {
           width="48"
           height="56"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

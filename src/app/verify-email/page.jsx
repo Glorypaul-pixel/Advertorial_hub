@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import "@/styles/Verify.css";
 
 const VerifyEmail = () => {
@@ -68,10 +68,4 @@ const VerifyEmail = () => {
   );
 };
 
-export default function VerifyPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <VerifyEmail />
-    </Suspense>
-  );
-}
+export default VerifyEmail;

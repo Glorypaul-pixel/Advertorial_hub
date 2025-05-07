@@ -1,23 +1,179 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { icons } from "../../lib/Icons";
-// import "../styles/Seetingshome.css";
+import "../../styles/Seetingshome.css";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
-  const [showList, setShowList] = useState(false);
-  const [addLink, setAddLink] = useState(false);
-  const [profile, setProfile] = useState(false);
-  const [deleteLink, setDeleteLink] = useState(false);
+  //  UI State
+  const [showList, setShowList] = useState(false); // Controls visibility of a list section
+  const [addLink, setAddLink] = useState(false); // Controls "Add Link" section
+  const [profile, setProfile] = useState(false); // Controls user profile section
+  const [deleteLink, setDeleteLink] = useState(false); // Controls delete link dialog/menu
 
-  // post progress states
-  const [createPost, setCreatePost] = useState(false);
-  const [selectImg, setSelectImg] = useState(false);
-  const [recentPosts, setRecentPost] = useState(false);
-  const [menu, setMenu] = useState(false);
+  //  Post Progress States
+  const [createPost, setCreatePost] = useState(false); // True when creating a new post/handles page display
+  const [selectImg, setSelectImg] = useState(false); // Controls image selection mode
+  const [recentPosts, setRecentPost] = useState(false); // Show recently created posts
+  const [menu, setMenu] = useState(false); // Toggles menu visibility
 
-  // handling switch on post progress
+  //  Handling Backend Integeration
+  const [user, setUser] = useState(null); // Holds user data from backend
+  const [title, setTitle] = useState("title"); // Post title
+  const [content, setContent] = useState(""); // Post content
+  const [images, setImages] = useState([]); // List of images uploaded
+  const [video, setVideo] = useState(null); // Video file (if any)
+  const [isAd, setIsAd] = useState(false); // Boolean: is this post an ad?
+  const [imagePreviews, setImagePreviews] = useState([]); // Previews of images
+
+  const [userPosts, setUserPosts] = useState([]); // Posts created by this user
+
+  //  Routing
+  const router = useRouter();
+
+  // Get data from local storage for use in API requests
+  const userIdOrEmail = localStorage.getItem("userId");
+  const userToken = localStorage.getItem("token");
+
+  //  Fetch user data and their posts on load
+  useEffect(() => {
+    const getUser = async () => {
+      if (!userIdOrEmail) return router.push("/authentication/Login");
+
+      try {
+        // Fetch the user by ID/email
+        const res = await fetch(
+          `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        // Fetch all posts
+        const response = await fetch(
+          "https://advertorial-backend.onrender.com/api/posts",
+          {
+            headers: {
+              Authorization: ` ${userToken}`,
+            },
+          }
+        );
+
+        const userData = await res.json();
+        const postsData = await response.json();
+
+        setUser(userData);
+
+        if (!response.ok) {
+          return console.error("Failed to fetch posts:", postsData);
+        }
+
+        // Filter posts that belong to this logged-in user
+        const myPosts = postsData.filter(
+          (post) => post.creatorId === userData.id
+        );
+        setUserPosts(myPosts);
+
+        if (myPosts.length >= 1) {
+          setRecentPost(true);
+          setCreatePost(true);
+        }
+      } catch (error) {
+        console.error("Error fetching user or posts:", error);
+      }
+    };
+
+    getUser();
+  }, [userIdOrEmail]);
+  //  Fetch posts data on button clicked, effect below
+  const getPosts = async () => {
+    try {
+      // Fetch all posts
+      const response = await fetch(
+        "https://advertorial-backend.onrender.com/api/posts",
+        {
+          headers: {
+            Authorization: ` ${userToken}`,
+          },
+        }
+      );
+
+      const postsData = await response.json();
+
+      if (!response.ok) {
+        return console.error("Failed to fetch posts:", postsData);
+      }
+
+      // Filter posts that belong to this logged-in user
+      const myPosts = postsData.filter((post) => post.creatorId === user.id);
+      setUserPosts(myPosts);
+
+      // if (myPosts.length >= 1) {
+      //   setRecentPost(true);
+      //   setCreatePost(true);
+      // }
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
+  //  Handle post create creation
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userToken = localStorage.getItem("token");
+
+    if (!user) return alert("User not loaded yet.");
+    if (!userToken) return alert("No token found. Please log in again.");
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("isAd", isAd);
+    formData.append("creatorId", user._id);
+    formData.append("creatorEmail", user.email);
+
+    // Only include first 5 images
+    images.slice(0, 5).forEach((image) => {
+      formData.append("images", image);
+    });
+
+    if (video) {
+      formData.append("video", video);
+    }
+
+    try {
+      const res = await fetch(
+        "https://advertorial-backend.onrender.com/api/posts",
+        {
+          method: "POST",
+          headers: {
+            Authorization: ` ${userToken}`,
+          },
+          body: formData,
+        }
+      );
+
+      const data = await res.json();
+      if (res.ok) {
+        setRecentPost(true);
+        console.log("Post created:", data);
+      } else {
+        console.error("Error creating post:", data);
+        alert(data.message || "Failed to create post");
+      }
+    } catch (err) {
+      console.error("Upload error:", err);
+      alert("An error occurred during upload.");
+    }
+  };
+
+  //  Handle UI switches (toggle views)
   const handleSwitch = (e) => {
     e.preventDefault();
+
     if (e.target.id === "createpost") {
       setCreatePost(true);
       setRecentPost(false);
@@ -25,7 +181,40 @@ export default function HomePage() {
       setCreatePost(true);
       setRecentPost(true);
     }
+
+    if (e.target.id === "cancelCreatePost" && userPosts.length >= 1) {
+      setRecentPost(true);
+    } else if (e.target.id === "cancelCreatePost" && userPosts.length === 0) {
+      setCreatePost(false);
+    }
   };
+
+  //  Handle Delete Post by post Id
+  const handleDeletePost = async (postId) => {
+    try {
+      const response = await fetch(
+        `https://advertorial-backend.onrender.com/api/posts/${postId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to delete post: ${response.statusText}`);
+      }
+
+      console.log(`Post ${postId} deleted successfully.`);
+      // Remove deleted post from state
+      setUserPosts((prev) => prev.filter((post) => post._id !== postId));
+    } catch (error) {
+      console.error("Error deleting post:", error);
+    }
+  };
+
+  // to handle post data on but clicks to get updated data, connection above
+  useEffect(() => {
+    getPosts();
+  }, [handleSubmit, handleDeletePost]);
   return (
     <div>
       {!createPost ? (
@@ -44,10 +233,7 @@ export default function HomePage() {
                       Skip
                     </button>
                   ) : (
-                    <span
-                      onClick={() => setShowList(true)}
-                      className=" cursor-pointer"
-                    >
+                    <span onClick={() => setShowList(true)} className=" cp">
                       3 steps left
                     </span>
                   )}
@@ -71,7 +257,7 @@ export default function HomePage() {
             <section className=" main-card ">
               <h4 className=" h4-text  ">Recent Post</h4>
               <div className="create-post-card ">
-                <section className="flex flex-col items-center justify-center gap-[20px]">
+                <section className="folder-selection-container">
                   {icons.file}
                   <p>
                     No Post Yet <span>All post would appear here </span>
@@ -91,7 +277,7 @@ export default function HomePage() {
                   Add a link to your profile
                   <button
                     type="button"
-                    className=" cursor-pointer "
+                    className=" cp "
                     onClick={() => setAddLink(false)}
                   >
                     {icons.exit}
@@ -176,7 +362,7 @@ export default function HomePage() {
                     Update your profile image
                     <button
                       type="button"
-                      className=" cursor-pointer "
+                      className=" cp "
                       onClick={() => setProfile(false)}
                     >
                       {icons.exit}
@@ -223,7 +409,7 @@ export default function HomePage() {
                     Delete Link
                     <button
                       type="button"
-                      className=" cursor-pointer "
+                      className=" cp "
                       onClick={() => setDeleteLink(false)}
                     >
                       {icons.exit}
@@ -273,44 +459,45 @@ export default function HomePage() {
           {/* container  */}
           {recentPosts ? (
             <main className="createpost-container">
-              <section className=" recetpost-card">
-                <h2 className="posth-text">Recent Post</h2>
-                {/* post information  */}
-                <div className=" recentpost-info">
-                  <article>
-                    {/* would be replaced later to img  */}
-                    <span>{icons.avatardummy2}</span>
-                    <p>
-                      Chudi Victor <span>Just now</span>
+              <h2 className="posth-text">Recent Post</h2>
+              {userPosts.map((post) => (
+                <section className=" recetpost-card" key={post.content}>
+                  {/* post information  */}
+                  <div className=" recentpost-info">
+                    <article>
+                      {/* would be replaced later to img  */}
+                      <span>{icons.avatardummy2}</span>
+                      <p>
+                        Chudi Victor <span>{post.createdAt}</span>
+                      </p>
+                    </article>
+                    <p className="recentpost-menu">
+                      <span onClick={() => setMenu(!menu)}> {icons.menu}</span>
+                      {menu && (
+                        <ul>
+                          <li>Share Post</li>
+                          <li>Edit Post</li>
+                          <li
+                            className="d"
+                            onClick={() => handleDeletePost(post._id)}
+                          >
+                            Delete Post
+                          </li>
+                        </ul>
+                      )}
                     </p>
-                  </article>
-                  <p className="recentpost-menu">
-                    <span onClick={() => setMenu(!menu)}> {icons.menu}</span>
-                    {menu && (
-                      <ul>
-                        <li>Share Post</li>
-                        <li>Edit Post</li>
-                        <li className="d">Delete Post</li>
-                      </ul>
-                    )}
-                  </p>
-                </div>
-                {/* post write up  */}
-                <p>
-                  Moo Deng- a purple-pink pygmy hippo born this summer at a zoo
-                  in Thailand and whose name means “bouncing pig”- has taken the
-                  internet by storm. That might have a lot of folks wondering,
-                  what exactly is pygmy hippo, anyway? Find out more about these
-                  fascinating creatures and what makes them so unique
-                </p>
+                  </div>
+                  {/* post write up  */}
+                  <p>{post.content}</p>
 
-                {/* post images  */}
-                <div className="post-image">
-                  <img src="" alt="empty now" />
-                  <img src="" alt="empty now" />
-                </div>
-                <span>View Insight</span>
-              </section>
+                  {/* post images  */}
+                  <div className="post-image">
+                    <img src={post.images} alt="empty now" />
+                    <img src="" alt="empty now" />
+                  </div>
+                  <span>View Insight</span>
+                </section>
+              ))}
             </main>
           ) : (
             <main className="createpost-container">
@@ -322,25 +509,46 @@ export default function HomePage() {
                     cols="30"
                     rows="10"
                     placeholder="Tell a story"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    required
                   ></textarea>
                   <button type="button" onClick={() => setSelectImg(true)}>
                     <span>{icons.selectImg}</span>Add Image
                   </button>
+                  {/* image preview  */}
+                  {imagePreviews.length > 0 && (
+                    <div className="imagepreviewcontainer">
+                      {imagePreviews.map((src, index) => (
+                        <img
+                          key={index}
+                          src={src}
+                          alt={`preview-${index}`}
+                          className="imagepreview "
+                        />
+                      ))}
+                    </div>
+                  )}
+                  {imagePreviews.length > 0 && (
+                    <p className="imagepreviewcontainer">
+                      Max 5 images allowed.
+                    </p>
+                  )}
                 </div>
 
                 {/* createpost buttons  */}
                 <div className=" createpost-buttons-container">
                   <button
                     className="overlay-link-cancel "
-                    id="cancel"
-                    onClick={() => setCreatePost(false)}
+                    id="cancelCreatePost"
+                    onClick={handleSwitch}
                   >
                     Back
                   </button>{" "}
                   <button
                     className=" overlay-link-button "
                     id="createdpost"
-                    onClick={handleSwitch}
+                    onClick={handleSubmit}
                   >
                     Next
                   </button>
@@ -357,7 +565,7 @@ export default function HomePage() {
                     Upload Image
                     <button
                       type="button"
-                      className=" cursor-pointer "
+                      className=" cp "
                       onClick={() => setSelectImg(false)}
                     >
                       {icons.exit}
@@ -373,7 +581,18 @@ export default function HomePage() {
                       name="imgselect"
                       id="imgselect"
                       accept="image/*"
+                      multiple
+                      onChange={(e) => {
+                        const files = Array.from(e.target.files).slice(0, 5); // limit to first 5
+                        setImages(files);
+
+                        const previews = files.map((file) =>
+                          URL.createObjectURL(file)
+                        );
+                        setImagePreviews(previews);
+                      }}
                     />
+
                     <label for="imgselect">Select Image file</label>
                     <h5>Any JPG, JPEG, PNG, or GIF up to 512MB</h5>
                   </div>
@@ -409,6 +628,10 @@ export default function HomePage() {
           )}
         </div>
       )}
+      <footer className="dashFooter">
+        <p>&copy; 2025 Advertorial Hub. All Rights Reserved.</p>
+        <a href="/Policy">Privacy Policy</a> | <a href="/AboutUs">About Us</a>
+      </footer>
     </div>
   );
 }

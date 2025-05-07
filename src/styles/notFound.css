@@ -1,0 +1,149 @@
+/* Base styles */
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+.NFcontainer {
+  font-family: sans-serif;
+  background: #016ce8;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.NFmain {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6rem;
+  gap: 2rem;
+}
+
+
+.NFcontent {
+  max-width: 500px;
+  flex: 1;
+}
+
+.NFcode {
+  display: inline-block;
+  background: #d6e5ff;
+  color: #003a9f;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.NFtitle {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.NFtitle span {
+  color: white;
+  opacity: 0.9;
+}
+
+.NFdescription {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #f0f4ff;
+  font-size: 1rem;
+}
+
+.NFbackBtn {
+  background: white;
+  color: #016ce8;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.NFbackBtn:hover {
+  background: #e6efff;
+}
+
+
+.NFimg {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  .NFmain {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 3rem;
+  }
+
+  .NFcontent {
+    max-width: 100%;
+  }
+
+  .NFtitle {
+    font-size: 2rem;
+  }
+
+  .NFdescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .NFmain {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem;
+    font-size: 3rem;
+  }
+
+  .NFcontainer {
+    min-height: 0;
+  }
+  .NFillustration {
+    display: none;
+  }
+}
+
+@media (max-width: 414px) {
+  .NFmain {
+    padding: 1.5rem;
+  }
+
+  .NFcode {
+    font-size: 1rem;
+  }
+
+  .NFtitle {
+    font-size: 1.5rem;
+  }
+
+  .NFdescription {
+    font-size: 0.9rem;
+  }
+
+  .NFbackBtn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .NFillustration {
+    display: none;
+  }
+}

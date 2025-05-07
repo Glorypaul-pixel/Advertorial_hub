@@ -1,5 +1,5 @@
 .heading-text {
-  color: #0A0D14;
+  color: #0a0d14;
   font-size: 24px;
   font-weight: 600;
   text-align: center;
@@ -9,117 +9,129 @@
 }
 
 /* main section  */
-.setting-container{
-width: 60%;
-margin: 0 auto;
-display: flex;
-flex-direction: column;
-gap: 32px;
+.setting-container {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
-.my-information{
+.my-information {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .information-header {
-  color: #0A0D14;
+  color: #0a0d14;
   font-size: 24px;
   font-weight: 600;
   line-height: 28px;
   letter-spacing: -0.5%;
 }
-.settings-form{
+.settings-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.settings-subform{
+.settings-subform {
   width: 100%;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 20px;
- border-radius: 12px; 
+  border-radius: 12px;
 }
-.input-name{
+.input-setting-name {
   outline: none;
-  border-bottom: 1px solid #E2E4E9;
+  border: none;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #e2e4e9;
   padding: 20px 16px;
   font-size: 16px;
   font-weight: 400;
-  
 }
 
-.input-name::placeholder{
-color: #525866;
+.input-setting-name::placeholder {
+  color: #525866;
 }
-.subform{
+.input-setting-email {
+  background: none;
+  margin: 0px 20px;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.subform {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 20px 0;
-
 }
-.label{
+.label {
   padding: 0 16px;
   color: #525866;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
 }
-.input-email{
+.input-email {
   outline: none;
   padding: 0 16px;
 }
-.email-msg{
+.email-msg {
   outline: none;
-  border-top: 1px solid #E2E4E9;
+  border-top: 1px solid #e2e4e9;
   padding: 20px 16px;
   font-size: 16px;
   font-weight: 400;
   color: #525866;
 }
-.button-inactive{
-  background: #FFFFFF;
+.button-inactive {
+  background: #ffffff;
+  border: none;
   width: 184px;
   padding: 10px 0;
-  color: #868C98;
+  color: #868c98;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   border-radius: 100px;
 }
-article{
+article {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  
 }
-.change-button{
-  color: #016CE8;
+.change-button {
+  color: #016ce8;
+  background: none;
+  border: none;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
   cursor: pointer;
 }
-.input-password{
+.input-security-password {
   outline: none;
+  border: none;
 }
-.input-password::placeholder{ color: #0A0D14;}
-.security-detail{
-  border-top: 1px solid #E2E4E9;
+.input-password::placeholder {
+  color: #0a0d14;
+}
+.security-detail {
+  border-top: 1px solid #e2e4e9;
   padding: 20px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  span{
+  span {
     cursor: pointer;
   }
-  
 }
-.security-textc{
+.security-textc {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -127,31 +139,32 @@ article{
   font-weight: 400;
   line-height: 20px;
   color: #525866;
-     span{
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 24px;
-      color: #0A0D14;
-     }
+  span {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #0a0d14;
+  }
 }
-.button-active{
-  background: #016CE8;
+.button-active {
+  background: #016ce8;
+  border: none;
   width: 184px;
   padding: 10px 0;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   border-radius: 100px;
   cursor: pointer;
 }
-.management-container{
-  background: #FFFFFF;
+.management-container {
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
 }
-.management-textc{
+.management-textc {
   display: flex;
   flex-direction: column;
   padding: 20px 16px;
@@ -159,43 +172,44 @@ article{
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  border-bottom: solid 1px #E2E4E9;
+  border-bottom: solid 1px #e2e4e9;
   color: #525866;
-     span{
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 24px;
-      color: #0A0D14;
-     }
+  span {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #0a0d14;
+  }
 }
-.management-detail{
+.management-detail {
   padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.management-t{
+.management-t {
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   text-align: center;
-  color: #0A0D14;
+  color: #0a0d14;
 }
-.button-blue{
-  background: #016CE8;
+.button-blue {
+  background: #016ce8;
+  border: none;
   width: 100%;
   padding: 12px 0;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
   border-radius: 100px;
-
-
+  cursor: pointer;
 }
-.delete-accountB{
-  border: 1px solid #DF1C41;
-  color: #DF1C41;
+.delete-accountB {
+  background: white;
+  border: 1px solid #df1c41;
+  color: #df1c41;
   width: 100%;
   padding: 12px 0;
   font-size: 16px;
@@ -206,20 +220,20 @@ article{
 }
 
 /* overlay sections  */
-.settings-overlay{
+.settings-overlay {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   height: 100vh;
-  background: #344054B2;
+  background: #344054b2;
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.overlay-container{
-  background: #FFFFFF;
+.overlay-container {
+  background: #ffffff;
   width: 535px;
   display: flex;
   flex-direction: column;
@@ -227,8 +241,8 @@ article{
   padding: 24px;
   border-radius: 12px;
 }
-.overlay-header{
-  color: #0A0D14;
+.overlay-header {
+  color: #0a0d14;
   font-size: 24px;
   font-weight: 500;
   line-height: 28px;
@@ -236,42 +250,42 @@ article{
   align-items: center;
   justify-content: space-between;
 }
-.overlay-form1{
+.overlay-form1 {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
-.overlay-form2{
+.overlay-form2 {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.overlay-form3{
+.overlay-form3 {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.overlay-label{
-  color: #0A0D14;
+.overlay-label {
+  color: #0a0d14;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
 }
-.overlay-input{
+.overlay-input {
   outline: none;
-  border: 1px solid #E2E4E9;
+  border: 1px solid #e2e4e9;
   padding: 10px;
   border-radius: 8px;
 }
-.overlay-button{
+.overlay-button {
   margin-bottom: 30px;
   cursor: pointer;
 }
 
-.preference-active{
+.preference-active {
   flex: 1;
-  background: #20232D;
-  color: #FFFFFF;
+  background: #20232d;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -279,48 +293,65 @@ article{
   border-radius: 8px;
   cursor: pointer;
 }
-.preference-inactive{
+.preference-inactive {
   flex: 1;
-  color: #0A0D14;
+  color: #0a0d14;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   padding: 14px 0;
   border-radius: 8px;
-  border: 1px solid #E2E4E9;
+  border: 1px solid #e2e4e9;
   cursor: pointer;
 }
 
-.code-container{
+.code-container {
   display: flex;
   gap: 16px;
 }
-.new-passc{
+.new-passc {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-bottom: 30px;
 }
-.sms-call{
-  color: #0A0D14;
+.sms-call {
+  color: #0a0d14;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   text-align: center;
-  b{
-    color: #016CE8;
+  b {
+    color: #016ce8;
   }
 }
-.overlay-delete-button{
-  background: #DF1C41;
+.overlay-delete-button {
+  background: #df1c41;
   width: 100%;
   padding: 12px 0;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
   border-radius: 100px;
   cursor: pointer;
+}
+.dashFooter {
+  background-color: #016ce8;
+  color: #fff;
+  padding: 20px;
+
+  text-align: center;
+  font-size: 14px;
+}
+
+.dashFooter a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dashFooter a:hover {
+  text-decoration: underline;
 }
 @media (max-width: 768px) {
   .setting-container {

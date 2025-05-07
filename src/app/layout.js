@@ -1,9 +1,10 @@
+// app/layout.js
 import Header from "@/app/components/Header";
 import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
-import Footer from "@/app/components/Footer";
 import { IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
+import LayoutClient from "@/app/LayoutClient"; // ✅ client wrapper you'll create
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -44,9 +45,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

@@ -13,9 +13,10 @@
 .sidebar {
   width: 274px;
   position: fixed;
+  z-index: 10;
   left: 0;
   height: 100vh;
-  background-color: #14171F;
+  background-color: #14171f;
   padding: 0 20px;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .sidebar-title {
-  color: #016CE8;
+  color: #016ce8;
   font-size: 24px;
   font-weight: 600;
   line-height: 28px;
@@ -49,8 +50,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding-top: 26px;
-  padding-bottom: 26px;
+  padding: 26px 0;
+  list-style-type: none;
+  margin: 0%;
+  width: 100%;
 }
 
 /* Sidebar links */
@@ -64,7 +67,7 @@
   font-weight: 600;
   line-height: 18px;
   text-decoration: none;
-  color: #CDD0D5;
+  color: #cdd0d5;
 }
 
 .sidebar-link span {
@@ -73,17 +76,17 @@
 
 .sidebar-link:hover {
   background-color: #1e222b;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Active link style */
 .active-link {
-  background-color: #0162D3;
-  color: #FFFFFF;
+  background-color: #0162d3;
+  color: #ffffff;
 }
 
 /* Inactive link style */
 .inactive-link {
   background-color: transparent;
-  color: #CDD0D5;
+  color: #cdd0d5;
 }

@@ -1,5 +1,5 @@
 /* Page Container */
-.page-container {
+.Loginpage-container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -156,7 +156,7 @@ a {
 
 @media (max-width: 768px) {
   /* Page Container */
-  .page-container {
+  .Loginpage-container {
     height: 100%;
   }
  
@@ -169,7 +169,7 @@ a {
     flex-direction: column;
     gap: 20px;
   }
-  .page-container {
+  .Loginpage-container {
     height: 100vh;
     display: block;
     align-items: center;

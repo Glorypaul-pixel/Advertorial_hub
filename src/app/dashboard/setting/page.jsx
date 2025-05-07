@@ -1,9 +1,11 @@
 "use client";
 import { icons } from "@/lib/Icons";
-import { useState } from "react";
-import "@/styles/Settings.css";
+import { useEffect, useState } from "react";
+import "../../../styles/Settings.css";
+import { useRouter } from "next/navigation";
 
 export default function SettingsPage() {
+  //  UI State
   const [changePassword, setChangePassoword] = useState(false);
   const [secureAccount, setSecureAccount] = useState(false);
   const [code, setCode] = useState(false);
@@ -38,6 +40,108 @@ export default function SettingsPage() {
     }
   };
 
+  // Handling Backend Integeration
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+  const [firstName, setFirstName] = useState(null);
+
+  // Get the logged in user's ID from localStorage
+  const userIdOrEmail =
+    typeof window !== "undefined" && localStorage.getItem("userId");
+
+  // handling name update
+  const handleNameUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`/api/auth/user/${userIdOrEmail}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ firstName }), // Only updating last name
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log("Last name updated successfully:", data);
+        // Optional: Update local state or show a success message
+      } else {
+        console.error("Failed to update last name:", data.message || data);
+      }
+    } catch (error) {
+      console.error("Error updating last name:", error);
+    }
+  };
+
+  // handle name change
+  const [state, setState] = useState(false);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setFirstName(value); // Store input
+    setState(value.length >= 5);
+  };
+
+  // Handle account deletion
+  const handleDeleteAccount = async (e) => {
+    e.preventDefault();
+
+    if (!userIdOrEmail) {
+      alert("No user ID found!");
+      return; //  router.push("/auth/Login")
+    }
+
+    try {
+      const res = await fetch(
+        `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!res.ok) {
+        const errorMessage = await res.text();
+        throw new Error(errorMessage || "Error deleting account!");
+      }
+
+      console.log("Account deleted successfully!");
+
+      // Clear user data and redirect
+      localStorage.removeItem("userId");
+      router.push("/authentication/Login");
+    } catch (error) {
+      console.error("Delete error:", error.message);
+      console.log("Failed to delete account.");
+    }
+  };
+
+  useEffect(() => {
+    const getUser = async () => {
+      if (!userIdOrEmail) return router.push("/authentication/Login");
+
+      try {
+        const res = await fetch(
+          `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const data = await res.json();
+        setUser(data);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    getUser();
+  }, [userIdOrEmail, handleNameUpdate]);
   return (
     <div>
       <h1 className="heading-text ">Settings</h1>
@@ -50,22 +154,20 @@ export default function SettingsPage() {
             <section className=" settings-subform">
               <input
                 type="text"
-                className="input-name"
+                className="input-setting-name"
                 name=""
                 id=""
-                placeholder="Name"
+                placeholder={user?.firstName + " " + user?.lastName || "Name"}
+                onChange={handleChange}
               />
               <div className=" subform">
                 <label htmlFor="email" className="label">
                   Email
                 </label>
-                <input
-                  type="text"
-                  className=" input-email"
-                  name="email"
-                  id=""
-                  placeholder=""
-                />
+
+                <p className=" input-setting-email">
+                  {user?.email || "johndoe@example.com"}
+                </p>
               </div>
 
               <p className="email-msg">
@@ -73,7 +175,12 @@ export default function SettingsPage() {
                 account.
               </p>
             </section>
-            <button className=" button-inactive">Save Changes</button>
+            <button
+              className={state ? " button-active" : " button-inactive"}
+              onClick={handleNameUpdate}
+            >
+              Save Changes
+            </button>
           </form>
         </section>
 
@@ -89,7 +196,7 @@ export default function SettingsPage() {
                 <article>
                   <input
                     type="text"
-                    className=" input-password"
+                    className=" input-security-password"
                     name="password"
                     id=""
                     placeholder="************"
@@ -362,13 +469,21 @@ export default function SettingsPage() {
               </p>
             </section>
             <section action="" className="  overlay-form1">
-              <button className="overlay-delete-button" type="button">
+              <button
+                className="overlay-delete-button"
+                type="button"
+                onClick={handleDeleteAccount}
+              >
                 Delete my account
               </button>
             </section>
           </div>
         </section>
       )}
+      <footer className="dashFooter">
+        <p>&copy; 2025 Advertorial Hub. All Rights Reserved.</p>
+        <a href="/Policy">Privacy Policy</a> | <a href="/AboutUs">About Us</a>
+      </footer>
     </div>
   );
 }

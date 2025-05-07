@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { icons } from "../../lib/Icons";
-// import "../styles/Sidebar.css";
+import "../../styles/Sidebar.css";
 
 function Sidebar() {
   const pathname = usePathname();
@@ -20,7 +20,11 @@ function Sidebar() {
       <aside className="sidebar">
         {/* head section */}
         <section className="sidebar-header">
-          <img src="" className="sidebar-logo" alt="Advertorial Hub Logo" />
+          <img
+            src="/images/logo.png"
+            className="sidebar-logo"
+            alt="Advertorial Hub Logo"
+          />
           <h4 className="sidebar-title">Advertorial Hub</h4>
         </section>
 

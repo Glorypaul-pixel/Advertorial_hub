@@ -39,6 +39,10 @@ const Login = () => {
         throw new Error(data?.message || "Login failed!");
       }
 
+      // Save token, user ID, and email in localStorage
+      localStorage.setItem("userId", data.user.id);
+      localStorage.setItem("token", data.token);
+
       console.log("Login Successful:", data);
       alert("Login successful!");
 
@@ -52,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className="page-container">
+    <div className="Loginpage-container">
       <span className="background-pattern">
         <div className="gradient-overlay"></div>
       </span>

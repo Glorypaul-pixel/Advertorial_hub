@@ -49,9 +49,7 @@
   border-radius: 2rem;
 }
 
-.active:hover::after {
-  background-color: #4a90e2;
-}
+
 /* Styling for Home CreateAccount */
 
 .Advertpagecontainer {

@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook";
 
 const handler = NextAuth({
   providers: [
@@ -12,4 +11,6 @@ const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
 });
 
-export { handler as GET, handler as POST };
+// Explicitly export GET and POST methods for the route
+export const GET = handler;
+export const POST = handler;

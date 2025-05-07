@@ -1,71 +1,72 @@
-// "use client";
-// import { useSearchParams } from "next/navigation";
-// import { useEffect, useState } from "react";
-// import "@/styles/Verify.css";
+"use client";
 
-// const VerifyEmail = () => {
-//   const searchParams = useSearchParams();
-//   const userId = searchParams.get("userId");
-//   const [message, setMessage] = useState("Verifying your email...");
-//   const [success, setSuccess] = useState(null);
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import "@/styles/Verify.css";
 
-//   useEffect(() => {
-//     const verifyEmail = async () => {
-//       try {
-//         const token = searchParams.get("token");
+const VerifyEmail = () => {
+  const searchParams = useSearchParams();
+  const userId = searchParams.get("userId");
+  const [message, setMessage] = useState("Verifying your email...");
+  const [success, setSuccess] = useState(null);
 
-//         const response = await fetch(
-//           `https://advertorial-backend.onrender.com/api/auth/verify/${userId}?token=${token}`
-//         );
+  useEffect(() => {
+    const verifyEmail = async () => {
+      try {
+        const token = searchParams.get("token");
 
-//         const data = await response.json();
+        const response = await fetch(
+          `https://advertorial-backend.onrender.com/api/auth/verify/${userId}?token=${token}`
+        );
 
-//         if (!response.ok) {
-//           throw new Error(data.message || "Verification failed.");
-//         }
+        const data = await response.json();
 
-//         setMessage("Your email has been verified successfully.");
-//         setSuccess(true);
-//       } catch (error) {
-//         setMessage(error.message);
-//         setSuccess(false);
-//       }
-//     };
+        if (!response.ok) {
+          throw new Error(data.message || "Verification failed.");
+        }
 
-//     if (userId) {
-//       verifyEmail();
-//     } else {
-//       setMessage("Verification link is invalid or expired.");
-//       setSuccess(false);
-//     }
-//   }, [userId, searchParams]);
+        setMessage("Your email has been verified successfully.");
+        setSuccess(true);
+      } catch (error) {
+        setMessage(error.message);
+        setSuccess(false);
+      }
+    };
 
-//   return (
-//     <div className="verify-container">
-//       <div className="verify-card">
-//         <div className="verify-header">
-//           <img
-//             src="/images/logo.png"
-//             alt="Advertorial Hub Logo"
-//             className="verify-logo"
-//           />
-//           <h1 className="verify-title">Advertorial Hub</h1>
-//         </div>
-//         <div className="verify-body">
-//           <p className="verify-message">
-//             {success === null
-//               ? "Please wait while we verify your email..."
-//               : message}
-//           </p>
-//           {success && (
-//             <a href="/authentication/Login/page" className="verify-button">
-//               Log In
-//             </a>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+    if (userId) {
+      verifyEmail();
+    } else {
+      setMessage("Verification link is invalid or expired.");
+      setSuccess(false);
+    }
+  }, [userId, searchParams]);
 
-// export default VerifyEmail;
+  return (
+    <div className="verify-container">
+      <div className="verify-card">
+        <div className="verify-header">
+          <img
+            src="/images/logo.png"
+            alt="Advertorial Hub Logo"
+            className="verify-logo"
+          />
+          <h1 className="verify-title">Advertorial Hub</h1>
+        </div>
+        <div className="verify-body">
+          <p className="verify-message">
+            {success === null
+              ? "Please wait while we verify your email..."
+              : message}
+          </p>
+          {success && (
+            <a href="/authentication/Login/page" className="verify-button">
+              Log In
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default VerifyEmail;

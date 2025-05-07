@@ -74,7 +74,7 @@
 .liston {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content:flex-start;
   gap: 16px;
   columns: #0a0d14;
   font-size: 18px;
@@ -255,7 +255,7 @@ input {
 .link-buttons-container {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 16px;
   margin-bottom: 30px;
 }

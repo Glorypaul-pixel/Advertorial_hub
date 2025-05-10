@@ -81,14 +81,14 @@ const CreateAccount = () => {
   };
 
   // Sign in with Google
-  const handleGoogleSignup = () => {
-    signIn("google");
-  };
+  // const handleGoogleSignup = () => {
+  //   signIn("google");
+  // };
 
   // Sign in with Facebook
-  const handleFacebookSignup = () => {
-    signIn("facebook");
-  };
+  // const handleFacebookSignup = () => {
+  //   signIn("facebook");
+  // };
 
   return (
     <div className="Create-container">
@@ -215,14 +215,14 @@ const CreateAccount = () => {
               <button
                 type="button"
                 className="auth-button"
-                onClick={handleGoogleSignup} // Use NextAuth.js sign-in for Google
+                // onClick={handleGoogleSignup} // Use NextAuth.js sign-in for Google
               >
                 <span>{icons.google}</span> Sign up with Google
               </button>
               <button
                 type="button"
                 className="auth-button"
-                onClick={handleFacebookSignup} // Use NextAuth.js sign-in for Facebook
+                // onClick={handleFacebookSignup} // Use NextAuth.js sign-in for Facebook
               >
                 <span>{icons.facebook}</span> Sign up with Facebook
               </button>

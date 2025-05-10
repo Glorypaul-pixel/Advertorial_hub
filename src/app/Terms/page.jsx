@@ -1,11 +1,9 @@
 import React from "react";
 import "@/styles/Terms.css";
-import Footer from "@/app/components/Footer";
-import Header from "@/app/components/Header";
+
 const Terms = () => {
   return (
     <div>
-      <Header />
       <div className="terms-container">
         <div className="terms-wrapper">
           <h1>Terms and Services</h1>
@@ -535,7 +533,6 @@ const Terms = () => {
           </section>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -184,11 +184,11 @@ const CreateAccount = () => {
               />
               <p className="terms-text">
                 I accept the{" "}
-                <Link href="/auth/Terms">
+                <Link href="/Terms">
                   <b>Terms</b>
                 </Link>{" "}
                 and{" "}
-                <Link href="/auth/Policy">
+                <Link href="/Policy">
                   <b className="privacy-link">Privacy</b>
                 </Link>
               </p>

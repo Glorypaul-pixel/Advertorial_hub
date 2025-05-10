@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { signIn } from "next-auth/react"; // Import signIn function from NextAuth.js
 import { icons } from "@/lib/Icons"; // Ensure this file exists
 import "@/styles/CreateAccount.css"; // Ensure the CSS is correctly located
 

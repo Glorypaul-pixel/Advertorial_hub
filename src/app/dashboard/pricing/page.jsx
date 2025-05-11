@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { icons } from "@/lib/Icons";
 import "@/styles/Pricing.css";

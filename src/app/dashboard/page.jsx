@@ -1,47 +1,44 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import { icons } from "../../lib/Icons";
 import "../../styles/Seetingshome.css";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
-  //  UI State
-  const [showList, setShowList] = useState(false); // Controls visibility of a list section
-  const [addLink, setAddLink] = useState(false); // Controls "Add Link" section
-  const [profile, setProfile] = useState(false); // Controls user profile section
-  const [deleteLink, setDeleteLink] = useState(false); // Controls delete link dialog/menu
+  // UI States
+  const [showList, setShowList] = useState(false);
+  const [addLink, setAddLink] = useState(false);
+  const [profile, setProfile] = useState(false);
+  const [deleteLink, setDeleteLink] = useState(false);
 
-  //  Post Progress States
-  const [createPost, setCreatePost] = useState(false); // True when creating a new post/handles page display
-  const [selectImg, setSelectImg] = useState(false); // Controls image selection mode
-  const [recentPosts, setRecentPost] = useState(false); // Show recently created posts
-  const [menu, setMenu] = useState(false); // Toggles menu visibility
+  // Post Progress States
+  const [createPost, setCreatePost] = useState(false);
+  const [selectImg, setSelectImg] = useState(false);
+  const [recentPosts, setRecentPost] = useState(false);
+  const [menu, setMenu] = useState(false);
 
-  //  Handling Backend Integeration
-  const [user, setUser] = useState(null); // Holds user data from backend
-  const [title, setTitle] = useState("title"); // Post title
-  const [content, setContent] = useState(""); // Post content
-  const [images, setImages] = useState([]); // List of images uploaded
-  const [video, setVideo] = useState(null); // Video file (if any)
-  const [isAd, setIsAd] = useState(false); // Boolean: is this post an ad?
-  const [imagePreviews, setImagePreviews] = useState([]); // Previews of images
+  // Backend Integration States
+  const [user, setUser] = useState(null);
+  const [title, setTitle] = useState("title");
+  const [content, setContent] = useState("");
+  const [images, setImages] = useState([]);
+  const [video, setVideo] = useState(null);
+  const [isAd, setIsAd] = useState(false);
+  const [imagePreviews, setImagePreviews] = useState([]);
 
-  const [userPosts, setUserPosts] = useState([]); // Posts created by this user
+  const [userPosts, setUserPosts] = useState([]);
 
-  //  Routing
   const router = useRouter();
 
-  // Get data from local storage for use in API requests
-  const userIdOrEmail = localStorage.getItem("userId");
-  const userToken = localStorage.getItem("token");
-
-  //  Fetch user data and their posts on load
   useEffect(() => {
     const getUser = async () => {
+      const userIdOrEmail = localStorage.getItem("userId");
+      const userToken = localStorage.getItem("token");
+
       if (!userIdOrEmail) return router.push("/authentication/Login");
 
       try {
-        // Fetch the user by ID/email
         const res = await fetch(
           `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
           {
@@ -52,7 +49,6 @@ export default function HomePage() {
           }
         );
 
-        // Fetch all posts
         const response = await fetch(
           "https://advertorial-backend.onrender.com/api/posts",
           {
@@ -71,7 +67,6 @@ export default function HomePage() {
           return console.error("Failed to fetch posts:", postsData);
         }
 
-        // Filter posts that belong to this logged-in user
         const myPosts = postsData.filter(
           (post) => post.creatorId === userData.id
         );
@@ -86,12 +81,15 @@ export default function HomePage() {
       }
     };
 
-    getUser();
-  }, [userIdOrEmail]);
-  //  Fetch posts data on button clicked, effect below
+    if (typeof window !== "undefined") {
+      getUser();
+    }
+  }, []);
+
   const getPosts = async () => {
+    const userToken = localStorage.getItem("token");
+
     try {
-      // Fetch all posts
       const response = await fetch(
         "https://advertorial-backend.onrender.com/api/posts",
         {
@@ -107,20 +105,13 @@ export default function HomePage() {
         return console.error("Failed to fetch posts:", postsData);
       }
 
-      // Filter posts that belong to this logged-in user
       const myPosts = postsData.filter((post) => post.creatorId === user.id);
       setUserPosts(myPosts);
-
-      // if (myPosts.length >= 1) {
-      //   setRecentPost(true);
-      //   setCreatePost(true);
-      // }
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
   };
 
-  //  Handle post create creation
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userToken = localStorage.getItem("token");
@@ -135,7 +126,6 @@ export default function HomePage() {
     formData.append("creatorId", user._id);
     formData.append("creatorEmail", user.email);
 
-    // Only include first 5 images
     images.slice(0, 5).forEach((image) => {
       formData.append("images", image);
     });
@@ -170,7 +160,6 @@ export default function HomePage() {
     }
   };
 
-  //  Handle UI switches (toggle views)
   const handleSwitch = (e) => {
     e.preventDefault();
 
@@ -189,7 +178,6 @@ export default function HomePage() {
     }
   };
 
-  //  Handle Delete Post by post Id
   const handleDeletePost = async (postId) => {
     try {
       const response = await fetch(
@@ -204,7 +192,6 @@ export default function HomePage() {
       }
 
       console.log(`Post ${postId} deleted successfully.`);
-      // Remove deleted post from state
       setUserPosts((prev) => prev.filter((post) => post._id !== postId));
     } catch (error) {
       console.error("Error deleting post:", error);

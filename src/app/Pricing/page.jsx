@@ -12,10 +12,16 @@ const Pricing = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      const userIdOrEmail = localStorage.getItem("userId");
-      setToken(localStorage.getItem("token"));
+      if (typeof window === "undefined") return;
 
-      if (!userIdOrEmail) return router.push("/authentication/Login");
+      const userIdOrEmail = localStorage.getItem("userId");
+      const storedToken = localStorage.getItem("token");
+
+      if (!userIdOrEmail) {
+        return (window.location.href = "/authentication/Login");
+      }
+
+      setToken(storedToken);
 
       try {
         const res = await fetch(

@@ -12,32 +12,33 @@ const Pricing = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      if (typeof window === "undefined") return;
+      if (typeof window !== "undefined") {
+        const userIdOrEmail = localStorage.getItem("userId");
+        const storedToken = localStorage.getItem("token");
 
-      const userIdOrEmail = localStorage.getItem("userId");
-      const storedToken = localStorage.getItem("token");
+        if (!userIdOrEmail) {
+          window.location.href = "/authentication/Login";
+          return;
+        }
 
-      if (!userIdOrEmail) {
-        return (window.location.href = "/authentication/Login");
-      }
+        setToken(storedToken);
 
-      setToken(storedToken);
-
-      try {
-        const res = await fetch(
-          `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const userData = await res.json();
-        setUser(userData);
-        console.log(userData);
-      } catch (error) {
-        console.error("Error fetching user:", error);
+        try {
+          const res = await fetch(
+            `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const userData = await res.json();
+          setUser(userData);
+          console.log(userData);
+        } catch (error) {
+          console.error("Error fetching user:", error);
+        }
       }
     };
 

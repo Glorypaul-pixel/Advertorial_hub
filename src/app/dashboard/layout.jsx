@@ -9,12 +9,13 @@ export default function Layout({ children }) {
   return (
     <div className="layout-container">
       <section className="sidebar-container">
-        <Sidebar  />
+        <Sidebar />
       </section>
       <main className="main-content ">
         <div
           className={`hamburger sideHeader ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}>
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>

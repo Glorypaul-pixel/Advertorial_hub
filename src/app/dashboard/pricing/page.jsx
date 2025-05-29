@@ -11,39 +11,39 @@ const Pricing = () => {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-  const getUser = async () => {
-    if (typeof window === "undefined") return;
+    const getUser = async () => {
+      if (typeof window !== "undefined") {
+        const userIdOrEmail = localStorage.getItem("userId");
+        const storedToken = localStorage.getItem("token");
 
-    const userIdOrEmail = localStorage.getItem("userId");
-    const storedToken = localStorage.getItem("token");
-
-    if (!userIdOrEmail) {
-      return (window.location.href = "/authentication/Login");
-    }
-
-    setToken(storedToken);
-
-    try {
-      const res = await fetch(
-        `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+        if (!userIdOrEmail) {
+          window.location.href = "/authentication/Login";
+          return;
         }
-      );
-      const userData = await res.json();
-      setUser(userData);
-      console.log(userData);
-    } catch (error) {
-      console.error("Error fetching user:", error);
-    }
-  };
 
-  getUser();
-}, []);
+        setToken(storedToken);
 
+        try {
+          const res = await fetch(
+            `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const userData = await res.json();
+          setUser(userData);
+          console.log(userData);
+        } catch (error) {
+          console.error("Error fetching user:", error);
+        }
+      }
+    };
+
+    getUser();
+  }, []);
 
   const prices = {
     personal: "Free",

@@ -79,7 +79,10 @@ const Pricing = () => {
     try {
       const res = await changeUserPlan({ reference, planName });
       console.log(res.message);
-      window.location.reload();
+
+      if (typeof window !== "undefined") {
+        window.location.reload();
+      }
     } catch (err) {
       console.error(err);
       console.log(err.message);

@@ -6,14 +6,23 @@
 /* Main content styles */
 .main-content {
   margin-left: 0;
+  padding-right: 25px;
   /* padding: 1.5rem;  */
   width: 100%;
   background-color: #f7fafc; /* equivalent to bg-gray-100 */
+}
+.sideHeader{
+  position: absolute;
+  top: 110px;
+  left: 5px;
 }
 
 /* Apply margin-left to main content when the sidebar is visible (screen width >= 768px) */
 @media (min-width: 768px) {
    .main-content { 
     margin-left: 274px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
   } 
 }

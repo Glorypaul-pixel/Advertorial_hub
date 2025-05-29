@@ -2,49 +2,24 @@
 
 import { icons } from "@/lib/Icons";
 import { useEffect, useState } from "react";
-import "../../../styles/Settings.css";
 import { useRouter } from "next/navigation";
+import "../../../styles/Settings.css";
 
 export default function SettingsPage() {
   //  UI State
   const [changePassword, setChangePassoword] = useState(false);
   const [secureAccount, setSecureAccount] = useState(false);
-  const [code, setCode] = useState(false);
   const [deleteAccount, setDeleteAccount] = useState(false);
 
   const [multiF, setMultiF] = useState(false);
 
-  const [sms, setSms] = useState(false);
-  const [call, setCall] = useState(false);
-
-  // handling switing on account change
-  const handleSwitch = (e) => {
-    if (e.target.id === "savePasswordChange") {
-      setChangePassoword(false);
-      setSecureAccount(true);
-      setCode(false);
-    } else if (e.target.id === "secure") {
-      setChangePassoword(false);
-      setSecureAccount(false);
-      setCode(true);
-    }
-  };
-
-  // handling switching on mode of code recieval
-  const handleSwitchFormat = (e) => {
-    if (e.target.id === "sms") {
-      setSms(true);
-      setCall(false);
-    } else if (e.target.id === "call") {
-      setSms(false);
-      setCall(true);
-    }
-  };
-
   // Handling Backend Integeration
   const [user, setUser] = useState(null);
   const router = useRouter();
-  const [firstName, setFirstName] = useState(null);
+  const [firstName, setFirstName] = useState("");
+  const [firstNameLoading, setFirstNameLoading] = useState(false);
+  const [emailLoading, setEmailLoading] = useState(false);
+  const [emailError, setEmailError] = useState(false);
 
   // Get the logged in user's ID from localStorage
   const userIdOrEmail =
@@ -53,25 +28,68 @@ export default function SettingsPage() {
   // handling name update
   const handleNameUpdate = async (e) => {
     e.preventDefault();
+    setFirstNameLoading(true);
     try {
-      const res = await fetch(`/api/auth/user/${userIdOrEmail}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ firstName }), // Only updating last name
-      });
+      const res = await fetch(
+        `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ firstName }), // Only updating first name
+        }
+      );
 
       const data = await res.json();
 
       if (res.ok) {
         console.log("Last name updated successfully:", data);
-        // Optional: Update local state or show a success message
+        setFirstName("");
+        setFirstNameLoading(false);
       } else {
         console.error("Failed to update last name:", data.message || data);
       }
     } catch (error) {
       console.error("Error updating last name:", error);
+      setFirstNameLoading(false);
+    }
+  };
+  // handling forgotten password
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    setEmailLoading(true);
+    setEmailError(false);
+    const forgottenPasswordEmail = user?.email;
+    try {
+      const res = await fetch(
+        `https://advertorial-backend.onrender.com/api/auth/forgot-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: forgottenPasswordEmail }), // Only updating first name
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log("Password updated successfully:", data);
+        setChangePassoword(false);
+        setSecureAccount(true);
+        setEmailLoading(false);
+        setEmailError(false);
+      } else {
+        console.error("Failed to update Password:", data.message || data);
+        setEmailLoading(false);
+        setEmailError(true);
+      }
+    } catch (error) {
+      console.error("Error updating Password:", error);
+      setEmailLoading(false);
+      setEmailError(true);
     }
   };
 
@@ -88,7 +106,7 @@ export default function SettingsPage() {
     e.preventDefault();
 
     if (!userIdOrEmail) {
-      alert("No user ID found!");
+      console.log("No user ID found!");
       return; //  router.push("/auth/Login")
     }
 
@@ -156,10 +174,11 @@ export default function SettingsPage() {
               <input
                 type="text"
                 className="input-setting-name"
-                name=""
-                id=""
-                placeholder={user?.firstName + " " + user?.lastName || "Name"}
+                value={firstName}
                 onChange={handleChange}
+                placeholder={
+                  user?.firstName + " " + user?.lastName || "John Doe"
+                }
               />
               <div className=" subform">
                 <label htmlFor="email" className="label">
@@ -180,7 +199,7 @@ export default function SettingsPage() {
               className={state ? " button-active" : " button-inactive"}
               onClick={handleNameUpdate}
             >
-              Save Changes
+              {firstNameLoading ? "Saving..." : "Save Changes"}
             </button>
           </form>
         </section>
@@ -244,7 +263,12 @@ export default function SettingsPage() {
               <p className="management-t">
                 Upgrade to Pro to enjoy more features
               </p>
-              <button className="button-blue">Upgrade to Pro</button>
+              <button
+                className="button-blue"
+                onClick={() => router.push("/Pricing")}
+              >
+                Upgrade to Pro
+              </button>
             </div>
           </div>
         </section>
@@ -283,50 +307,33 @@ export default function SettingsPage() {
             </h4>
             <form action="" className="  overlay-form1">
               <section className="  overlay-form2">
-                {/* old password  */}
-                <div className="  overlay-form3 ">
-                  <label htmlFor="password" className=" overlay-label ">
-                    Enter password
-                  </label>
-                  <input
-                    type="text"
-                    className=" overlay-input  "
-                    name="password"
-                    id=""
-                  />
-                </div>
                 {/* new password  */}
                 <div className="  overlay-form3 ">
                   <label htmlFor="password" className=" overlay-label">
-                    Enter new password
+                    Confirm Email:
                   </label>
                   <input
                     type="text"
                     className=" overlay-input "
                     name="password"
-                    id=""
-                  />
-                </div>
-                {/* new password  */}
-                <div className="  overlay-form3 ">
-                  <label htmlFor="password" className=" overlay-label">
-                    Re-enter new password
-                  </label>
-                  <input
-                    type="text"
-                    className=" overlay-input "
-                    name="password"
-                    id=""
+                    value={user?.email}
+                    readOnly
                   />
                 </div>
               </section>
               <button
                 className="button-blue overlay-button "
                 id="savePasswordChange"
-                onClick={handleSwitch}
+                onClick={handleForgotPassword}
               >
-                Save Change
+                {/* Save Change */}
+                {emailLoading ? "Sending..." : "Send Reset Password Email"}
               </button>
+              {emailError && (
+                <p className="overlay-reset-email-failure">
+                  Error Sending Password Reset Email.
+                </p>
+              )}
             </form>
           </div>
         </section>
@@ -337,7 +344,7 @@ export default function SettingsPage() {
         <section className="settings-overlay">
           <div className="overlay-container">
             <h4 className=" overlay-header">
-              Secure Your Account
+              Email Sent
               <button
                 type="button"
                 className=" cursor-pointer "
@@ -350,98 +357,25 @@ export default function SettingsPage() {
               <section className="  overlay-form2">
                 <div className="  overlay-form3 ">
                   <label htmlFor="mobilenumber" className=" overlay-label">
-                    Phone number
+                    Reset Password Email Sent, Kindly check your Inbox.
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     className=" overlay-input "
-                    name="mobilenumber"
-                    id=""
+                    name="password"
+                    value={user?.email}
+                    readOnly
                   />
-                </div>
-                {/* code format  */}
-                <div className="  overlay-form3 ">
-                  <p className=" overlay-label">
-                    How would you prefer to receive your code?
-                  </p>
-                  <div className=" code-container">
-                    <button
-                      type="button"
-                      className={
-                        sms ? " preference-active" : " preference-inactive"
-                      }
-                      onClick={handleSwitchFormat}
-                      id="sms"
-                    >
-                      SMS
-                    </button>
-                    <button
-                      type="button"
-                      className={
-                        call ? " preference-active" : " preference-inactive"
-                      }
-                      onClick={handleSwitchFormat}
-                      id="call"
-                    >
-                      Voice Call
-                    </button>
-                  </div>
                 </div>
               </section>
               <button
                 className="button-blue overlay-button"
                 type="button"
-                onClick={handleSwitch}
                 id="secure"
+                onClick={() => setSecureAccount(false)}
               >
-                Continue
+                Close
               </button>
-            </form>
-          </div>
-        </section>
-      )}
-      {/* get code  */}
-      {code && (
-        <section className="settings-overlay">
-          <div className="overlay-container">
-            <h4 className=" overlay-header">
-              Enter the Code
-              <button
-                type="button"
-                className=" cursor-pointer "
-                onClick={() => setCode(false)}
-              >
-                {icons.exit}
-              </button>
-            </h4>
-            <form action="" className="  overlay-form1">
-              <section className="  overlay-form2">
-                {/* new password  */}
-                <div className="  overlay-form3 ">
-                  <label htmlFor="code" className=" overlay-label">
-                    Enter the 6-digit code
-                  </label>
-                  <input
-                    type="text"
-                    className=" overlay-input "
-                    name="code"
-                    id=""
-                  />
-                </div>
-              </section>
-              <div className="new-passc">
-                <button
-                  className="button-blue  cursor-pointer"
-                  type="button"
-                  onClick={handleSwitch}
-                  id="secure"
-                >
-                  Continue
-                </button>
-                <p className="sms-call">
-                  Didn’t receive an SMS? <b>Resend</b> or <b>get a call</b>
-                </p>
-              </div>
             </form>
           </div>
         </section>

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { icons } from "../../lib/Icons";
 import "../../styles/Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ setMenuOpen }) {
   const pathname = usePathname();
 
   const navPages = [
@@ -12,10 +12,11 @@ function Sidebar() {
     { name: "Analytics", path: "/dashboard/analytics", icon: icons.analytics },
     { name: "Pricing", path: "/dashboard/pricing", icon: icons.pricing },
     { name: "Settings", path: "/dashboard/setting", icon: icons.setting },
+    { name: "Post", path: "/dashboard/posts/:id", icon: icons.post },
   ];
 
   return (
-    <div className="sidebar-container">
+    <div>
       {/* container */}
       <aside className="sidebar">
         {/* head section */}
@@ -30,18 +31,28 @@ function Sidebar() {
 
         {/* nav */}
         <nav>
-          <ul className="sidebar-nav">
-            {navPages.map((page) => (
-              <li key={page.path}>
-                <Link
-                  href={page.path}
-                  className={`sidebar-link ${
-                    pathname === page.path ? "active-link" : "inactive-link"
-                  }`}
-                >
-                  {page.icon}
-                  <span>{page.name}</span>
-                </Link>
+          <ul className="sidebar-nav" onClick={() => setMenuOpen?.(false)}>
+            {navPages.map((page, index) => (
+              <li key={index}>
+                {page.name === "Post" ? (
+                  <span
+                    className="sidebar-link inactive-link"
+                    style={{ cursor: "default" }}
+                  >
+                    {page.icon}
+                    <span>{page.name}</span>
+                  </span>
+                ) : (
+                  <Link
+                    href={page.path}
+                    className={`sidebar-link ${
+                      pathname === page.path ? "active-link" : "inactive-link"
+                    }`}
+                  >
+                    {page.icon}
+                    <span>{page.name}</span>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -52,3 +63,4 @@ function Sidebar() {
 }
 
 export default Sidebar;
+ 

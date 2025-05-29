@@ -9,11 +9,22 @@ export default function LayoutClient({ children }) {
   const pathname = usePathname();
 
   // List pages where the Footer should NOT be shown
-  const noFooterPages = ["/dashboard", "/dashboard/analytics", "/dashboard/setting", "/dashboard/pricing"];
+  const noFooterPages = [
+    "/dashboard",
+    "/dashboard/analytics",
+    "/dashboard/setting",
+    "/dashboard/pricing",
+  ];
+  const noHeaderPages = [
+    "/dashboard",
+    "/dashboard/analytics",
+    "/dashboard/setting",
+    "/dashboard/pricing",
+  ];
 
   return (
     <>
-      <Header />
+      {!noFooterPages.includes(pathname) && <Header />}
       <main>{children}</main>
       {!noFooterPages.includes(pathname) && <Footer />}
     </>

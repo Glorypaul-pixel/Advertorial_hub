@@ -24,11 +24,11 @@ const Footer = () => {
         <div className="footerResource">
           <h2>Resource</h2>
           <ul>
-            <Link href="/auth/Pricing" className="custom-link">
+            <Link href="/Pricing" className="custom-link">
               {" "}
               <li>Pricing</li>
             </Link>
-            <Link href="/auth/Blog" className="custom-link">
+            <Link href="/Blog" className="custom-link">
               <li>Blog</li>
             </Link>
           </ul>
@@ -40,14 +40,14 @@ const Footer = () => {
         <div className="footerAbout">
           <h2>About Us</h2>
           <ul>
-            <Link href="/auth/AboutUs" className="custom-link">
+            <Link href="/AboutUs" className="custom-link">
               {" "}
               <li>About Us</li>
             </Link>
-            <Link href="/auth/Policy" className="custom-link">
+            <Link href="/Policy" className="custom-link">
               <li>Privacy Policy</li>
             </Link>
-            <Link href="/auth/Terms" className="custom-link">
+            <Link href="/Terms" className="custom-link">
               <li>Terms and Services</li>
             </Link>
           </ul>
@@ -59,11 +59,61 @@ const Footer = () => {
         <div className="footerContact">
           <h2>Contact</h2>
           <ul>
-            <li>08132581551</li>
-            <li>Twitter</li>
-            <li>Facebook</li>
-            <li>LinkedIn</li>
-            <li>Instagram</li>
+            <li>
+              <a
+                href="https://wa.me/2348065137645"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-600 hover:underline"
+              >
+                +234 8065 137 645
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/Techk_e4ma"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://facebook.com/madubueze.ifeomagloria"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/in/madubueze-gloria-ifeoma"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://instagram.com/techk_e4ma"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://tiktok.com/@techk_e4ma"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TikTok
+              </a>
+            </li>
           </ul>
         </div>
       </div>

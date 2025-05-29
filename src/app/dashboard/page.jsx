@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { icons } from "../../lib/Icons";
-import "../../styles/Seetingshome.css";
 import { useRouter } from "next/navigation";
+import ImageSkeleton from "./ImageSkeleton";
+import "../../styles/Seetingshome.css";
+import Loading from "./loading";
 
 export default function HomePage() {
   // UI States
@@ -27,7 +29,12 @@ export default function HomePage() {
   const [isAd, setIsAd] = useState(false);
   const [imagePreviews, setImagePreviews] = useState([]);
 
+  // post array
   const [userPosts, setUserPosts] = useState([]);
+
+  // loading states and error handling
+  const [errorPost, setErrorPost] = useState(false);
+  const [createLoading, setCreateLoading] = useState(false);
 
   const router = useRouter();
 
@@ -62,7 +69,7 @@ export default function HomePage() {
         const postsData = await response.json();
 
         setUser(userData);
-
+        console.log(userData);
         if (!response.ok) {
           return console.error("Failed to fetch posts:", postsData);
         }
@@ -86,9 +93,9 @@ export default function HomePage() {
     }
   }, []);
 
+  // Getting posts
   const getPosts = async () => {
     const userToken = localStorage.getItem("token");
-
     try {
       const response = await fetch(
         "https://advertorial-backend.onrender.com/api/posts",
@@ -105,19 +112,24 @@ export default function HomePage() {
         return console.error("Failed to fetch posts:", postsData);
       }
 
-      const myPosts = postsData.filter((post) => post.creatorId === user.id);
+      const myPosts = postsData.filter(
+        (post) => post?.creatorId === user?.id
+      );
       setUserPosts(myPosts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
   };
 
+  // submiting post
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setCreateLoading(true);
+    setErrorPost(false);
     const userToken = localStorage.getItem("token");
 
-    if (!user) return alert("User not loaded yet.");
-    if (!userToken) return alert("No token found. Please log in again.");
+    if (!user) return console.log("User not loaded yet.");
+    if (!userToken) return console.log("No token found. Please log in again.");
 
     const formData = new FormData();
     formData.append("title", title);
@@ -150,16 +162,21 @@ export default function HomePage() {
       if (res.ok) {
         setRecentPost(true);
         console.log("Post created:", data);
+        setCreateLoading(false);
+        setErrorPost(false);
       } else {
         console.error("Error creating post:", data);
-        alert(data.message || "Failed to create post");
+        setCreateLoading(false);
+        setErrorPost(true);
       }
     } catch (err) {
       console.error("Upload error:", err);
-      alert("An error occurred during upload.");
+      setErrorPost(true);
+      setCreateLoading(false);
     }
   };
 
+  // switching from-to create/created post
   const handleSwitch = (e) => {
     e.preventDefault();
 
@@ -178,12 +195,20 @@ export default function HomePage() {
     }
   };
 
+  // handling delete post
   const handleDeletePost = async (postId) => {
+    console.log(postId);
+    const userToken = localStorage.getItem("token");
+    console.log(userToken);
+
     try {
       const response = await fetch(
         `https://advertorial-backend.onrender.com/api/posts/${postId}`,
         {
           method: "DELETE",
+          headers: {
+            Authorization: userToken,
+          },
         }
       );
 
@@ -198,10 +223,31 @@ export default function HomePage() {
     }
   };
 
+  // handle share post
+  const handleSharePost = (postId) => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Check out this post",
+          text: "I found this post interesting, thought you might like it too!",
+          url: `https://advertorial-backend.onrender.com/api/posts/${postId}`,
+        })
+        .then(() => console.log("Post shared successfully!"))
+        .catch((error) => console.error("Error sharing post:", error));
+    }
+  };
+
+  // handle view post
+  const handleViewPost = (e, postId) => {
+    e.preventDefault();
+    router.push(`/dashboard/posts/${postId}`);
+  };
+
   // to handle post data on but clicks to get updated data, connection above
   useEffect(() => {
     getPosts();
   }, [handleSubmit, handleDeletePost]);
+
   return (
     <div>
       {!createPost ? (
@@ -448,21 +494,46 @@ export default function HomePage() {
             <main className="createpost-container">
               <h2 className="posth-text">Recent Post</h2>
               {userPosts.map((post) => (
-                <section className=" recetpost-card" key={post.content}>
+                <section className=" recetpost-card" key={post.id}>
                   {/* post information  */}
                   <div className=" recentpost-info">
                     <article>
-                      {/* would be replaced later to img  */}
-                      <span>{icons.avatardummy2}</span>
+                      <p className="avatar-dummy">
+                        {user?.firstName.slice(0, 1) +
+                          user?.lastName.slice(0, 1)}
+                      </p>
                       <p>
-                        Chudi Victor <span>{post.createdAt}</span>
+                        {user?.firstName + " " + user?.lastName}{" "}
+                        <span>
+                          {new Date() - new Date(post.createdAt) < 60000
+                            ? "Just now"
+                            : new Date(post.createdAt)
+                                .toLocaleString("en-US", {
+                                  day: "numeric",
+                                  month: "long",
+                                  hour: "numeric",
+                                  minute: "2-digit",
+                                  hour12: true,
+                                })
+                                .replace(",", " at")}
+                        </span>
                       </p>
                     </article>
                     <p className="recentpost-menu">
-                      <span onClick={() => setMenu(!menu)}> {icons.menu}</span>
-                      {menu && (
+                      <span
+                        //  onClick={() => (!menu)}
+                        onClick={() =>
+                          setMenu(menu === post._id ? null : post._id)
+                        }
+                      >
+                        {" "}
+                        {icons.menu}
+                      </span>
+                      {menu === post._id && (
                         <ul>
-                          <li>Share Post</li>
+                          <li onClick={() => handleSharePost(post._id)}>
+                            Share Post
+                          </li>
                           <li>Edit Post</li>
                           <li
                             className="d"
@@ -476,12 +547,11 @@ export default function HomePage() {
                   </div>
                   {/* post write up  */}
                   <p>{post.content}</p>
-
-                  {/* post images  */}
-                  <div className="post-image">
-                    <img src={post.images} alt="empty now" />
-                    <img src="" alt="empty now" />
+                  <div onClick={(e) => handleViewPost(e, post._id)}>
+                    {/* post images  */}
+                    <ImageSkeleton images={post.images} />
                   </div>
+
                   <span>View Insight</span>
                 </section>
               ))}
@@ -518,7 +588,13 @@ export default function HomePage() {
                   )}
                   {imagePreviews.length > 0 && (
                     <p className="imagepreviewcontainer">
-                      Max 5 images allowed.
+                      Max: 5 images allowed for Business Plan and above, 1 for
+                      Free Plan.
+                    </p>
+                  )}
+                  {errorPost && (
+                    <p className="error-message">
+                      Couldn't Create Post, Please try again.
                     </p>
                   )}
                 </div>
@@ -537,7 +613,7 @@ export default function HomePage() {
                     id="createdpost"
                     onClick={handleSubmit}
                   >
-                    Next
+                    {createLoading ? "Creating..." : "Create Post"}
                   </button>
                 </div>
               </section>
@@ -589,7 +665,6 @@ export default function HomePage() {
                       type="text"
                       placeholder="Type or paste image URL"
                       name="imgLink"
-                      id=""
                     />
                   </div>
                 </section>

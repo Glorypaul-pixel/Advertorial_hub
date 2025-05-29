@@ -6,6 +6,7 @@
   align-items: center;
   gap: 12px;
   border-radius: 2rem;
+  cursor: pointer;
 }
 
 .monthly-billing:hover,
@@ -39,6 +40,7 @@
   color: #ffffff;
   font-weight: 600;
   border: none;
+  cursor: pointer;
 }
 
 /* Optional: override hover effect if active */
@@ -46,6 +48,7 @@
   background-color: #016ce8;
   color: #ffffff;
   border: none;
+  cursor: pointer;
 }
 
 /* ===== Page Container ===== */
@@ -178,6 +181,7 @@
   border: 1px solid #e2e4e9;
   color: #525866;
   line-height: 18px;
+  cursor: pointer;
 }
 
 .current-plan-btn {
@@ -314,6 +318,7 @@
   .billing-buttons {
     /* flex-direction: column; */
     width: 100%;
+    cursor: pointer;
   }
 
   .monthly-billing,

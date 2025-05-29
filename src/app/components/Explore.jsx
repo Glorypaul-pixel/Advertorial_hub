@@ -32,12 +32,12 @@ const Explore = () => {
 
       {/* Content Section */}
       <div className="exploreContent">
-        <Link href="/auth/Integration" className="custom-link">
+        <Link href="/Integrate" className="custom-link">
           <button className="exploreButton">Explore Integration</button>
         </Link>
 
         <h1>Get your brand in front of the people who matter most</h1>
-        <Link href="/auth/CreateAccount">
+        <Link href="/authentication/CreateAccount">
           <button className="btnStart">Get Started</button>
         </Link>
       </div>

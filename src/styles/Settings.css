@@ -249,6 +249,11 @@ article {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  button{
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
 }
 .overlay-form1 {
   display: flex;
@@ -280,6 +285,13 @@ article {
 .overlay-button {
   margin-bottom: 30px;
   cursor: pointer;
+}
+.overlay-reset-email-failure{
+  color: #df1c41;
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 18px;
+  text-align: center;
 }
 
 .preference-active {

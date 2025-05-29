@@ -84,21 +84,25 @@
 }
 
 /* Style for the Link component */
-.custom-link {
+.custom-link,
+.footerContact li a {
   color: #333; /* Initial text color */
   text-decoration: none; /* Remove the underline */
   transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.custom-link:hover {
+.custom-link:hover,
+.footerContact li a {
   color: #1d69e6; /* Blue color on hover */
 }
 
-.custom-link:focus {
+.custom-link:focus,
+.footerContact li a {
   color: #1d69e6; /* Keep blue color when focused */
 }
 
-.custom-link:visited {
+.custom-link:visited,
+.footerContact li a {
   color: #333; /* Ensure the visited link does not stay purple */
 }
 
@@ -106,7 +110,10 @@
 @media (min-width: 1024px) {
   .footerBg {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    ); /* Responsive columns */
     gap: 1.5rem;
     text-align: left;
     position: relative;
@@ -185,5 +192,4 @@
     margin: 0 auto;
     width: 90px;
   }
- 
 }

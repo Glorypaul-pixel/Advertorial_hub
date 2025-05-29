@@ -125,6 +125,28 @@
     cursor: pointer;
   }
 }
+.error-message{
+  color: #df1c41;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+}
+/* profile  */
+.avatar-dummy{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f5f6f7 0%, #e9ebee 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A0D14;
+  font-size: 40px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
 .folder-selection-container {
   display: flex;
   flex-direction: column;
@@ -219,12 +241,18 @@ input {
   padding: 10px;
   border-radius: 8px;
 }
+.hidden{
+  display: none;
+}
 .overlay-link-input {
   outline: none;
   border: 1px solid #e2e4e9;
   border-radius: 8px;
   display: flex;
   align-items: center;
+  input{
+    border: none;
+  }
   p {
     color: #525866;
     font-size: 14px;
@@ -338,6 +366,8 @@ input {
 }
 .cp {
   cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 /* create post section  */
@@ -473,6 +503,7 @@ input {
         font-size: 16px;
         font-weight: 400;
         line-height: 20px;
+        text-decoration: none;
       }
     }
   }
@@ -504,18 +535,49 @@ input {
     }
   }
 }
+/* ------------------------------------------------------------------------------------- */
 .post-image {
   display: flex;
-  align-items: center;
-  gap: 24px;
-  img {
-    flex: 1;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 4px;
-    background: #000;
-  }
+  flex-wrap: wrap;
+  gap: 8px; /* smaller gap for tighter layout */
+  justify-content: center;
+  cursor: pointer;
 }
+
+.post-image img {
+  object-fit: cover;
+  border-radius: 8px;
+  background: #000;
+}
+
+/* Dynamically adjust size based on image count */
+.post-image.one img {
+  width: 100%;
+  height: 320px;
+}
+
+.post-image.two img {
+  width: 48%;
+  height: 320px;
+}
+
+.post-image.three img {
+  width: 31%;
+  height: 320px;
+}
+
+.post-image.four img {
+  width: 48%;
+  height: 180px;
+}
+
+.post-image.five img {
+  width: 31%;
+  height: 160px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
 .dashFooter {
   background-color: #016ce8;
   color: #fff;
@@ -539,6 +601,23 @@ input {
   .recetpost-card {
     width: 100%;
   }
+  .recentpost-header {
+    position: relative;
+    button {
+      position: absolute;
+      right: 10px;
+      top: 0;
+      background: #016ce8;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 23px;
+      color: #ffffff;
+      font-size: 14px;
+      
+    }
+  }
 }
 
 @media (max-width: 1200px) {
@@ -546,6 +625,12 @@ input {
   .recetpost-card {
     width: 80%;
   }
+  .createpost-card {
+    
+  width: 80%;
+  border-radius: 16px;
+  padding:  24px;
+}
 }
 
 /* added for image preview  */

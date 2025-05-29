@@ -14,7 +14,7 @@ const Hero = () => {
           <br />
           With Advertorial Hub, you{"'"}ve got everything you need!
         </p>
-        <Link href="/auth/CreateAccount">
+        <Link href="/authentication/CreateAccount">
           <button className="btnStart">Start Now</button>
         </Link>
       </div>

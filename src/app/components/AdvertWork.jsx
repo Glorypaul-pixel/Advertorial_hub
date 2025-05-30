@@ -9,7 +9,6 @@ import { icons } from "@/lib/Icons";
 const steps = [
   "Create an account",
   "Upload Content",
-  "Share with People",
   "Monitor inflow of traffic",
 ];
 
@@ -51,7 +50,7 @@ const AdvertWork = () => {
           >
             {/* Slide 1 */}
             <div className="slide">
-              <div className="Advertpagecontainer">
+              {/* <div className="Advertpagecontainer">
                 <section className="form-container">
                   <div className="head-section">
                     <h1 className="title Createtitle">Create your account</h1>
@@ -143,31 +142,25 @@ const AdvertWork = () => {
                     </section>
                   </form>
                 </section>
+              </div> */}
+              <div className="stepText">
+      <img src="/images/createyouraccount.png" alt="createaccount" className="stepsImgAccount"/>
               </div>
+
             </div>
 
             {/* Slide 2 */}
             <div className="slide">
-              <h2 className="stepTitle">Upload your content</h2>
-              <p className="stepText">
-                Add content, images or videos to your new account.
-              </p>
+              <div className="stepText">
+                <img src="/images/chart.png" alt="chart" className="stepsImg"/>
+              </div>
             </div>
 
             {/* Slide 3 */}
             <div className="slide">
-              <h2 className="stepTitle">Share with people</h2>
-              <p className="stepText">
-                Promote your content with a unique link and track your reach.
-              </p>
-            </div>
-
-            {/* Slide 4 */}
-            <div className="slide">
-              <h2 className="stepTitle">Monitor inflow</h2>
-              <p className="stepText">
-                Get insights into who’s interacting with your content.
-              </p>
+              <div className="stepText">
+                <img src="/images/HomeAnaly.png" alt="home" className="stepsImg"/>
+              </div>
             </div>
           </div>
         </div>

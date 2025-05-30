@@ -69,7 +69,7 @@ const CreateAccount = () => {
       console.log("Registration Successful:", responseBody);
 
       setSuccess(
-        "Account successfully created! Please check your email for verification."
+        "Account successfully created! Please check your email or spam for verification."
       );
       router.push("/authentication/Success");
       router.push("/authentication/Login");

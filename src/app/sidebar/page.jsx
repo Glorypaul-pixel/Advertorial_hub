@@ -31,24 +31,20 @@ function Sidebar({ setMenuOpen }) {
 
         {/* nav */}
         <nav>
-          <ul className="sidebar-nav" onClick={() => setMenuOpen?.(false)}>
-            {navPages.map((page, index) => (
-              <li key={index}>
+          <ul className="sidebar-nav" onClick={() => setMenuOpen(false)}>
+            {navPages.map((page) => (
+              <li key={page.path}>
                 {page.name === "Post" ? (
+                  // Render as a non-clickable span
                   <span
                     className="sidebar-link inactive-link"
-                    style={{ cursor: "default" }}
-                  >
-                    {page.icon}
-                    <span>{page.name}</span>
-                  </span>
+                    style={{ cursor: "default" }}></span>
                 ) : (
                   <Link
                     href={page.path}
                     className={`sidebar-link ${
                       pathname === page.path ? "active-link" : "inactive-link"
-                    }`}
-                  >
+                    }`}>
                     {page.icon}
                     <span>{page.name}</span>
                   </Link>

@@ -5,24 +5,34 @@
 
 /* Main content styles */
 .main-content {
-  margin-left: 0;
+  margin-left: 6rem;
   padding-right: 25px;
   /* padding: 1.5rem;  */
   width: 100%;
   background-color: #f7fafc; /* equivalent to bg-gray-100 */
 }
-.sideHeader{
+.sideHeader {
   position: absolute;
-  top: 110px;
-  left: 5px;
+  top: 2%;
+  left: 90%;
 }
 
 /* Apply margin-left to main content when the sidebar is visible (screen width >= 768px) */
 @media (min-width: 768px) {
-   .main-content { 
-    margin-left: 274px;
+  .main-content {
+    margin-left: 0;
     display: flex;
     flex-direction: column;
     padding-top: 10px;
-  } 
+    padding-right: 1;
+  }
+}
+@media (max-width: 468px) {
+  .main-content {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-right: 1;
+  }
 }

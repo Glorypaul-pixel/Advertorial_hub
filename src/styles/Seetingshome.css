@@ -74,7 +74,7 @@
 .liston {
   display: flex;
   align-items: center;
-  justify-content:flex-start;
+  justify-content: flex-start;
   gap: 16px;
   columns: #0a0d14;
   font-size: 18px;
@@ -125,7 +125,7 @@
     cursor: pointer;
   }
 }
-.error-message{
+.error-message {
   color: #df1c41;
   font-size: 14px;
   font-weight: 500;
@@ -133,7 +133,7 @@
   text-align: center;
 }
 /* profile  */
-.avatar-dummy{
+.avatar-dummy {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -141,7 +141,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0A0D14;
+  color: #0a0d14;
   font-size: 40px;
   font-weight: bolder;
   text-transform: uppercase;
@@ -241,7 +241,7 @@ input {
   padding: 10px;
   border-radius: 8px;
 }
-.hidden{
+.hidden {
   display: none;
 }
 .overlay-link-input {
@@ -250,7 +250,7 @@ input {
   border-radius: 8px;
   display: flex;
   align-items: center;
-  input{
+  input {
     border: none;
   }
   p {
@@ -582,7 +582,7 @@ input {
   background-color: #016ce8;
   color: #fff;
   padding: 20px;
-  
+
   text-align: center;
   font-size: 14px;
 }
@@ -595,7 +595,10 @@ input {
 .dashFooter a:hover {
   text-decoration: underline;
 }
-
+@media (max-width: 468px) {
+.page-container {
+  width: 100%;
+} }
 @media (max-width: 768px) {
   .verlay-container,
   .recetpost-card {
@@ -606,16 +609,19 @@ input {
     button {
       position: absolute;
       right: 10px;
-      top: 0;
+      top: 50%;
       background: #016ce8;
       border: none;
       display: flex;
       align-items: center;
       gap: 4px;
-      padding: 12px 23px;
+      padding: 6px;
       color: #ffffff;
-      font-size: 14px;
-      
+      font-size: 9px;
+    }
+    .page-h-text {
+      padding: 36px 0;
+      font-size: 2.2rem;
     }
   }
 }
@@ -626,11 +632,10 @@ input {
     width: 80%;
   }
   .createpost-card {
-    
-  width: 80%;
-  border-radius: 16px;
-  padding:  24px;
-}
+    width: 80%;
+    border-radius: 16px;
+    padding: 24px;
+  }
 }
 
 /* added for image preview  */

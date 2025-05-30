@@ -112,9 +112,7 @@ export default function HomePage() {
         return console.error("Failed to fetch posts:", postsData);
       }
 
-      const myPosts = postsData.filter(
-        (post) => post?.creatorId === user?.id
-      );
+      const myPosts = postsData.filter((post) => post?.creatorId === user?.id);
       setUserPosts(myPosts);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -494,7 +492,7 @@ export default function HomePage() {
             <main className="createpost-container">
               <h2 className="posth-text">Recent Post</h2>
               {userPosts.map((post) => (
-                <section className=" recetpost-card" key={post.id}>
+                <section className=" recetpost-card" key={post.createdAt}>
                   {/* post information  */}
                   <div className=" recentpost-info">
                     <article>

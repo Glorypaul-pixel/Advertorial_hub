@@ -43,8 +43,8 @@ const Login = () => {
       localStorage.setItem("userId", data.user.id);
       localStorage.setItem("token", data.token);
 
-      console.log("Login Successful:", data);
-      alert("Login successful!");
+      // console.log("Login Successful:", data);
+      // alert("Login successful!");
 
       // ✅ Redirect to dashboard
       router.push("/dashboard");

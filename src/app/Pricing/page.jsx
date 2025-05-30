@@ -88,8 +88,9 @@ const Pricing = () => {
   };
 
   const getPaystackButton = (planName) => {
-     if (!user?.email) {
+    if (!user?.email) {
       return router.push("/authentication/Login");
+      return;
     }
     if (user.plan === "PERSONAL" && planName === "TEAM") {
       return (
@@ -98,7 +99,7 @@ const Pricing = () => {
         </button>
       );
     }
-   
+
     const amount = amountsInKobo[planName.toLowerCase()];
 
     const componentProps = {

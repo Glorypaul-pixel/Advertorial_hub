@@ -5,7 +5,7 @@
 
 /* Main content styles */
 .main-content {
-  margin-left: 6rem;
+  margin-left: 0;
   padding-right: 25px;
   /* padding: 1.5rem;  */
   width: 100%;
@@ -20,7 +20,7 @@
 /* Apply margin-left to main content when the sidebar is visible (screen width >= 768px) */
 @media (min-width: 768px) {
   .main-content {
-    margin-left: 0;
+    margin-left: 274px;
     display: flex;
     flex-direction: column;
     padding-top: 10px;

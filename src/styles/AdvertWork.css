@@ -49,7 +49,6 @@
   border-radius: 2rem;
 }
 
-
 /* Styling for Home CreateAccount */
 
 .Advertpagecontainer {
@@ -400,7 +399,13 @@
   .Advertwork {
     padding: 0rem;
   }
-
+  .active {
+    background-color: #4a90e2;
+    font-weight: bold;
+    padding: 0.9rem;
+    color: white;
+    border-radius: 2rem;
+  }
   .worksSlot {
     width: 90%;
     margin: 0 auto;
@@ -417,7 +422,12 @@
     flex-direction: column;
     justify-content: center;
   }
-
+  .stepsDiv {
+    width: 100%;
+  }
+  .stepsDiv .stepsImg {
+    width: 98%;
+  }
   .pricing-card {
     max-width: 280px;
     padding: 2rem;
@@ -451,11 +461,23 @@
 }
 
 /* 414px Screen */
-@media (max-width: 414px) {
+@media (max-width: 464px) {
   .Advertwork {
     padding: 0rem;
   }
-
+  .stepAcoount {
+    width: 100%;
+  }
+  .stepAcoount img {
+    width: 75%;
+  }
+  .active {
+    background-color: #4a90e2;
+    font-weight: bold;
+    padding: 0.9rem;
+    color: white;
+    border-radius: 2rem;
+  }
   .worksSlot {
     padding: 0rem;
     width: 100%;

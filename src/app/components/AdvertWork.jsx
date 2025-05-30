@@ -143,7 +143,7 @@ const AdvertWork = () => {
                   </form>
                 </section>
               </div> */}
-              <div className="stepText">
+              <div className="stepText stepsDiv stepAcoount">
       <img src="/images/createyouraccount.png" alt="createaccount" className="stepsImgAccount"/>
               </div>
 
@@ -151,14 +151,14 @@ const AdvertWork = () => {
 
             {/* Slide 2 */}
             <div className="slide">
-              <div className="stepText">
+              <div className="stepText stepsDiv">
                 <img src="/images/chart.png" alt="chart" className="stepsImg"/>
               </div>
             </div>
 
             {/* Slide 3 */}
             <div className="slide">
-              <div className="stepText">
+              <div className="stepText stepsDiv">
                 <img src="/images/HomeAnaly.png" alt="home" className="stepsImg"/>
               </div>
             </div>

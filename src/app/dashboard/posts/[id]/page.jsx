@@ -135,6 +135,7 @@ export default function Post() {
         <ImageSkeleton images={post.images} />
         <span>View Insight</span>
       </section>
+    
     </div>
   );
 }

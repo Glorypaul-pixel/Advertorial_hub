@@ -245,6 +245,10 @@ export default function Pricing() {
           </section>
         </main>
       </div>
+      <footer className="dashFooter">
+        <p>&copy; 2025 Advertorial Hub. All Rights Reserved.</p>
+        <a href="/Policy">Privacy Policy</a> | <a href="/AboutUs">About Us</a>
+      </footer>
     </div>
   );
 }

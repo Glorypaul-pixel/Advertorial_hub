@@ -6,10 +6,8 @@
 /* Main content styles */
 .main-content {
   margin-left: 0;
-  padding-right: 25px;
-  /* padding: 1.5rem;  */
   width: 100%;
-  background-color: #f7fafc; /* equivalent to bg-gray-100 */
+  background-color: #f7fafc;
 }
 .sideHeader {
   position: absolute;

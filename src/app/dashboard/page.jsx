@@ -22,7 +22,7 @@ export default function HomePage() {
 
   // Backend Integration States
   const [user, setUser] = useState(null);
-  const [title, setTitle] = useState("title");
+  const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [images, setImages] = useState([]);
   const [video, setVideo] = useState(null);
@@ -34,6 +34,7 @@ export default function HomePage() {
 
   // loading states and error handling
   const [errorPost, setErrorPost] = useState(false);
+  const [errorPostMessage, setErrorPostMessage] = useState("");
   const [createLoading, setCreateLoading] = useState(false);
 
   const router = useRouter();
@@ -166,10 +167,12 @@ export default function HomePage() {
         console.error("Error creating post:", data);
         setCreateLoading(false);
         setErrorPost(true);
+        setErrorPostMessage(data.message);
       }
     } catch (err) {
       console.error("Upload error:", err);
       setErrorPost(true);
+      setErrorPostMessage(err);
       setCreateLoading(false);
     }
   };
@@ -246,8 +249,12 @@ export default function HomePage() {
     getPosts();
   }, [handleSubmit, handleDeletePost]);
 
+  // handling closing the menu
+  const handleCancel = () => {
+    setMenu(false);
+  };
   return (
-    <div>
+    <div onClick={handleCancel}>
       {!createPost ? (
         <div className="  page-container">
           <h1 className=" page-h-text">Home</h1>
@@ -517,12 +524,13 @@ export default function HomePage() {
                         </span>
                       </p>
                     </article>
-                    <p className="recentpost-menu">
+                    <div className="recentpost-menu">
                       <span
                         //  onClick={() => (!menu)}
-                        onClick={() =>
-                          setMenu(menu === post._id ? null : post._id)
-                        }
+                        onClick={(e) => {
+                          e.stopPropagation(),
+                            setMenu(menu === post._id ? null : post._id);
+                        }}
                       >
                         {" "}
                         {icons.menu}
@@ -541,16 +549,34 @@ export default function HomePage() {
                           </li>
                         </ul>
                       )}
-                    </p>
+                    </div>
                   </div>
+                  {/* post title  */}
+                  <p
+                    style={{
+                      margin: "0",
+                      fontSize: "16px",
+                      fontWeight: "bolder",
+                    }}
+                  >
+                    {post.title}
+                  </p>
                   {/* post write up  */}
-                  <p>{post.content}</p>
-                  <div onClick={(e) => handleViewPost(e, post._id)}>
+                  <p
+                    style={{
+                      margin: "0",
+                    }}
+                  >
+                    {post.content}
+                  </p>
+                  <div>
                     {/* post images  */}
                     <ImageSkeleton images={post.images} />
                   </div>
 
-                  <span>View Insight</span>
+                  <span onClick={(e) => handleViewPost(e, post._id)}>
+                    View Insight
+                  </span>
                 </section>
               ))}
             </main>
@@ -558,6 +584,16 @@ export default function HomePage() {
             <main className="createpost-container">
               <section className="createpost-card">
                 <div className="createpost-subcard">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Title"
+                    className=" overlay-input "
+                    value={title}
+                    style={{ fontSize: "16px " }}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
                   <textarea
                     name=""
                     id=""
@@ -592,7 +628,8 @@ export default function HomePage() {
                   )}
                   {errorPost && (
                     <p className="error-message">
-                      Couldn't Create Post, Please try again.
+                      Couldn't Create Post, Please try again. <br />(
+                      {errorPostMessage})
                     </p>
                   )}
                 </div>

@@ -8,6 +8,7 @@ import { icons } from "@/lib/Icons";
 export default function Post() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
+  const [analytics, setAnalytics] = useState(null);
   const [user, setUser] = useState();
   const [menu, setMenu] = useState(false);
 
@@ -17,6 +18,13 @@ export default function Post() {
         .then((res) => res.json())
         .then((data) => setPost(data))
         .catch((err) => console.error("Error fetching post:", err));
+      // Fetch analytics
+      fetch(
+        `https://advertorial-backend.onrender.com/api/posts/analytics/${id}`
+      )
+        .then((res) => res.json())
+        .then((data) => setAnalytics(data))
+        .catch((err) => console.error("Error fetching analytics:", err));
     }
     const getUser = async () => {
       const userIdOrEmail = localStorage.getItem("userId");
@@ -84,8 +92,17 @@ export default function Post() {
         .catch((error) => console.error("Error sharing post:", error));
     }
   };
+
+  // handling closing the menu
+  const handleCancel = () => {
+    setMenu(false);
+  };
   return (
-    <div style={{ padding: "40px 0px" }} className="createpost-container">
+    <div
+      style={{ padding: "40px 0px" }}
+      className="createpost-container"
+      onClick={handleCancel}
+    >
       <section className=" recetpost-card" key={post.id}>
         {/* post information  */}
         <div className=" recentpost-info">
@@ -110,10 +127,14 @@ export default function Post() {
               </span>
             </p>
           </article>
-          <p className="recentpost-menu">
+          <div className="recentpost-menu">
             <span
               //  onClick={() => (!menu)}
-              onClick={() => setMenu(menu === post._id ? null : post._id)}>
+              onClick={(e) => {
+                e.stopPropagation(),
+                  setMenu(menu === post._id ? null : post._id);
+              }}
+            >
               {" "}
               {icons.menu}
             </span>
@@ -126,16 +147,63 @@ export default function Post() {
                 </li>
               </ul>
             )}
-          </p>
+          </div>
         </div>
+        <p
+          style={{
+            margin: "0",
+            fontSize: "16px",
+            fontWeight: "bolder",
+          }}
+        >
+          {post.title}
+        </p>
         {/* post write up  */}
-        <p>{post.content}</p>
+        <p
+          style={{
+            margin: "0",
+          }}
+        >
+          {post.content}
+        </p>
 
         {/* post images  */}
         <ImageSkeleton images={post.images} />
-        <span>View Insight</span>
+        <span> Post Insights</span>
+        <section>
+          {analytics && (
+            <div className="post-analytics" style={{ marginTop: "1rem" }}>
+              <p>Total Views: {analytics?.totalViews}</p>
+
+              <div>
+                <strong>Devices:</strong>
+                <ul>
+                  {Object.entries(analytics?.deviceStats).map(
+                    ([device, count]) => (
+                      <li key={device}>
+                        {device}: {count}
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+
+              <div>
+                <strong>Locations:</strong>
+                <ul>
+                  {Object.entries(analytics?.locationStats).map(
+                    ([location, count]) => (
+                      <li key={location}>
+                        {location}: {count}
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            </div>
+          )}
+        </section>
       </section>
-    
     </div>
   );
 }

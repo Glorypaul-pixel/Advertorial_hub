@@ -596,13 +596,19 @@ input {
   text-decoration: underline;
 }
 @media (max-width: 468px) {
-.page-container {
-  width: 100%;
-} }
+  .page-container {
+    width: 100%;
+  }
+ 
+}
 @media (max-width: 768px) {
   .verlay-container,
   .recetpost-card {
     width: 100%;
+  }
+  .main-card {
+    margin-right: 1rem;
+    margin-left: 1rem;
   }
   .recentpost-header {
     position: relative;

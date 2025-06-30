@@ -120,7 +120,7 @@ const Pricing = () => {
     <div>
       <div className="Pricepage-container">
         <main className="PriceMainContent">
-          <section className="PriceHeadSection">
+          <section className="PriceHeadSection" data-aos="fade-up">
             <h1 className="Pricemain-heading">
               We’ve got a plan that’s <br /> perfect for you
             </h1>

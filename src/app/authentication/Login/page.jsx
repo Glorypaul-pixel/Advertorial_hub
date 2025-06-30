@@ -62,7 +62,7 @@ const Login = () => {
       </span>
 
       <section className="form-container">
-        <div className="head-section">
+        <div className="head-section" data-aos="fade-up">
           <h1 className="title">Log In</h1>
           <div className="subtitle">
             Log in to your advertorial account or
@@ -72,7 +72,7 @@ const Login = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="form" data-aos="zoom-in">
           <section className="input-section">
             <div className="input-group">
               <label htmlFor="email" className="label">
@@ -106,7 +106,7 @@ const Login = () => {
           {error && <p className="error-text">{error}</p>}
 
           <section className="auth-other-means">
-            <button type="submit" className="login-button" disabled={loading}>
+            <button type="submit" className="login-button" disabled={loading} data-aos="zoom-out">
               {loading ? "Logging in..." : "Log In"}
             </button>
 

@@ -29,7 +29,7 @@ const AdvertWork = () => {
     <div id="AdvertWork">
       <div className="Advertwork">
         <div className="worksHead">
-          <h1>How Advertorial Works</h1>
+          <h1 data-aos="zoom-in">How Advertorial Works</h1>
           <div className="worksSlot">
             {steps.map((step, index) => (
               <div
@@ -50,116 +50,30 @@ const AdvertWork = () => {
           >
             {/* Slide 1 */}
             <div className="slide">
-              {/* <div className="Advertpagecontainer">
-                <section className="form-container">
-                  <div className="head-section">
-                    <h1 className="title Createtitle">Create your account</h1>
-                    <p className="subtitle createSubtitle">
-                      Quickly create your advertorial account or
-                      <Link href="/auth/Login">
-                        {" "}
-                        <b className="login-link"> Log In</b>
-                      </Link>
-                    </p>
-                  </div>
-                  <form className="form advertForm">
-                    <section className="input-section">
-                      <div className="input-group">
-                        <label htmlFor="email" className="label">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          className="input-field"
-                        />
-                      </div>
-                      <div className="input-group">
-                        <label htmlFor="first_name" className="label">
-                          First Name
-                        </label>
-                        <input
-                          type="text"
-                          id="first_name"
-                          className="input-field"
-                        />
-                      </div>
-                      <div className="input-group">
-                        <label htmlFor="last_name" className="label">
-                          Last Name
-                        </label>
-                        <input
-                          type="text"
-                          id="last_name"
-                          className="input-field"
-                        />
-                      </div>
-                      <div className="input-group">
-                        <label htmlFor="password" className="label">
-                          Password
-                        </label>
-                        <input
-                          type="password"
-                          id="password"
-                          className="password-field"
-                        />
-                      </div>
-                      <div className="terms-privacy">
-                        <input
-                          type="checkbox"
-                          id="terms"
-                          className="checkbox"
-                        />
-                        <p className="terms-text">
-                          I accept the{" "}
-                          <Link href="/Terms">
-                            <b className="terms-link">Terms</b>
-                          </Link>{" "}
-                          and{" "}
-                          <Link href="/Policy">
-                            <b className="privacy-link">Privacy</b>
-                          </Link>
-                        </p>
-                      </div>
-                    </section>
-                    <section className="auth-other-means">
-                      <button className="create-account-button">
-                        Create Account
-                      </button>
-                      <div className="or-divider">
-                        <span className="divider-line"></span>
-                        <span className="or-text">OR</span>
-                        <span className="divider-line"></span>
-                      </div>
-                      <div className="auth-buttons">
-                        <button className="auth-button">
-                          Sign up with Google
-                        </button>
-                        <button className="auth-button">
-                          Sign up with Facebook
-                        </button>
-                      </div>
-                    </section>
-                  </form>
-                </section>
-              </div> */}
-              <div className="stepText stepsDiv stepAcoount">
-      <img src="/images/createyouraccount.png" alt="createaccount" className="stepsImgAccount"/>
+              <div className="stepText stepsDiv stepAcoount"  data-aos="zoom-out">
+                <img
+                  src="/images/createyouraccount.png"
+                  alt="createaccount"
+                  className="stepsImgAccount"   
+                />
               </div>
-
             </div>
 
             {/* Slide 2 */}
             <div className="slide">
               <div className="stepText stepsDiv">
-                <img src="/images/chart.png" alt="chart" className="stepsImg"/>
+                <img src="/images/chart.png" alt="chart" className="stepsImg"    data-aos="zoom-out"/>
               </div>
             </div>
 
             {/* Slide 3 */}
             <div className="slide">
               <div className="stepText stepsDiv">
-                <img src="/images/HomeAnaly.png" alt="home" className="stepsImg"/>
+                <img
+                  src="/images/HomeAnaly.png"
+                  alt="home"
+                  className="stepsImg"    data-aos="zoom-out"
+                />
               </div>
             </div>
           </div>
@@ -168,11 +82,11 @@ const AdvertWork = () => {
       <div className="Pricepage-container">
         <main className="PriceMainContent">
           <section className="PriceHeadSection">
-            <h1 className="Pricemain-heading">
+            <h1 className="Pricemain-heading" data-aos="zoom-in">
               We’ve got a plan that’s <br /> perfect for you
             </h1>
 
-            <div className="billing-buttons">
+            <div className="billing-buttons"    data-aos="zoom-out">
               <button
                 className={`monthly-billing ${
                   billing === "monthly" ? "active" : ""
@@ -195,7 +109,7 @@ const AdvertWork = () => {
           <section className="pricing-section">
             {/* Personal Plan */}
             <div className="pricing-card">
-              <section className="Priceplan-details">
+              <section className="Priceplan-details"  data-aos="zoom-in">
                 <div className="Priceplan-header">
                   <h2 className="Priceplan-title">
                     Personal Plan
@@ -221,7 +135,7 @@ const AdvertWork = () => {
 
             {/* Business Plan */}
             <div className="pricing-card business-plan">
-              <section className="Priceplan-details">
+              <section className="Priceplan-details"    data-aos="zoom-out">
                 <div className="Priceplan-header">
                   <h2 className="Priceplan-titlelight">
                     Business Plan
@@ -250,7 +164,7 @@ const AdvertWork = () => {
 
             {/* Team Plan */}
             <div className="pricing-card">
-              <section className="Priceplan-details">
+              <section className="Priceplan-details"    data-aos="zoom-in">
                 <div className="Priceplan-header">
                   <h2 className="Priceplan-title">
                     Team Plan

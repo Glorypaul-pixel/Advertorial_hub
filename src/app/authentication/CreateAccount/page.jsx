@@ -97,7 +97,7 @@ const CreateAccount = () => {
       </span>
 
       <section className="Create-form-container">
-        <div className="head-section">
+        <div className="head-section" data-aos="fade-up">
           <h1 className="title">Create your account</h1>
           <p className="subtitle">
             Quickly create your advertorial account or{" "}
@@ -110,7 +110,7 @@ const CreateAccount = () => {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="form" data-aos="flip-right">
           <section className="input-section">
             {/* Email */}
             <div className="input-group">

@@ -5,7 +5,7 @@ const Blog = () => {
     <div>
       <div className="BlogContainer">
         <div className="blogHero">
-          <div className="BlogHead">
+          <div className="BlogHead"  data-aos="zoom-out">
             <h1>The Advertorial Blog</h1>
             <p>
               Product updates, announcements, conversations about customer
@@ -13,8 +13,8 @@ const Blog = () => {
             </p>
           </div>
           <div className="blogSaas">
-            <img src="/images/card4.png" alt="" />
-            <div className="blogSaasText">
+            <img src="/images/card4.png" alt=""  data-aos="flip-right"/>
+            <div className="blogSaasText"  data-aos="fade-right">
               <h5>Customer Retention</h5>
               <h1>How SaaS Businesses Can Reduce Churn</h1>
               <p>
@@ -30,7 +30,7 @@ const Blog = () => {
           </div>
         </div>
         <div className="blogCard">
-          <div className="BlogCard1">
+          <div className="BlogCard1"  data-aos="zoom-out">
             <img src="/images/card5.png" alt="" />
             <div className="BlogCard1Text">
               <h2>Enhancing Customer Engagement with Email Suppression</h2>
@@ -41,7 +41,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
-          <div className="BlogCard2">
+          <div className="BlogCard2"  data-aos="zoom-in">
             <img src="/images/card6.png" alt="" />
             <div className="BlogCard2Text">
               <h2>Enhancing Customer Engagement with Email Suppression</h2>
@@ -52,7 +52,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
-          <div className="BlogCard3">
+          <div className="BlogCard3"  data-aos="zoom-out">
             <img src="/images/card7.png" alt="" />
             <div className="BlogCard3Text">
               <h2>Enhancing Customer Engagement with Email Suppression</h2>
@@ -63,7 +63,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
-          <div className="BlogCard4">
+          <div className="BlogCard4"  data-aos="zoom-in">
             <img src="/images/card6.png" alt="" />
             <div className="BlogCard4Text">
               <h2>Enhancing Customer Engagement with Email Suppression</h2>
@@ -74,7 +74,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
-          <div className="BlogCard5">
+          <div className="BlogCard5"  data-aos="zoom-out">
             <img src="/images/card7.png" alt="" />
             <div className="BlogCard3Text">
               <h2>Enhancing Customer Engagement with Email Suppression</h2>
@@ -85,7 +85,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
-          <div className="BlogCard6">
+          <div className="BlogCard6"  data-aos="zoom-in">
             <img src="/images/card5.png" alt="" />
             <div className="BlogCard3Text">
               <h2>Enhancing Customer Engagement with Email Suppression</h2>

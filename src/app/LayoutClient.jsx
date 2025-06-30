@@ -1,11 +1,24 @@
 "use client";
 
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 export default function LayoutClient({ children }) {
   const pathname = usePathname();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      easing: "ease-in-out",
+    });
+    AOS.refresh();
+  }, [pathname]);
 
   const noFooterPages = [
     "/dashboard",
@@ -21,19 +34,12 @@ export default function LayoutClient({ children }) {
     "/dashboard/pricing",
   ];
 
-  // Helper function to check if current path is in the noHeader/noFooter list or
-  // matches the posts dynamic route (/dashboard/posts/[id])
   function isNoHeaderPage(path) {
-    if (noHeaderPages.includes(path)) return true;
-    // Check if path starts with "/dashboard/posts/"
-    if (path.startsWith("/dashboard/posts/")) return true;
-    return false;
+    return noHeaderPages.includes(path) || path.startsWith("/dashboard/posts/");
   }
 
   function isNoFooterPage(path) {
-    if (noFooterPages.includes(path)) return true;
-    if (path.startsWith("/dashboard/posts/")) return true;
-    return false;
+    return noFooterPages.includes(path) || path.startsWith("/dashboard/posts/");
   }
 
   return (

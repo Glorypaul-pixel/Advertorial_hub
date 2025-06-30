@@ -5,10 +5,10 @@ import "@/styles/Footer.css";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer" data-aos="fade-up" data-aos-duration="800">
       <div className="footerBg">
         {/* Logo & Description */}
-        <div className="footerLogo">
+        <div className="footerLogo" data-aos="fade-up" data-aos-delay="100">
           <div className="footerImg">
             <Link href="/">
               <img src="/images/logo.png" alt="Logo" />
@@ -18,14 +18,17 @@ const Footer = () => {
           <p>&copy; 2024 Advertorial Hub. All rights reserved.</p>
         </div>
 
-        <hr />
+        <hr data-aos="zoom-in" data-aos-delay="150" />
 
         {/* Resources Section */}
-        <div className="footerResource">
+        <div
+          className="footerResource"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
           <h2>Resource</h2>
           <ul>
             <Link href="/Pricing" className="custom-link">
-              {" "}
               <li>Pricing</li>
             </Link>
             <Link href="/Blog" className="custom-link">
@@ -34,14 +37,13 @@ const Footer = () => {
           </ul>
         </div>
 
-        <hr />
+        <hr data-aos="zoom-in" data-aos-delay="250" />
 
         {/* About Us Section */}
-        <div className="footerAbout">
+        <div className="footerAbout" data-aos="fade-left" data-aos-delay="300">
           <h2>About Us</h2>
           <ul>
             <Link href="/AboutUs" className="custom-link">
-              {" "}
               <li>About Us</li>
             </Link>
             <Link href="/Policy" className="custom-link">
@@ -53,10 +55,10 @@ const Footer = () => {
           </ul>
         </div>
 
-        <hr />
+        <hr data-aos="zoom-in" data-aos-delay="350" />
 
         {/* Contact Section */}
-        <div className="footerContact">
+        <div className="footerContact" data-aos="fade-up" data-aos-delay="400">
           <h2>Contact</h2>
           <ul>
             <li>

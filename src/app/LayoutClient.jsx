@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export default function LayoutClient({ children }) {
   const pathname = usePathname();
@@ -44,6 +45,7 @@ export default function LayoutClient({ children }) {
 
   return (
     <>
+      <Toaster position="top-right" toastOptions={{ duration: 5000 }} />
       {!isNoHeaderPage(pathname) && <Header />}
       <main>{children}</main>
       {!isNoFooterPage(pathname) && <Footer />}

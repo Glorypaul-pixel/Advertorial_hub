@@ -194,7 +194,10 @@ const CreateAccount = () => {
             </div>
           </section>
           {error && <p className="error-text">{error}</p>}
-          {success && <p className="success-text">{success}</p>}{" "}
+          {success && (
+            <p className="text-green-500 font-medium mt-2">{success}</p>
+          )}
+
           {/* Display success message */}
           <section className="auth-other-means">
             <button

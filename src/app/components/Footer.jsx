@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footerLogo" data-aos="fade-up" data-aos-delay="100">
           <div className="footerImg">
             <Link href="/">
-              <img src="/images/logo.png" alt="Logo" />
+              <img src="/images/AH-BLUE-BG.jpg" alt="Logo" />
             </Link>
           </div>
           <p>The Payments Platform Designed to Put Merchants First</p>
@@ -73,7 +73,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://twitter.com/Techk_e4ma"
+                href="https://x.com/advertorialhub?s=21"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -82,7 +82,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://facebook.com/madubueze.ifeomagloria"
+                href="https://www.facebook.com/share/1D8DBJpnRY/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -100,7 +100,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://instagram.com/techk_e4ma"
+                href="https://www.instagram.com/advertorialhub?igsh=cnRnZGlhaXYxMGtx&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -109,7 +109,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://tiktok.com/@techk_e4ma"
+                href="https://www.tiktok.com/@advertorialhub?_t=ZS-8yjiWmf0cew&_r=1"
                 target="_blank"
                 rel="noopener noreferrer"
               >

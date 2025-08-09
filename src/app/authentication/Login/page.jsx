@@ -1,17 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // ✅ Correct for App Router
+import { useRouter } from "next/navigation";
 import { icons } from "@/lib/Icons";
 import "@/styles/Login.css";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [socialLoading, setSocialLoading] = useState(false);
   const [error, setError] = useState("");
-  const router = useRouter(); // ✅ Works with App Router
+  const router = useRouter();
+
+  // ✅ Backend email/password login
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,32 +30,36 @@ const Login = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
+          body: JSON.stringify({ email, password }),
         }
       );
 
       const data = await response.json();
-
       if (!response.ok) {
         throw new Error(data?.message || "Login failed!");
       }
 
-      // Save token, user ID, and email in localStorage
+      // Save token and user ID in localStorage
       localStorage.setItem("userId", data.user.id);
       localStorage.setItem("token", data.token);
 
-      // console.log("Login Successful:", data);
-      // alert("Login successful!");
-
-      // ✅ Redirect to dashboard
       router.push("/dashboard");
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // ✅ Social login (Google/Facebook)
+  const handleSocialLogin = async (provider) => {
+    try {
+      setSocialLoading(true);
+      await signIn(provider, { callbackUrl: "/dashboard" });
+    } catch (err) {
+      setError("Social login failed. Please try again.");
+    } finally {
+      setSocialLoading(false);
     }
   };
 
@@ -106,7 +114,12 @@ const Login = () => {
           {error && <p className="error-text">{error}</p>}
 
           <section className="auth-other-means">
-            <button type="submit" className="login-button" disabled={loading} data-aos="zoom-out">
+            <button
+              type="submit"
+              className="login-button"
+              disabled={loading}
+              data-aos="zoom-out"
+            >
               {loading ? "Logging in..." : "Log In"}
             </button>
 
@@ -117,12 +130,25 @@ const Login = () => {
             </div>
 
             <div className="auth-buttons">
-              <button type="button" className="auth-button">
-                <span>{icons?.google || "🔵"}</span> Sign up with Google
+              <button
+                type="button"
+                className="auth-button"
+                disabled={socialLoading}
+                onClick={() => handleSocialLogin("google")}
+              >
+                <span>{icons?.google || "🔵"}</span>{" "}
+                {socialLoading ? "Connecting..." : "Sign in with Google"}
               </button>
-              <button type="button" className="auth-button">
-                <span>{icons?.facebook || "🔵"}</span> Sign up with Facebook
-              </button>
+
+              {/* <button
+                type="button"
+                className="auth-button"
+                disabled={socialLoading}
+                onClick={() => handleSocialLogin("facebook")}
+              >
+                <span>{icons?.facebook || "🔵"}</span>{" "}
+                {socialLoading ? "Connecting..." : "Sign in with Facebook"}
+              </button> */}
             </div>
           </section>
         </form>

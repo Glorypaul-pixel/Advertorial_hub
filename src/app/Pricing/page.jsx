@@ -5,7 +5,7 @@ import "@/styles/Pricing.css";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
-const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931"; // My own paystack public key
+const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931"; // Your Paystack public key
 const PaystackButton = dynamic(
   () => import("react-paystack").then((mod) => mod.PaystackButton),
   { ssr: false }
@@ -22,7 +22,7 @@ const Pricing = () => {
       const userIdOrEmail = localStorage.getItem("userId");
       setToken(localStorage.getItem("token"));
 
-      if (!userIdOrEmail) return router.push("/authentication/Login");
+      if (!userIdOrEmail) return; // don't redirect here
 
       try {
         const res = await fetch(
@@ -44,6 +44,17 @@ const Pricing = () => {
 
     getUser();
   }, []);
+
+  // Redirect if no user email (i.e., not logged in)
+  useEffect(() => {
+    if (user.email === "") {
+      // Only redirect if we have checked localStorage and user is empty
+      const userIdOrEmail = localStorage.getItem("userId");
+      if (!userIdOrEmail) {
+        router.push("/authentication/Login");
+      }
+    }
+  }, [user.email, router]);
 
   const prices = {
     personal: "Free",
@@ -89,8 +100,8 @@ const Pricing = () => {
 
   const getPaystackButton = (planName) => {
     if (!user?.email) {
-      return router.push("/authentication/Login");
-      return;
+      // Don't redirect here, just return null or disabled button
+      return null;
     }
     if (user.plan === "PERSONAL" && planName === "TEAM") {
       return (

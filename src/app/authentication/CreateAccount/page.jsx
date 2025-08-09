@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { icons } from "@/lib/Icons"; // Ensure this file exists
-import "@/styles/CreateAccount.css"; // Ensure the CSS is correctly located
+import { icons } from "@/lib/Icons";
+import { signIn } from "next-auth/react"; // Added for Google/Facebook signup
+import "@/styles/CreateAccount.css";
 
 const CreateAccount = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const CreateAccount = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(""); // To display success messages
+  const [success, setSuccess] = useState("");
   const router = useRouter();
 
   const validateForm = () => {
@@ -26,7 +27,6 @@ const CreateAccount = () => {
       setError("You must accept the Terms and Privacy.");
       return false;
     }
-    // You can add more validation for email format or password strength if needed
     return true;
   };
 
@@ -57,22 +57,20 @@ const CreateAccount = () => {
       const responseBody = await response.json();
 
       if (!response.ok) {
-        // Handle duplicate user
         if (response.status === 409) {
           throw new Error("An account with this email already exists.");
         }
-
-        // Handle other server errors
         throw new Error(responseBody.message || "Account creation failed!");
       }
-
-      console.log("Registration Successful:", responseBody);
 
       setSuccess(
         "Account successfully created! Please check your email or spam for verification."
       );
-      router.push("/authentication/Success");
-      router.push("/authentication/Login");
+
+      // Redirect to success/login page after short delay
+      setTimeout(() => {
+        router.push("/authentication/Success");
+      }, 1500);
     } catch (err) {
       setError(err.message || "An error occurred. Please try again.");
     } finally {
@@ -80,15 +78,15 @@ const CreateAccount = () => {
     }
   };
 
-  // Sign in with Google
-  // const handleGoogleSignup = () => {
-  //   signIn("google");
-  // };
+  // Google signup
+  const handleGoogleSignup = () => {
+    signIn("google", { callbackUrl: "/authentication/Success" });
+  };
 
-  // Sign in with Facebook
-  // const handleFacebookSignup = () => {
-  //   signIn("facebook");
-  // };
+  // Facebook signup
+  const handleFacebookSignup = () => {
+    signIn("facebook", { callbackUrl: "/authentication/Success" });
+  };
 
   return (
     <div className="Create-container">
@@ -193,12 +191,13 @@ const CreateAccount = () => {
               </p>
             </div>
           </section>
+
           {error && <p className="error-text">{error}</p>}
           {success && (
             <p className="text-green-500 font-medium mt-2">{success}</p>
           )}
 
-          {/* Display success message */}
+          {/* Other signup methods */}
           <section className="auth-other-means">
             <button
               type="submit"
@@ -218,14 +217,15 @@ const CreateAccount = () => {
               <button
                 type="button"
                 className="auth-button"
-                // onClick={handleGoogleSignup} // Use NextAuth.js sign-in for Google
+                onClick={handleGoogleSignup}
               >
                 <span>{icons.google}</span> Sign up with Google
               </button>
+
               <button
                 type="button"
                 className="auth-button"
-                // onClick={handleFacebookSignup} // Use NextAuth.js sign-in for Facebook
+                onClick={handleFacebookSignup}
               >
                 <span>{icons.facebook}</span> Sign up with Facebook
               </button>

@@ -4,6 +4,7 @@ import { icons } from "@/lib/Icons";
 import "@/styles/Pricing.css";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import { toast } from "react-hot-toast";
 
 const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931"; // My own paystack public key
 const PaystackButton = dynamic(
@@ -80,10 +81,12 @@ export default function Pricing() {
     try {
       const res = await changeUserPlan({ reference, planName });
       console.log(res.message);
+      toast.success("Payment successful. Plan updated!");
       window.location.reload();
     } catch (err) {
       console.error(err);
       console.log(err.message);
+      toast.error("Payment succeeded, but plan update failed.");
     }
   };
 
@@ -118,11 +121,11 @@ export default function Pricing() {
 
   return (
     <div>
-      <div className="Pricepage-container">
+      <div className="Pricepage-container ">
         <main className="PriceMainContent">
-          <section className="PriceHeadSection">
+          <section className="PriceHeadSection" data-aos="fade-down">
             <h1 className="Pricemain-heading">
-              We’ve got a plan that’s <br /> perfect for you
+              We’ve got a plan that’s perfect  <br/> for you
             </h1>
 
             <div className="billing-buttons">
@@ -145,7 +148,12 @@ export default function Pricing() {
             </div>
           </section>
 
-          <section className="pricing-section">
+          <section
+            className="pricing-section mild-zoom"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            data-aos-duration="2000"
+          >
             {/* Personal Plan */}
             <div className="pricing-card">
               <section className="Priceplan-details">

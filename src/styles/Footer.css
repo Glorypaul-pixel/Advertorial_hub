@@ -37,6 +37,7 @@
 .footerImg img {
   width: 120px;
   height: auto;
+  border-radius: 2rem;
 }
 
 .footerLogo p {
@@ -92,7 +93,7 @@
 }
 
 .custom-link:hover,
-.footerContact li a {
+.footerContact li a:hover {
   color: #1d69e6; /* Blue color on hover */
 }
 

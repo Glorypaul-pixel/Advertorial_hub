@@ -50,11 +50,14 @@ const AdvertWork = () => {
           >
             {/* Slide 1 */}
             <div className="slide">
-              <div className="stepText stepsDiv stepAcoount"  data-aos="zoom-out">
+              <div
+                className="stepText stepsDiv stepAcoount"
+                data-aos="zoom-out"
+              >
                 <img
                   src="/images/createyouraccount.png"
                   alt="createaccount"
-                  className="stepsImgAccount"   
+                  className="stepsImgAccount"
                 />
               </div>
             </div>
@@ -62,7 +65,12 @@ const AdvertWork = () => {
             {/* Slide 2 */}
             <div className="slide">
               <div className="stepText stepsDiv">
-                <img src="/images/chart.png" alt="chart" className="stepsImg"    data-aos="zoom-out"/>
+                <img
+                  src="/images/chart.png"
+                  alt="chart"
+                  className="stepsImg"
+                  data-aos="zoom-out"
+                />
               </div>
             </div>
 
@@ -72,7 +80,8 @@ const AdvertWork = () => {
                 <img
                   src="/images/HomeAnaly.png"
                   alt="home"
-                  className="stepsImg"    data-aos="zoom-out"
+                  className="stepsImg"
+                  data-aos="zoom-out"
                 />
               </div>
             </div>
@@ -86,7 +95,7 @@ const AdvertWork = () => {
               We’ve got a plan that’s <br /> perfect for you
             </h1>
 
-            <div className="billing-buttons"    data-aos="zoom-out">
+            <div className="billing-buttons" data-aos="zoom-out">
               <button
                 className={`monthly-billing ${
                   billing === "monthly" ? "active" : ""
@@ -106,10 +115,10 @@ const AdvertWork = () => {
             </div>
           </section>
 
-          <section className="pricing-section">
+          <section className="Adpricing-section">
             {/* Personal Plan */}
-            <div className="pricing-card">
-              <section className="Priceplan-details"  data-aos="zoom-in">
+            <div className="Adpricing-card">
+              <section className="Priceplan-details" data-aos="zoom-in">
                 <div className="Priceplan-header">
                   <h2 className="Priceplan-title">
                     Personal Plan
@@ -134,8 +143,8 @@ const AdvertWork = () => {
             </div>
 
             {/* Business Plan */}
-            <div className="pricing-card business-plan">
-              <section className="Priceplan-details"    data-aos="zoom-out">
+            <div className="Adpricing-card business-plan">
+              <section className="Priceplan-details" data-aos="zoom-out">
                 <div className="Priceplan-header">
                   <h2 className="Priceplan-titlelight">
                     Business Plan
@@ -163,8 +172,8 @@ const AdvertWork = () => {
             </div>
 
             {/* Team Plan */}
-            <div className="pricing-card">
-              <section className="Priceplan-details"    data-aos="zoom-in">
+            <div className="Adpricing-card">
+              <section className="Priceplan-details" data-aos="zoom-in">
                 <div className="Priceplan-header">
                   <h2 className="Priceplan-title">
                     Team Plan

@@ -1,4 +1,6 @@
+/* ======================== */
 /* ===== Billing Buttons ===== */
+/* ======================== */
 
 .billing-buttons {
   background-color: #f6f8fa;
@@ -9,13 +11,6 @@
   cursor: pointer;
 }
 
-.monthly-billing:hover,
-.annual-billing:hover {
-  color: #016ce8;
-  transition: background 0.2s, color 0.3s;
-  background-color: white;
-  /* border: 1px solid #016ce8; */
-}
 .annual-billing,
 .monthly-billing {
   background-color: #f6f8fa;
@@ -27,6 +22,15 @@
   line-height: 20px;
   border: none;
 }
+
+.monthly-billing:hover,
+.annual-billing:hover {
+  color: #016ce8;
+  transition: background 0.2s, color 0.3s;
+  background-color: white;
+  /* border: 1px solid #016ce8; */
+}
+
 .monthly-billing.active,
 .annual-billing.active {
   background-color: #016ce8;
@@ -34,6 +38,7 @@
   font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
+
 /* Shared active class */
 .billing-buttons button.active {
   background-color: #016ce8;
@@ -51,20 +56,29 @@
   cursor: pointer;
 }
 
+/* ============================ */
 /* ===== Page Container ===== */
+/* ============================ */
+
 .Pricepage-container {
   margin: 2rem 3rem 15rem;
 }
 
+/* ============================ */
 /* ===== Main Content ===== */
+/* ============================ */
+
 .PriceMainContent {
   margin: 4rem 0;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   gap: 64px;
 }
 
+/* ============================ */
 /* ===== Header Section ===== */
+/* ============================ */
+
 .PriceHeadSection {
   width: 100%;
   display: flex;
@@ -73,29 +87,38 @@
   justify-content: center;
   gap: 20px;
 }
+.Pricemain-heading h1 {
+  font-size: 2rem;
+}
 
 .Pricemain-heading {
   color: #0a0d14;
-  font-size: 24px;
+  /* font-size: 24px; */
   font-weight: 600;
   text-align: center;
   line-height: 100%;
 }
 
-
-
+/* ============================ */
 /* ===== Pricing Section ===== */
+/* ============================ */
+
 .pricing-section {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: space-between;
+  margin: 0 auto;
+  /* justify-content: space-between; */
 }
 
+/* ============================ */
 /* ===== Pricing Card ===== */
+/* ============================ */
+
 .pricing-card {
-  width: 70%;
-  max-width: 200px;
+  width: 100%;
+  max-width: 150px;
   display: flex;
   flex-direction: column;
   padding: 48px 1rem 1rem;
@@ -107,7 +130,10 @@
   font-size: 1.3rem;
 }
 
+/* ============================ */
 /* ===== Plan Details ===== */
+/* ============================ */
+
 .Priceplan-details,
 .Priceplan-header {
   display: flex;
@@ -169,7 +195,10 @@
   color: #525866;
 }
 
+/* ============================ */
 /* ===== Buttons ===== */
+/* ============================ */
+
 .current-plan-btn,
 .get-started-btn {
   width: 100%;
@@ -192,15 +221,13 @@
   background-color: #ffffff;
 }
 
+/* ============================ */
 /* ===== Features ===== */
+/* ============================ */
+
 .Priceplan-features {
   display: flex;
   flex-direction: column;
-}
-
-.Pricefeature span,
-.Pricefeaturelight span {
-  padding-right: 1rem;
 }
 
 .Pricefeature,
@@ -210,6 +237,11 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
+}
+
+.Pricefeature span,
+.Pricefeaturelight span {
+  padding-right: 1rem;
 }
 
 .Pricefeature {
@@ -225,36 +257,54 @@
   color: #ffffff;
 }
 
-/* ===== Media Queries ===== */
+/* ============================ */
+/* ===== AOS Zoom Tweak ===== */
+/* ============================ */
+
+[data-aos="zoom-in"].mild-zoom {
+  transform: scale(0.96);
+}
+
+[data-aos="zoom-in"].mild-zoom.aos-animate {
+  transform: scale(1);
+}
+
+/* ============================ */
+/* ===== Responsive Media Queries ===== */
+/* ============================ */
 
 /* Large Desktops */
 @media (min-width: 1440px) {
   .Pricepage-container {
-    margin: 2rem 8rem 15rem;
+    margin: 1rem;
+    width: 100%;
   }
 
   .pricing-section {
     justify-content: center;
-    gap: 32px;
+    gap: 24px;
+    margin: 0 auto;
+    width: 90%;
   }
 
   .pricing-card {
-    max-width: 360px;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .Pricemain-heading {
-    font-size: 64px;
+    font-size: 2.5rem;
+    line-height: 3rem;
   }
 }
 
 /* Laptops and Desktops */
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1204px) and (max-width: 1439px) {
   .Pricepage-container {
-    margin: 2rem 5rem 10rem;
+    margin: 2rem 5rem 1rem;
   }
 
   .pricing-section {
-    justify-content: space-around;
     gap: 24px;
   }
 
@@ -263,31 +313,40 @@
   }
 
   .Pricemain-heading {
-    font-size: 48px;
+    font-size: 2rem;
+  }
+  .PriceMainContent {
+    margin: 4rem 0 0 2rem;
+    flex-direction: column;
+    gap: 64px;
   }
 }
 
 /* Tablets */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .Pricepage-container {
     margin: 2rem;
   }
-
+  br {
+    display: none;
+  }
   .PriceMainContent {
     gap: 48px;
   }
 
   .pricing-section {
-    justify-content: center;
+    /* justify-content: center; */
     gap: 16px;
   }
 
   .pricing-card {
-    max-width: 100%;
+    max-width: 100% !important;
+    margin: 4rem 4rem 1rem;
   }
 
   .Pricemain-heading {
     font-size: 36px;
+    line-height: 2.5rem;
   }
 }
 
@@ -304,6 +363,7 @@
   .pricing-section {
     flex-direction: column;
     align-items: center;
+    display: flex;
     gap: 16px;
   }
 
@@ -327,6 +387,9 @@
     padding: 1rem;
     margin: 0 auto;
   }
+  .pricing-card {
+    max-width: 85%;
+  }
 }
 
 /* Small Phones */
@@ -349,9 +412,4 @@
   .lifetime {
     font-size: 16px;
   }
-
-  .pricing-card {
-    max-width: 250px;
-  }
-  
 }

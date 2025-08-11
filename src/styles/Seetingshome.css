@@ -917,7 +917,7 @@ input {
 .current-delete-info {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   gap: 16px;
   padding: 20px;
 }
@@ -929,7 +929,7 @@ input {
 .current-delete-info h2 {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: 4px;
   font-size: 18px;
   font-weight: 500;

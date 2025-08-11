@@ -1,10 +1,8 @@
-// app/layout.js
-import Header from "@/app/components/Header";
-import React from "react";
+// import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
-import LayoutClient from "@/app/LayoutClient"; // ✅ client wrapper you'll create
+import LayoutClient from "@/app/LayoutClient";
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],

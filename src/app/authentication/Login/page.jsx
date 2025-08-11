@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { icons } from "@/lib/Icons";
 import "@/styles/Login.css";
-import { signIn } from "next-auth/react";
+// import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 const Login = () => {
@@ -130,7 +130,7 @@ const Login = () => {
             </div>
 
             <div className="auth-buttons">
-              <button
+              {/* <button
                 type="button"
                 className="auth-button"
                 disabled={socialLoading}
@@ -138,7 +138,7 @@ const Login = () => {
               >
                 <span>{icons?.google || "🔵"}</span>{" "}
                 {socialLoading ? "Connecting..." : "Sign in with Google"}
-              </button>
+              </button> */}
 
               {/* <button
                 type="button"

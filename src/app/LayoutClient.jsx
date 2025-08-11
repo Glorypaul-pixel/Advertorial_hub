@@ -16,7 +16,6 @@ export default function LayoutClient({ children }) {
       duration: 100,
       once: false,
       mirror: true,
-      // easing: "ease-in-out",
       offset: 0,
     });
     AOS.refresh();
@@ -57,7 +56,7 @@ export default function LayoutClient({ children }) {
         toastOptions={{
           duration: 5000,
           style: {
-            zIndex: 9999, // Ensuring this is above modals, headers and more.
+            zIndex: 9999,
           },
         }}
       />

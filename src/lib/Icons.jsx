@@ -40,33 +40,33 @@ export const icons = {
       />
     </svg>
   ),
-  facebook: (
-    <svg
-      width="15"
-      height="16"
-      viewBox="0 0 15 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M7.5 0.5C3.375 0.5 0 3.89196 0 8.03769C0 11.7575 2.7525 14.848 6.3 15.5V10.1482H4.425V8.03769H6.3V6.3794C6.3 4.49498 7.5 3.4397 9.225 3.4397C9.75 3.4397 10.35 3.51508 10.875 3.59045V5.51256H9.9C9 5.51256 8.775 5.96482 8.775 6.56784V8.03769H10.7625L10.425 10.1482H8.775V15.4925C12.3187 14.8367 15 11.7575 15 8.03769C15 3.89196 11.625 0.5 7.5 0.5Z"
-        fill="url(#paint0_linear_1307_6227)"
-      />
-      <defs>
-        <linearGradient
-          id="paint0_linear_1307_6227"
-          x1="7.5"
-          y1="15.0515"
-          x2="7.5"
-          y2="0.5"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#0062E0" />
-          <stop offset="1" stopColor="#19AFFF" />
-        </linearGradient>
-      </defs>
-    </svg>
-  ),
+  // facebook: (
+  //   <svg
+  //     width="15"
+  //     height="16"
+  //     viewBox="0 0 15 16"
+  //     fill="none"
+  //     xmlns="http://www.w3.org/2000/svg"
+  //   >
+  //     <path
+  //       d="M7.5 0.5C3.375 0.5 0 3.89196 0 8.03769C0 11.7575 2.7525 14.848 6.3 15.5V10.1482H4.425V8.03769H6.3V6.3794C6.3 4.49498 7.5 3.4397 9.225 3.4397C9.75 3.4397 10.35 3.51508 10.875 3.59045V5.51256H9.9C9 5.51256 8.775 5.96482 8.775 6.56784V8.03769H10.7625L10.425 10.1482H8.775V15.4925C12.3187 14.8367 15 11.7575 15 8.03769C15 3.89196 11.625 0.5 7.5 0.5Z"
+  //       fill="url(#paint0_linear_1307_6227)"
+  //     />
+  //     <defs>
+  //       <linearGradient
+  //         id="paint0_linear_1307_6227"
+  //         x1="7.5"
+  //         y1="15.0515"
+  //         x2="7.5"
+  //         y2="0.5"
+  //         gradientUnits="userSpaceOnUse"
+  //       >
+  //         <stop stopColor="#0062E0" />
+  //         <stop offset="1" stopColor="#19AFFF" />
+  //       </linearGradient>
+  //     </defs>
+  //   </svg>
+  // ),
   greencheck: (
     <svg
       width="16"

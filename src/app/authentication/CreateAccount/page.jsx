@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { icons } from "@/lib/Icons";
-import { signIn } from "next-auth/react"; // Added for Google/Facebook signup
+// import { signIn } from "next-auth/react"; // Added for Google/Facebook signup
 import "@/styles/CreateAccount.css";
 
 const CreateAccount = () => {
@@ -78,15 +78,15 @@ const CreateAccount = () => {
     }
   };
 
-  // Google signup
-  const handleGoogleSignup = () => {
-    signIn("google", { callbackUrl: "/authentication/Success" });
-  };
+  // // Google signup
+  // const handleGoogleSignup = () => {
+  //   signIn("google", { callbackUrl: "/authentication/Success" });
+  // };
 
   // Facebook signup
-  const handleFacebookSignup = () => {
-    signIn("facebook", { callbackUrl: "/authentication/Success" });
-  };
+  // const handleFacebookSignup = () => {
+  //   signIn("facebook", { callbackUrl: "/authentication/Success" });
+  // };
 
   return (
     <div className="Create-container">
@@ -181,11 +181,11 @@ const CreateAccount = () => {
               />
               <p className="terms-text">
                 I accept the{" "}
-                <Link href="/Terms">
+                <Link href="/terms">
                   <b>Terms</b>
                 </Link>{" "}
                 and{" "}
-                <Link href="/Policy">
+                <Link href="/policy">
                   <b className="privacy-link">Privacy</b>
                 </Link>
               </p>
@@ -214,21 +214,21 @@ const CreateAccount = () => {
             </div>
 
             <div className="auth-buttons">
-              <button
+              {/* <button
                 type="button"
                 className="auth-button"
                 onClick={handleGoogleSignup}
               >
                 <span>{icons.google}</span> Sign up with Google
-              </button>
+              </button> */}
 
-              <button
+              {/* <button
                 type="button"
                 className="auth-button"
                 onClick={handleFacebookSignup}
               >
                 <span>{icons.facebook}</span> Sign up with Facebook
-              </button>
+              </button> */}
             </div>
           </section>
         </form>

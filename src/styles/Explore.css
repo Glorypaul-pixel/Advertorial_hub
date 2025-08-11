@@ -8,6 +8,7 @@
   overflow: hidden; /* Prevents horizontal scroll */
   width: 100%;
   text-align: center;
+  overflow: visible !important;
 }
 
 /*  */

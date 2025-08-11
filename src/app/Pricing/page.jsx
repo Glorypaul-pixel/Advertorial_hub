@@ -45,16 +45,16 @@ const Pricing = () => {
     getUser();
   }, []);
 
-  // Redirect if no user email (i.e., not logged in)
-  useEffect(() => {
-    if (user.email === "") {
-      // Only redirect if we have checked localStorage and user is empty
-      const userIdOrEmail = localStorage.getItem("userId");
-      if (!userIdOrEmail) {
-        router.push("/authentication/Login");
-      }
-    }
-  }, [user.email, router]);
+  // // Redirect if no user email (i.e., not logged in)
+  // useEffect(() => {
+  //   if (user.email === "") {
+  //     // Only redirect if we have checked localStorage and user is empty
+  //     const userIdOrEmail = localStorage.getItem("userId");
+  //     if (!userIdOrEmail) {
+  //       router.push("/authentication/Login");
+  //     }
+  //   }
+  // }, [user.email, router]);
 
   const prices = {
     personal: "Free",

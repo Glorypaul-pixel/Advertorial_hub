@@ -5,7 +5,7 @@ import "@/styles/Pricing.css";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
-const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931"; // Your Paystack public key
+const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931";
 const PaystackButton = dynamic(
   () => import("react-paystack").then((mod) => mod.PaystackButton),
   { ssr: false }
@@ -13,48 +13,45 @@ const PaystackButton = dynamic(
 
 const Pricing = () => {
   const [billing, setBilling] = useState("monthly");
-  const [user, setUser] = useState({ email: "", plan: "PERSONAL" });
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const router = useRouter();
 
+  // 🚀 Check login before fetching anything
   useEffect(() => {
+    const userIdOrEmail = localStorage.getItem("userId");
+    const storedToken = localStorage.getItem("token");
+
+    if (!userIdOrEmail) {
+      router.replace("/authentication/Login");
+      return;
+    }
+
+    setToken(storedToken);
+
     const getUser = async () => {
-      const userIdOrEmail = localStorage.getItem("userId");
-      setToken(localStorage.getItem("token"));
-
-      if (!userIdOrEmail) return; // don't redirect here
-
       try {
         const res = await fetch(
           `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
           {
             method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
           }
         );
         const userData = await res.json();
         setUser(userData);
-        console.log(userData);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
     };
 
     getUser();
-  }, []);
+  }, [router]);
 
-  // Redirect if no user email (i.e., not logged in)
-  useEffect(() => {
-    if (user.email === "") {
-      // Only redirect if we have checked localStorage and user is empty
-      const userIdOrEmail = localStorage.getItem("userId");
-      if (!userIdOrEmail) {
-        router.push("/authentication/Login");
-      }
-    }
-  }, [user.email, router]);
+  if (!user) {
+    // Optional loading state
+    return <div className="loading">Loading...</div>;
+  }
 
   const prices = {
     personal: "Free",
@@ -68,8 +65,6 @@ const Pricing = () => {
   };
 
   const changeUserPlan = async ({ reference, planName }) => {
-    console.log(token, reference, planName);
-
     const res = await fetch(
       "https://advertorial-backend.onrender.com/api/v1/plan/change-plan",
       {
@@ -99,10 +94,8 @@ const Pricing = () => {
   };
 
   const getPaystackButton = (planName) => {
-    if (!user?.email) {
-      // Don't redirect here, just return null or disabled button
-      return null;
-    }
+    if (!user?.email) return null;
+
     if (user.plan === "PERSONAL" && planName === "TEAM") {
       return (
         <button className="get-started-btn" disabled>
@@ -112,7 +105,6 @@ const Pricing = () => {
     }
 
     const amount = amountsInKobo[planName.toLowerCase()];
-
     const componentProps = {
       email: user.email,
       amount,
@@ -128,134 +120,132 @@ const Pricing = () => {
   };
 
   return (
-    <div>
-      <div className="Pricepage-container">
-        <main className="PriceMainContent">
-          <section className="PriceHeadSection" data-aos="fade-up">
-            <h1 className="Pricemain-heading">
-              We’ve got a plan that’s <br /> perfect for you
-            </h1>
+    <div className="Pricepage-container">
+      <main className="PriceMainContent">
+        <section className="PriceHeadSection" data-aos="fade-up">
+          <h1 className="Pricemain-heading">
+            We’ve got a plan that’s <br /> perfect for you
+          </h1>
 
-            <div className="billing-buttons">
-              <button
-                className={`monthly-billing ${
-                  billing === "monthly" ? "active" : ""
-                }`}
-                onClick={() => setBilling("monthly")}
-              >
-                Monthly Billing
-              </button>
-              <button
-                className={`annual-billing ${
-                  billing === "annual" ? "active" : ""
-                }`}
-                onClick={() => setBilling("annual")}
-              >
-                Annual Billing
-              </button>
-            </div>
-          </section>
+          <div className="billing-buttons">
+            <button
+              className={`monthly-billing ${
+                billing === "monthly" ? "active" : ""
+              }`}
+              onClick={() => setBilling("monthly")}
+            >
+              Monthly Billing
+            </button>
+            <button
+              className={`annual-billing ${
+                billing === "annual" ? "active" : ""
+              }`}
+              onClick={() => setBilling("annual")}
+            >
+              Annual Billing
+            </button>
+          </div>
+        </section>
 
-          <section className="pricing-section">
-            {/* Personal Plan */}
-            <div className="pricing-card">
-              <section className="Priceplan-details">
-                <div className="Priceplan-header">
-                  <h2 className="Priceplan-title">
-                    Personal Plan
-                    <span className="Priceplan-subtitle">
-                      Perfect plan for starters
-                    </span>
-                  </h2>
-                  <h1 className="plan-price">
-                    {prices.personal}
-                    <span className="Priceplan-subtitle">For a Lifetime</span>
-                  </h1>
-                </div>
-                {user.plan === "PERSONAL" ? (
-                  <button className="current-plan-btn">Current Plan</button>
-                ) : (
-                  <button className="get-started-btn" disabled>
-                    Free Plan
-                  </button>
-                )}
-              </section>
-              <section className="Priceplan-features">
-                {[...Array(5)].map((_, i) => (
-                  <p className="Pricefeature" key={i}>
-                    <span>{icons.greencheck}</span> Unlimited Post
-                  </p>
-                ))}
-              </section>
-            </div>
+        <section className="pricing-section">
+          {/* Personal Plan */}
+          <div className="pricing-card">
+            <section className="Priceplan-details">
+              <div className="Priceplan-header">
+                <h2 className="Priceplan-title">
+                  Personal Plan
+                  <span className="Priceplan-subtitle">
+                    Perfect plan for starters
+                  </span>
+                </h2>
+                <h1 className="plan-price">
+                  {prices.personal}
+                  <span className="Priceplan-subtitle">For a Lifetime</span>
+                </h1>
+              </div>
+              {user.plan === "PERSONAL" ? (
+                <button className="current-plan-btn">Current Plan</button>
+              ) : (
+                <button className="get-started-btn" disabled>
+                  Free Plan
+                </button>
+              )}
+            </section>
+            <section className="Priceplan-features">
+              {[...Array(5)].map((_, i) => (
+                <p className="Pricefeature" key={i}>
+                  <span>{icons.greencheck}</span> Unlimited Post
+                </p>
+              ))}
+            </section>
+          </div>
 
-            {/* Business Plan */}
-            <div className="pricing-card business-plan">
-              <section className="Priceplan-details">
-                <div className="Priceplan-header">
-                  <h2 className="Priceplan-titlelight">
-                    Business Plan
-                    <br />
-                    <span className="plan-subtitlelight">
-                      For users who want to do more
-                    </span>
-                  </h2>
-                  <h1 className="plan-pricelight">
-                    {prices.business}
-                    <span className="plan-subtitlelight">
-                      {billing === "monthly" ? "per month" : "per year"}
-                    </span>
-                  </h1>
-                </div>
-                {user.plan === "BUSINESS" ? (
-                  <button className="get-started-btn">Current Plan</button>
-                ) : (
-                  getPaystackButton("BUSINESS")
-                )}
-              </section>
-              <section className="Priceplan-features">
-                {[...Array(5)].map((_, i) => (
-                  <p className="Pricefeaturelight" key={i}>
-                    <span>{icons.whitecheck}</span> Unlimited Post
-                  </p>
-                ))}
-              </section>
-            </div>
+          {/* Business Plan */}
+          <div className="pricing-card business-plan">
+            <section className="Priceplan-details">
+              <div className="Priceplan-header">
+                <h2 className="Priceplan-titlelight">
+                  Business Plan
+                  <br />
+                  <span className="plan-subtitlelight">
+                    For users who want to do more
+                  </span>
+                </h2>
+                <h1 className="plan-pricelight">
+                  {prices.business}
+                  <span className="plan-subtitlelight">
+                    {billing === "monthly" ? "per month" : "per year"}
+                  </span>
+                </h1>
+              </div>
+              {user.plan === "BUSINESS" ? (
+                <button className="get-started-btn">Current Plan</button>
+              ) : (
+                getPaystackButton("BUSINESS")
+              )}
+            </section>
+            <section className="Priceplan-features">
+              {[...Array(5)].map((_, i) => (
+                <p className="Pricefeaturelight" key={i}>
+                  <span>{icons.whitecheck}</span> Unlimited Post
+                </p>
+              ))}
+            </section>
+          </div>
 
-            {/* Team Plan */}
-            <div className="pricing-card">
-              <section className="Priceplan-details">
-                <div className="Priceplan-header">
-                  <h2 className="Priceplan-title">
-                    Team Plan
-                    <span className="Priceplan-subtitle">
-                      Run your company on your terms
-                    </span>
-                  </h2>
-                  <h1 className="plan-price">
-                    {prices.team}
-                    <span className="Priceplan-subtitle">
-                      {billing === "monthly" ? "per month" : "per year"}
-                    </span>
-                  </h1>
-                </div>
-                {user.plan === "TEAM" ? (
-                  <button className="current-plan-btn">Current Plan</button>
-                ) : (
-                  getPaystackButton("TEAM")
-                )}
-              </section>
-              <section className="Priceplan-features">
-                {[...Array(5)].map((_, i) => (
-                  <p className="Pricefeature" key={i}>
-                    <span>{icons.greencheck}</span> Unlimited Post
-                  </p>
-                ))}
-              </section>
-            </div>
-          </section>
-        </main>
-      </div>
+          {/* Team Plan */}
+          <div className="pricing-card">
+            <section className="Priceplan-details">
+              <div className="Priceplan-header">
+                <h2 className="Priceplan-title">
+                  Team Plan
+                  <span className="Priceplan-subtitle">
+                    Run your company on your terms
+                  </span>
+                </h2>
+                <h1 className="plan-price">
+                  {prices.team}
+                  <span className="Priceplan-subtitle">
+                    {billing === "monthly" ? "per month" : "per year"}
+                  </span>
+                </h1>
+              </div>
+              {user.plan === "TEAM" ? (
+                <button className="current-plan-btn">Current Plan</button>
+              ) : (
+                getPaystackButton("TEAM")
+              )}
+            </section>
+            <section className="Priceplan-features">
+              {[...Array(5)].map((_, i) => (
+                <p className="Pricefeature" key={i}>
+                  <span>{icons.greencheck}</span> Unlimited Post
+                </p>
+              ))}
+            </section>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };

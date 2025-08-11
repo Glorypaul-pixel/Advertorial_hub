@@ -36,17 +36,13 @@ const Header = () => {
 
   // Prevent body scroll when menu is open
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
-  // Fetch user (your existing logic)
+  // Fetch user details if logged in
   const getUser = async () => {
     const userIdOrEmail = localStorage.getItem("userId");
-    if (!userIdOrEmail) return router.push("/authentication/Login");
+    if (!userIdOrEmail) return; // ❌ Removed auto-redirect here
 
     try {
       const res = await fetch(
@@ -68,6 +64,15 @@ const Header = () => {
     getUser();
   }, []);
 
+  // Handle Pricing button click
+  const handlePricingClick = () => {
+    if (!localStorage.getItem("userId")) {
+      router.push("/authentication/Login"); // Redirect if not logged in
+    } else {
+      navigateTo("/Pricing"); // Go to pricing if logged in
+    }
+  };
+
   return (
     <header className="header">
       {/* Logo */}
@@ -75,27 +80,26 @@ const Header = () => {
         <img src="/images/mainLogo.jpg" alt="Logo" className="header-logo" />
         <h3 className="header-title my-link hubHeader">Advertorial Hub</h3>
       </div>
-      {/* Hamburger (only visible on small screens) */}
 
-        <div
-          className={`hamburger ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          ref={hamburgerRef}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") setMenuOpen(!menuOpen);
-          }}
-        >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
- 
+      {/* Hamburger Menu */}
+      <div
+        className={`hamburger ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        ref={hamburgerRef}
+        aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") setMenuOpen(!menuOpen);
+        }}
+      >
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </div>
 
-      {/* Navigation menu */}
+      {/* Navigation Menu */}
       <nav
         className={`header-nav ${menuOpen ? "show" : ""}`}
         ref={navRef}
@@ -110,10 +114,7 @@ const Header = () => {
         <button className="my-link navbtn" onClick={() => navigateTo("/Blog")}>
           Blog
         </button>
-        <button
-          className="my-link navbtn"
-          onClick={() => navigateTo("/Pricing")}
-        >
+        <button className="my-link navbtn" onClick={handlePricingClick}>
           Pricing
         </button>
 
@@ -137,7 +138,6 @@ const Header = () => {
       {user ? (
         <div className="h-user-container">
           <p className="h-user-name">{user?.firstName}</p>
-
           {user?.profilePicture ? (
             <img
               src={user?.profilePicture}
@@ -150,7 +150,7 @@ const Header = () => {
               className="h-user-profile"
               onClick={() => navigateTo("/dashboard")}
             >
-              {user?.firstName.slice(0, 1) + user?.lastName.slice(0, 1)}
+              {user?.firstName?.[0] + user?.lastName?.[0]}
             </p>
           )}
         </div>

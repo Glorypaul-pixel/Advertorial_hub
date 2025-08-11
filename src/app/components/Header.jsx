@@ -103,7 +103,7 @@ const Header = () => {
       >
         <button
           className="my-link navbtn"
-          onClick={() => navigateTo("/aboutUs")}
+          onClick={() => navigateTo("/AboutUs")}
         >
           About Us
         </button>
@@ -112,7 +112,7 @@ const Header = () => {
         </button>
         <button
           className="my-link navbtn"
-          onClick={() => navigateTo("/pricing")}
+          onClick={() => navigateTo("/Pricing")}
         >
           Pricing
         </button>

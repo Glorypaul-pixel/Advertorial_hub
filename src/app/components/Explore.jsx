@@ -32,7 +32,7 @@ const Explore = () => {
 
       {/* Content Section */}
       <div className="exploreContent">
-        <Link href="/integrate" className="custom-link">
+        <Link href="/Integrate" className="custom-link">
           <button className="exploreButton"  data-aos="fade-down">Explore Integration</button>
         </Link>
 

@@ -28,10 +28,10 @@ const Footer = () => {
         >
           <h2>Resource</h2>
           <ul>
-            <Link href="/pricing" className="custom-link">
+            <Link href="/pPricing" className="custom-link">
               <li>Pricing</li>
             </Link>
-            <Link href="/blog" className="custom-link">
+            <Link href="/Blog" className="custom-link">
               <li>Blog</li>
             </Link>
           </ul>
@@ -43,13 +43,13 @@ const Footer = () => {
         <div className="footerAbout" data-aos="fade-left" data-aos-delay="300">
           <h2>About Us</h2>
           <ul>
-            <Link href="/aboutUs" className="custom-link">
+            <Link href="/AboutUs" className="custom-link">
               <li>About Us</li>
             </Link>
-            <Link href="/policy" className="custom-link">
+            <Link href="/Policy" className="custom-link">
               <li>Privacy Policy</li>
             </Link>
-            <Link href="/terms" className="custom-link">
+            <Link href="/Terms" className="custom-link">
               <li>Terms and Services</li>
             </Link>
           </ul>

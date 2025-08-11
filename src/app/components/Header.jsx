@@ -107,7 +107,7 @@ const Header = () => {
         >
           About Us
         </button>
-        <button className="my-link navbtn" onClick={() => navigateTo("/blog")}>
+        <button className="my-link navbtn" onClick={() => navigateTo("/Blog")}>
           Blog
         </button>
         <button

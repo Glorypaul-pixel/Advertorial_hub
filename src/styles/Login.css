@@ -1,7 +1,7 @@
 /* Page Container */
 .Loginpage-container {
   width: 100%;
-  margin-top: 3rem;
+  padding-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;

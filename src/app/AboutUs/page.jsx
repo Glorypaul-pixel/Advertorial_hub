@@ -2,7 +2,7 @@ import React from "react";
 import Explore from "@/app/components/Explore";
 import AboutBody from "@/app/components/AboutBody";
 import AdvertisePage from "@/app/components/AdvertisePage";
-const AboutUs = () => {
+const aboutUs = () => {
   return (
     <div>
       <AboutBody />
@@ -12,4 +12,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default aboutUs;

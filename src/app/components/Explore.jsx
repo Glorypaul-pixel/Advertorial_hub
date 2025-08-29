@@ -8,7 +8,7 @@ const Explore = () => {
     { id: "microsoft", src: "/images/Microsoft.png", alt: "Microsoft" },
     { id: "mailchimp", src: "/images/Mailchimp.png", alt: "Mailchimp" },
     { id: "fb", src: "/images/fb.png", alt: "Facebook" },
-    { id: "logo", src: "/images/logomain.png", alt: "Logo" },
+    { id: "logo", src: "/images/AH-BLUE-BG.jpg", alt: "Logo" },
     { id: "linkedin", src: "/images/Linkedin.png", alt: "LinkedIn" },
     { id: "tiktok", src: "/images/Tiktok.png", alt: "TikTok" },
     { id: "whatsapp", src: "/images/WhatsApp.png", alt: "WhatsApp" },
@@ -38,7 +38,7 @@ const Explore = () => {
 
         <h1  data-aos="zoom-in">Get your brand in front of the people who matter most</h1>
         <Link href="/authentication/CreateAccount">
-          <button className="btnStart"  data-aos="fade-up">Get Started</button>
+          <button className="ExbtnStart"  data-aos="fade-up">Get Started</button>
         </Link>
       </div>
     </div>

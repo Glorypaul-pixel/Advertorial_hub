@@ -47,14 +47,14 @@ export default function Pricing() {
   }, []);
 
   const prices = {
-    personal: "Free",
-    business: billing === "monthly" ? "$400" : "$4,000",
-    team: billing === "monthly" ? "$700" : "$7,000",
+    personal: "₦0",
+    business: billing === "monthly" ? "₦40,000" : "₦480,000",
+    team: billing === "monthly" ? "₦70,000" : "₦840,000",
   };
 
   const amountsInKobo = {
-    business: billing === "monthly" ? 400 * 100 : 4000 * 100,
-    team: billing === "monthly" ? 700 * 100 : 7000 * 100,
+    business: billing === "monthly" ? 40000 * 100 : 480000 * 100,
+    team: billing === "monthly" ? 70000 * 100 : 840000 * 100,
   };
 
   const changeUserPlan = async ({ reference, planName }) => {
@@ -119,13 +119,43 @@ export default function Pricing() {
     return <PaystackButton {...componentProps} />;
   };
 
+  const freePlan = [
+    "10 posts per month",
+    "Only 1 image per post",
+    " No ads",
+    " No social media support",
+    "Ideal for personal projects, testing, and casual use.",
+  ];
+
+  const businessPlan = [
+    "Post Limit: 100 per month",
+    "Media: Unlimited images",
+    "Ads: 3 ads per month",
+    "Social Sharing: Instagram, Facebook",
+    "Ideal For: Growing businesses and entrepreneurs",
+  ];
+  const teamPlan = [
+    "Post Limit: Unlimited",
+    "Media: Unlimited images + videos",
+    "Ads: 5 ads per month",
+    "Social Sharing: Instagram, Facebook, TikTok, Twitter",
+    "Ideal For: Brands, agencies, and teams managing content at scale",
+  ];
+  const features = [
+    { title: "All plans include 24/7 email support!", desc: "" },
+    {
+      title: "Analytics Dashboard",
+      desc: "helps track post performance over time.",
+    },
+    { title: "Upgrade anytime", desc: "as your needs grow!" },
+  ];
   return (
     <div>
       <div className="Pricepage-container ">
         <main className="PriceMainContent">
           <section className="PriceHeadSection" data-aos="fade-down">
             <h1 className="Pricemain-heading">
-              We’ve got a plan that’s perfect  <br/> for you
+              We’ve got a plan that’s perfect <br /> for you
             </h1>
 
             <div className="billing-buttons">
@@ -178,9 +208,9 @@ export default function Pricing() {
                 )}
               </section>
               <section className="Priceplan-features">
-                {[...Array(5)].map((_, i) => (
+                {freePlan.map((feature, i) => (
                   <p className="Pricefeature" key={i}>
-                    <span>{icons.greencheck}</span> Unlimited Post
+                    <span>{icons.greencheck}</span> {feature}
                   </p>
                 ))}
               </section>
@@ -207,13 +237,16 @@ export default function Pricing() {
                 {user.plan === "BUSINESS" ? (
                   <button className="get-started-btn">Current Plan</button>
                 ) : (
-                  getPaystackButton("BUSINESS")
+                  // getPaystackButton("BUSINESS")
+                  <button className="current-plan-btn" disabled>
+                    Coming soon
+                  </button>
                 )}
               </section>
               <section className="Priceplan-features">
-                {[...Array(5)].map((_, i) => (
-                  <p className="Pricefeaturelight" key={i}>
-                    <span>{icons.whitecheck}</span> Unlimited Post
+                {businessPlan.map((feature, i) => (
+                  <p className="Pricefeature" key={i}>
+                    <span>{icons.greencheck}</span> {feature}
                   </p>
                 ))}
               </section>
@@ -239,16 +272,57 @@ export default function Pricing() {
                 {user.plan === "TEAM" ? (
                   <button className="current-plan-btn">Current Plan</button>
                 ) : (
-                  getPaystackButton("TEAM")
+                  // getPaystackButton("TEAM")
+                  <button className="current-plan-btn" disabled>
+                    Coming soon
+                  </button>
                 )}
               </section>
               <section className="Priceplan-features">
-                {[...Array(5)].map((_, i) => (
+                {teamPlan.map((feature, i) => (
                   <p className="Pricefeature" key={i}>
-                    <span>{icons.greencheck}</span> Unlimited Post
+                    <span>{icons.greencheck}</span> {feature}
                   </p>
                 ))}
               </section>
+            </div>
+          </section>
+          {/* <!-- Pricing-features-section.html --> */}
+          <section
+            className="features-section"
+            aria-labelledby="features-heading"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <div className="features-inner">
+              <h3
+                id="features-heading"
+                className="features-title"
+                data-aos="fade-right"
+                data-aos-delay="100"
+              >
+                What’s included
+              </h3>
+
+              <ul className="features-list">
+                {features.map((f, i) => (
+                  <li
+                    className="feature-item"
+                    key={i}
+                    data-aos="fade-up"
+                    data-aos-delay={i * 150} // stagger effect
+                    data-aos-duration="700"
+                  >
+                    <span className="feature-icon" aria-hidden="true">
+                      🔹
+                    </span>
+                    <span className="feature-text">
+                      <strong>{f.title}</strong>
+                      {f.desc ? ` ${f.desc}` : ""}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
         </main>

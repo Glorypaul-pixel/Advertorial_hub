@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { icons } from "@/lib/Icons";
+// import { icons } from "@/app/lib/Icons";
 // import { signIn } from "next-auth/react"; // Added for Google/Facebook signup
 import "@/styles/CreateAccount.css";
 

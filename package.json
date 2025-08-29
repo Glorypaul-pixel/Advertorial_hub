@@ -14,7 +14,7 @@
     "aos": "^2.3.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "next": "^15.2.4",
+    "next": "^15.4.6",
     "next-auth": "^4.24.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

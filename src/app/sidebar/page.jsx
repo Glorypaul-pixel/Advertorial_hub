@@ -76,15 +76,15 @@ function Sidebar({ setMenuOpen }) {
             ))}
           </ul>
         </nav>
-       <button
-  className="BackHomeBtn"
-  onClick={() => {
-    setMenuOpen(false);
-    router.push("/");
-  }}
->
-  Back to home Page
-</button>
+        <button
+          className="BackHomeBtn"
+          onClick={() => {
+            setMenuOpen(false);
+            router.push("/");
+          }}
+        >
+          Back to home Page
+        </button>
 
         <button className="logout-button" onClick={() => setLogOut(true)}>
           {icons.logout} Logout

@@ -114,7 +114,9 @@
   margin-bottom: 3rem;
   text-align: center;
 }
-
+.exploreButton:hover{
+  background-color: #97baf3;
+}
 /* Explore Icons Container */
 .ExploreIconsContainer {
   display: flex;
@@ -171,8 +173,21 @@
 .custom-link:visited {
   color: #333; /* Ensure the visited link does not stay purple */
 }
+
+.ExbtnStart {
+  background-color: #1d69e6;
+  border: none;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.6rem 2rem;
+  font-size: 1.1rem;
+}
+.ExbtnStart:hover{
+  background-color: #609af8;
+  cursor: pointer;
+}
 /* Mobile-first adjustments */
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .BgColorExplore {
     padding: 6rem 0;
   }
@@ -198,7 +213,7 @@
   }
 
   .exploreButton,
-  .btnStart {
+  .ExbtnStart {
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
   }

@@ -70,17 +70,15 @@ export default function HomePage() {
         }
       );
 
-    
-
       const userData = await response.json();
       setUser(userData);
-      console.log("data-gotten" +userData);
-      
+      console.log("data-gotten" + userData);
+
       return userData;
     } catch (error) {
       console.error("Error fetching user:", error);
-      console.log('error-gotten');
-      
+      console.log("error-gotten");
+
       return null;
     }
   };
@@ -372,7 +370,8 @@ export default function HomePage() {
             className="createpost-container mild-zoom"
             data-aos="zoom-in"
             data-aos-delay="400"
-            data-aos-duration="2000">
+            data-aos-duration="2000"
+          >
             <h2 className="posth-text">Recent Post</h2>
             {userPosts.map((post) => (
               <section className=" recetpost-card" key={post._id}>
@@ -420,14 +419,16 @@ export default function HomePage() {
                     margin: "0",
                     fontSize: "16px",
                     fontWeight: "bolder",
-                  }}>
+                  }}
+                >
                   {post.title}
                 </p>
                 {/* post write up  */}
                 <p
                   style={{
                     margin: "0",
-                  }}>
+                  }}
+                >
                   {post.content}
                 </p>
                 <div>
@@ -442,7 +443,8 @@ export default function HomePage() {
                         !isReacting[post._id] &&
                         handlePostReaction(post._id, "like")
                       }
-                      className="reaction-button">
+                      className="reaction-button"
+                    >
                       {userReactions[post._id]?.liked
                         ? icons.likesfill
                         : icons.likes}
@@ -454,7 +456,8 @@ export default function HomePage() {
                         !isReacting[post._id] &&
                         handlePostReaction(post._id, "dislike")
                       }
-                      className="reaction-button">
+                      className="reaction-button"
+                    >
                       {userReactions[post._id]?.disliked
                         ? icons.dislikefill
                         : icons.dislike}
@@ -478,7 +481,8 @@ export default function HomePage() {
             className="createpost-container mild-zoom"
             data-aos="zoom-in"
             data-aos-delay="400"
-            data-aos-duration="2000">
+            data-aos-duration="2000"
+          >
             <section className="createpost-card">
               <div className="createpost-subcard">
                 <input
@@ -499,7 +503,8 @@ export default function HomePage() {
                   placeholder="Tell a story"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
-                  required></textarea>
+                  required
+                ></textarea>
                 <button type="button" onClick={() => setSelectImg(true)}>
                   <span>{icons.selectImg}</span>Add Image
                 </button>
@@ -535,13 +540,15 @@ export default function HomePage() {
                 <button
                   className="overlay-link-cancel "
                   id="cancelCreatePost"
-                  onClick={handleSwitch}>
+                  onClick={handleSwitch}
+                >
                   Back
                 </button>{" "}
                 <button
                   className=" overlay-link-button "
                   id="createdpost"
-                  onClick={handleSubmit}>
+                  onClick={handleSubmit}
+                >
                   {createLoading ? "Creating..." : "Create Post"}
                 </button>
               </div>
@@ -555,7 +562,8 @@ export default function HomePage() {
               className="overlay-container"
               data-aos="zoom-in"
               data-aos-delay="100"
-              data-aos-duration="500">
+              data-aos-duration="500"
+            >
               <section className=" flex flex-col gap-[16px]">
                 <p className="pc" onClick={() => setSelectImg(false)}>
                   {icons.arrowback} Back
@@ -565,7 +573,8 @@ export default function HomePage() {
                   <button
                     type="button"
                     className=" cp "
-                    onClick={() => setSelectImg(false)}>
+                    onClick={() => setSelectImg(false)}
+                  >
                     {icons.exit}
                   </button>
                 </h4>
@@ -585,7 +594,8 @@ export default function HomePage() {
                       );
                       setImagePreviews(previews);
                     }
-                  }}>
+                  }}
+                >
                   {/* icon */}
                   <span>{icons.upload}</span>
 
@@ -623,13 +633,15 @@ export default function HomePage() {
                 <button
                   className="overlay-link-cancel "
                   id="cancel"
-                  onClick={() => setSelectImg(false)}>
+                  onClick={() => setSelectImg(false)}
+                >
                   Cancel
                 </button>{" "}
                 <button
                   className=" overlay-link-button "
                   id="save-link"
-                  onClick={() => setSelectImg(false)}>
+                  onClick={() => setSelectImg(false)}
+                >
                   Upload
                 </button>
               </div>

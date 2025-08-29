@@ -23,22 +23,20 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await fetch(
-        "https://advertorial-backend.onrender.com/api/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch("https://advertorial-backend.onrender.com/api/auth/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Origin": "http://localhost:3000"
+  },
+  body: JSON.stringify({ email, password })
+});
 
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data?.message || "Login failed!");
       }
-
+// 
       // Save token and user ID in localStorage
       localStorage.setItem("userId", data.user.id);
       localStorage.setItem("token", data.token);
@@ -110,6 +108,10 @@ const Login = () => {
               />
             </div>
           </section>
+          {/* Forgot Password link */}
+          <div className="forgot-password">
+            <a href="/authentication/ForgotPassword">Forgot Password?</a>
+          </div>
 
           {error && <p className="error-text">{error}</p>}
 
@@ -123,11 +125,11 @@ const Login = () => {
               {loading ? "Logging in..." : "Log In"}
             </button>
 
-            <div className="or-divider">
+            {/* <div className="or-divider">
               <span className="divider-line"></span>
               <span className="or-text">OR</span>
               <span className="divider-line"></span>
-            </div>
+            </div> */}
 
             <div className="auth-buttons">
               {/* <button

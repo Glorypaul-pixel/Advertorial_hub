@@ -374,7 +374,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: end;
+  justify-content:flex-end;
 }
 .overlay-link-cancel {
   border: 1px solid #e2e4e9;

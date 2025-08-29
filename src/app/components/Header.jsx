@@ -64,15 +64,6 @@ const Header = () => {
     getUser();
   }, []);
 
-  // Handle Pricing button click
-  const handlePricingClick = () => {
-    if (!localStorage.getItem("userId")) {
-      router.push("/authentication/Login"); // Redirect if not logged in
-    } else {
-      navigateTo("/Pricing"); // Go to pricing if logged in
-    }
-  };
-
   return (
     <header className="header">
       {/* Logo */}
@@ -105,6 +96,12 @@ const Header = () => {
         ref={navRef}
         aria-hidden={!menuOpen}
       >
+         <button
+          className="my-link navbtn"
+          onClick={() => navigateTo("/")}
+        >
+          Home
+        </button>
         <button
           className="my-link navbtn"
           onClick={() => navigateTo("/AboutUs")}
@@ -114,7 +111,10 @@ const Header = () => {
         <button className="my-link navbtn" onClick={() => navigateTo("/Blog")}>
           Blog
         </button>
-        <button className="my-link navbtn" onClick={handlePricingClick}>
+        <button
+          className="my-link navbtn"
+          onClick={() => navigateTo("/Pricing")}
+        >
           Pricing
         </button>
 
@@ -126,7 +126,7 @@ const Header = () => {
             Log In
           </button>
           <button
-            className="btnStart"
+            className="HeaderbtnStart"
             onClick={() => navigateTo("/authentication/CreateAccount")}
           >
             Start Now
@@ -163,7 +163,7 @@ const Header = () => {
             Log In
           </button>
           <button
-            className="btnStart"
+            className="HeaderbtnStart"
             onClick={() => navigateTo("/authentication/CreateAccount")}
           >
             Start Now

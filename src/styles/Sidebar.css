@@ -6,6 +6,8 @@
   color: white;
   padding: .5rem 1rem;
   border-radius: 2rem;
+  border: none;
+  cursor: pointer;
 }
 .sidebar-container {
   display: none;
@@ -19,7 +21,7 @@
 .BackHomeBtn a {
   color: white;
 }
-.BackHomeBtn a:hover {
+.BackHomeBtn:hover {
   color: rgb(201, 201, 201);
 }
 a {
@@ -225,7 +227,7 @@ a {
   align-items: center;
   flex-direction: row;
   gap: 12px;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 20px;
 }
 

@@ -19,8 +19,8 @@ body {
 }
 .btnStart {
   background-color: #016ce8;
-  border-radius: 2rem;
-  padding: 1rem 3rem;
+  border-radius: .6rem;
+  padding: .7rem 2rem;
   color: white;
   border: none;
 }

@@ -518,8 +518,9 @@ export default function HomePage() {
             className=" main-card mild-zoom"
             data-aos="zoom-in"
             data-aos-delay="400"
-            data-aos-duration="2000">
-            {/* setup */}
+            data-aos-duration="2000"
+          >
+            {/* setup 
             <section className=" main-card ">
               <h4 className=" h4-text  ">Your quick start guide</h4>
               <div className="profile-updating-section ">
@@ -549,9 +550,10 @@ export default function HomePage() {
                   </ul>
                 )}
               </div>
-            </section>
+            </section> 
+            */}
             {/* Recent Post / create post */}
-            <section className=" main-card ">
+            <section className=" main-card-create ">
               <h4 className=" h4-text  ">Recent Post</h4>
               <div className="create-post-card ">
                 <section className="folder-selection-container">
@@ -567,7 +569,7 @@ export default function HomePage() {
             </section>
           </main>
           {/* addlink section  */}
-          {addLink && (
+          {/* {addLink && (
             <section className="addLink-overlay">
               <div
                 className="overlay-container"
@@ -585,7 +587,6 @@ export default function HomePage() {
                 </h4>
                 <form action="" className="  overlay-form1">
                   <section className="  overlay-form2">
-                    {/* selected url  */}
                     <div className="selected-url">
                       <p>
                         <span>{icons.selectedurl}</span> <span>Linkedin</span>
@@ -599,7 +600,6 @@ export default function HomePage() {
                         </button>
                       </p>
                     </div>
-                    {/* new url  */}
                     <div className="  overlay-form3 ">
                       <label htmlFor="url" className=" overlay-link-label">
                         URL
@@ -614,7 +614,6 @@ export default function HomePage() {
                         />
                       </div>
                     </div>
-                    {/*add new url  */}
                     <div className="  overlay-form3 ">
                       <label htmlFor="urlname" className=" overlay-link-label">
                         URL name
@@ -648,10 +647,10 @@ export default function HomePage() {
                 </form>
               </div>
             </section>
-          )}
+          )} */}
 
           {/* profile img  */}
-          {profile && (
+          {/* {profile && (
             <section className="addLink-overlay">
               <div
                 className="overlay-container"
@@ -671,7 +670,6 @@ export default function HomePage() {
                   <div
                     className="profile-container
               ">
-                    {/* Dummy would be replaced by an img tag later  */}
                     <span>{icons.avatardummy}</span>
                     <button className="overlay-profile-button ">
                       Upload profile photo
@@ -695,10 +693,10 @@ export default function HomePage() {
                 </div>
               </div>
             </section>
-          )}
+          )} */}
 
           {/* delete link  */}
-          {deleteLink && (
+          {/* {deleteLink && (
             <section className="addLink-overlay">
               <div
                 className="overlay-container"
@@ -738,7 +736,7 @@ export default function HomePage() {
                 </div>
               </div>
             </section>
-          )}
+          )} */}
         </div>
       ) : (
         <div className="page-container">
@@ -762,7 +760,8 @@ export default function HomePage() {
               className="createpost-container mild-zoom"
               data-aos="zoom-in"
               data-aos-delay="400"
-              data-aos-duration="2000">
+              data-aos-duration="2000"
+            >
               <h2 className="posth-text">Recent Post</h2>
               {userPosts.map((post) => (
                 <section className=" recetpost-card" key={post._id}>
@@ -808,7 +807,8 @@ export default function HomePage() {
                         onClick={(e) => {
                           e.stopPropagation(),
                             setMenu(menu === post._id ? null : post._id);
-                        }}>
+                        }}
+                      >
                         {" "}
                         {icons.menu}
                       </span>
@@ -819,7 +819,8 @@ export default function HomePage() {
                               setMakeAds(true);
                               setAdPost(post);
                               setAdPostId(post._id);
-                            }}>
+                            }}
+                          >
                             Make Ads
                           </li>
 
@@ -839,7 +840,8 @@ export default function HomePage() {
                               }
                               setImages([]); // reset images to be uploaded (optional)
                             }}
-                            id="editpost">
+                            id="editpost"
+                          >
                             Edit Post
                           </li>
                           <li
@@ -847,7 +849,8 @@ export default function HomePage() {
                             onClick={() => {
                               setPostToDelete(post._id); // save the correct post ID
                               setDeletePost(true); // open modal
-                            }}>
+                            }}
+                          >
                             Delete Post
                           </li>
                         </ul>
@@ -860,14 +863,16 @@ export default function HomePage() {
                       margin: "0",
                       fontSize: "16px",
                       fontWeight: "bolder",
-                    }}>
+                    }}
+                  >
                     {post.title}
                   </p>
                   {/* post write up  */}
                   <p
                     style={{
                       margin: "0",
-                    }}>
+                    }}
+                  >
                     {post.content}
                   </p>
                   <div>
@@ -900,7 +905,8 @@ export default function HomePage() {
               className="createpost-container mild-zoom"
               data-aos="zoom-in"
               data-aos-delay="400"
-              data-aos-duration="2000">
+              data-aos-duration="2000"
+            >
               <h1 className=" page-h-text">{editPosts && "Edit post"}</h1>
               {/* CREATE/EDIT POST MODAL  */}
               {!editPosts ? (
@@ -924,7 +930,8 @@ export default function HomePage() {
                       placeholder="Tell a story"
                       value={content}
                       onChange={(e) => setContent(e.target.value)}
-                      required></textarea>
+                      required
+                    ></textarea>
                     <button type="button" onClick={() => setSelectImg(true)}>
                       <span>{icons.selectImg}</span>Add Image
                     </button>
@@ -960,13 +967,15 @@ export default function HomePage() {
                     <button
                       className="overlay-link-cancel "
                       id="cancelCreatePost"
-                      onClick={handleSwitch}>
+                      onClick={handleSwitch}
+                    >
                       Back
                     </button>{" "}
                     <button
                       className=" overlay-link-button "
                       id="createdpost"
-                      onClick={handleSubmit}>
+                      onClick={handleSubmit}
+                    >
                       {createLoading ? "Creating..." : "Create Post"}
                     </button>
                   </div>
@@ -993,7 +1002,8 @@ export default function HomePage() {
                       placeholder="Tell a story EDIT"
                       value={content}
                       onChange={(e) => setContent(e.target.value)}
-                      required></textarea>
+                      required
+                    ></textarea>
                     <button type="button" onClick={() => setSelectImg(true)}>
                       <span>{icons.selectImg}</span>Add Image
                     </button>
@@ -1029,13 +1039,15 @@ export default function HomePage() {
                     <button
                       className="overlay-link-cancel "
                       id="cancelCreatePost"
-                      onClick={handleSwitch}>
+                      onClick={handleSwitch}
+                    >
                       Back
                     </button>{" "}
                     <button
                       className="overlay-link-button"
                       id="createdpost"
-                      onClick={handleUpdatePost}>
+                      onClick={handleUpdatePost}
+                    >
                       {createLoading ? "Updating..." : "Update Post"}
                     </button>
                   </div>
@@ -1050,7 +1062,8 @@ export default function HomePage() {
                 className="overlay-container mild-zoom"
                 data-aos="zoom-in"
                 data-aos-delay="100"
-                data-aos-duration="500">
+                data-aos-duration="500"
+              >
                 <section className=" flex flex-col gap-[16px]">
                   <p className="pc" onClick={() => setSelectImg(false)}>
                     {icons.arrowback} Back
@@ -1060,7 +1073,8 @@ export default function HomePage() {
                     <button
                       type="button"
                       className=" cp "
-                      onClick={() => setSelectImg(false)}>
+                      onClick={() => setSelectImg(false)}
+                    >
                       {icons.exit}
                     </button>
                   </h4>
@@ -1079,7 +1093,8 @@ export default function HomePage() {
                         );
                         setImagePreviews(previews);
                       }
-                    }}>
+                    }}
+                  >
                     {/* icon */}
                     <span>{icons.upload}</span>
 
@@ -1109,7 +1124,8 @@ export default function HomePage() {
                         paddingLeft: "5px",
                         paddingRight: "5px",
                         textAlign: "center",
-                      }}>
+                      }}
+                    >
                       Drag and drop up to 5 images or{" "}
                       <label htmlFor="imgselect">browse </label>
                       to choose a file
@@ -1123,15 +1139,16 @@ export default function HomePage() {
                   <button
                     className="overlay-link-cancel "
                     id="cancel"
-                    onClick={() => setSelectImg(false)}>
+                    onClick={() => setSelectImg(false)}
+                  >
                     Cancel
                   </button>{" "}
-                  <button
+                  {/* <button
                     className=" overlay-link-button "
                     id="save-link"
                     onClick={() => setSelectImg(false)}>
                     Upload
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </section>
@@ -1143,7 +1160,8 @@ export default function HomePage() {
                 className="overlay-container mild-zoom"
                 data-aos="zoom-in"
                 data-aos-delay="100"
-                data-aos-duration="500">
+                data-aos-duration="500"
+              >
                 <section>
                   <p className="pc" onClick={() => setMakeAds(false)}>
                     {icons.arrowback} Back
@@ -1153,7 +1171,8 @@ export default function HomePage() {
                     <button
                       type="button"
                       className=" cp "
-                      onClick={() => setMakeAds(false)}>
+                      onClick={() => setMakeAds(false)}
+                    >
                       {icons.exit}
                     </button>
                   </h4>
@@ -1191,7 +1210,8 @@ export default function HomePage() {
                       <label htmlFor="target">Target</label>
                       <select
                         value={adTarget}
-                        onChange={(e) => setAdTarget(e.target.value)}>
+                        onChange={(e) => setAdTarget(e.target.value)}
+                      >
                         <option value="">Select a Target</option>
                         <option value="students">Students</option>
                         <option value="professionals">Professionals</option>
@@ -1203,7 +1223,8 @@ export default function HomePage() {
                         <label>Minimum Age</label>
                         <select
                           value={adMinAge}
-                          onChange={(e) => setAdMinAge(e.target.value)}>
+                          onChange={(e) => setAdMinAge(e.target.value)}
+                        >
                           <option value="">Select min age</option>
                           {[...Array(100)].map((_, i) => (
                             <option key={i} value={i}>
@@ -1216,7 +1237,8 @@ export default function HomePage() {
                         <label>Maximum Age</label>
                         <select
                           value={adMaxAge}
-                          onChange={(e) => setAdMaxAge(e.target.value)}>
+                          onChange={(e) => setAdMaxAge(e.target.value)}
+                        >
                           <option value="">Select max age</option>
                           {[...Array(100)].map((_, i) => (
                             <option key={i} value={i}>
@@ -1230,7 +1252,8 @@ export default function HomePage() {
                       <label>Location</label>
                       <select
                         value={adLocation}
-                        onChange={(e) => setAdLocation(e.target.value)}>
+                        onChange={(e) => setAdLocation(e.target.value)}
+                      >
                         <option value="">Select a location</option>
                         {statesAndCapitals.map((states) => (
                           <option value={states.state}>{states.state}</option>
@@ -1242,7 +1265,8 @@ export default function HomePage() {
                       <label>Gender</label>
                       <select
                         value={adGender}
-                        onChange={(e) => setAdGender(e.target.value)}>
+                        onChange={(e) => setAdGender(e.target.value)}
+                      >
                         <option value="">Select a gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -1256,13 +1280,15 @@ export default function HomePage() {
                   <button
                     className="overlay-link-cancel "
                     id="cancel"
-                    onClick={() => setMakeAds(false)}>
+                    onClick={() => setMakeAds(false)}
+                  >
                     Cancel
                   </button>{" "}
                   <button
                     className="overlay-link-button"
                     onClick={handleSubmitAd}
-                    disabled={makeAdLoading}>
+                    disabled={makeAdLoading}
+                  >
                     {makeAdLoading ? "Submitting..." : "Submit"}
                   </button>
                 </div>
@@ -1276,7 +1302,8 @@ export default function HomePage() {
                 className="overlay-delete-container mild-zoom"
                 data-aos="zoom-in"
                 data-aos-delay="100"
-                data-aos-duration="500">
+                data-aos-duration="500"
+              >
                 <section className=" current-delete-container">
                   <div className="current-delete-info">
                     <span>{icons.deletefill}</span>
@@ -1295,7 +1322,8 @@ export default function HomePage() {
                       onClick={() => {
                         setDeletePost(false);
                         setPostToDelete(null);
-                      }}>
+                      }}
+                    >
                       Cancel
                     </button>
                     <button
@@ -1304,7 +1332,8 @@ export default function HomePage() {
                         handleDeletePost(postToDelete);
                         setDeletePost(false);
                         setPostToDelete(null); // clear state
-                      }}>
+                      }}
+                    >
                       Yes, Delete Post
                     </button>
                   </div>

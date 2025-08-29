@@ -18,7 +18,7 @@ const Footer = () => {
           <p>&copy; 2024 Advertorial Hub. All rights reserved.</p>
         </div>
 
-        <hr data-aos="zoom-in" data-aos-delay="150" />
+        <hr className="hr" data-aos="zoom-in" data-aos-delay="150" />
 
         {/* Resources Section */}
         <div
@@ -37,7 +37,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <hr data-aos="zoom-in" data-aos-delay="250" />
+        <hr className="hr" data-aos="zoom-in" data-aos-delay="250" />
 
         {/* About Us Section */}
         <div className="footerAbout" data-aos="fade-left" data-aos-delay="300">
@@ -55,7 +55,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <hr data-aos="zoom-in" data-aos-delay="350" />
+        <hr className="hr" data-aos="zoom-in" data-aos-delay="350" />
 
         {/* Contact Section */}
         <div className="footerContact" data-aos="fade-up" data-aos-delay="400">

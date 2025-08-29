@@ -149,7 +149,7 @@ function page() {
 
   if (loadingAds) return <Loader />;
   return (
-    <div>
+    <div className="myAdCont">
       <h1 className="heading-text " data-aos="fade-down">
         My Ads
       </h1>
@@ -159,7 +159,8 @@ function page() {
         className="myads-container mild-zoom"
         data-aos="zoom-in"
         data-aos-delay="400"
-        data-aos-duration="2000">
+        data-aos-duration="2000"
+      >
         {/* HEADER  */}
         <section className="myads-header">
           {/* BUTTONS  */}
@@ -167,19 +168,22 @@ function page() {
             <button
               id="all"
               onClick={handleSwith}
-              className={`adsbtn ${status === "all" && "active"}`}>
+              className={`adsbtn ${status === "all" && "active"}`}
+            >
               All Ads{" "}
             </button>
             <button
               id="approved"
               onClick={handleSwith}
-              className={`adsbtn ${status === "approved" && "active"}`}>
+              className={`adsbtn ${status === "approved" && "active"}`}
+            >
               Approved Ads
             </button>
             <button
               id="pending"
               onClick={handleSwith}
-              className={`adsbtn ${status === "pending" && "active"}`}>
+              className={`adsbtn ${status === "pending" && "active"}`}
+            >
               Pending Ads
             </button>
           </div>
@@ -209,7 +213,8 @@ function page() {
                 fontSize: "1.2rem",
                 color: "#888",
                 fontStyle: "italic",
-              }}>
+              }}
+            >
               No ads found.
             </p>
           </div>
@@ -223,7 +228,8 @@ function page() {
                   <span
                     className={
                       ad.status === "pending" ? "adspending" : "adsapproved"
-                    }>
+                    }
+                  >
                     {ad.status}
                   </span>
                 </section>
@@ -245,7 +251,8 @@ function page() {
                         setDropDown((prev) =>
                           prev === ad._id ? null : ad._id
                         );
-                    }}>
+                    }}
+                  >
                     {icons.options}
 
                     {dropDown === ad._id && (
@@ -254,13 +261,14 @@ function page() {
                           View Ads Insight
                         </li>
 
-                        <li onClick={() => setEditAds(!editAds)}>Edit Ads</li>
+                        {/* <li onClick={() => setEditAds(!editAds)}>Edit Ads</li> */}
                         <li
                           className="d"
                           onClick={() => {
                             setAdToRemoveId(ad?.postId?._id); // save which ad
                             setDeleteAds(true); // show modal
-                          }}>
+                          }}
+                        >
                           Delete Ads
                         </li>
                       </ul>
@@ -284,7 +292,8 @@ function page() {
               </p>
               <button
                 className="close-button"
-                onClick={() => setFilterAds(false)}>
+                onClick={() => setFilterAds(false)}
+              >
                 &times;
               </button>
             </div>
@@ -358,7 +367,8 @@ function page() {
               <h2>Ads Insight</h2>
               <button
                 className="close-button"
-                onClick={() => setViewAdsInsights(false)}>
+                onClick={() => setViewAdsInsights(false)}
+              >
                 &times;
               </button>
             </div>
@@ -445,7 +455,8 @@ function page() {
               <h2>Edit Ads</h2>
               <button
                 className="close-button"
-                onClick={() => setEditAds(false)}>
+                onClick={() => setEditAds(false)}
+              >
                 &times;
               </button>
             </div>
@@ -476,7 +487,8 @@ function page() {
                   onClick={() => {
                     setDeleteAds(false);
                     setAdToRemoveId(null);
-                  }}>
+                  }}
+                >
                   Cancel
                 </button>
                 <button
@@ -485,7 +497,8 @@ function page() {
                     handleDeleteAd(adToRemoveId);
                     setDeleteAds(false);
                     setAdToRemoveId(null);
-                  }}>
+                  }}
+                >
                   Yes, Delete Ads
                 </button>
               </div>

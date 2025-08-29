@@ -3,11 +3,11 @@
 /* ========================================= */
 .heading-text {
   color: #0a0d14;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
   text-align: center;
   line-height: 100%;
-  padding: 36px 0;
+  padding: 20px 0;
   letter-spacing: -0.5%;
 }
 
@@ -478,7 +478,7 @@ input[type='date'] {
   display: flex;
   align-items: center;
   gap: 12px;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 20px;
 }
 

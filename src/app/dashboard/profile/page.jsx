@@ -162,7 +162,8 @@ function page() {
         className="profile-container mild-zoom"
         data-aos="zoom-in"
         data-aos-delay="400"
-        data-aos-duration="2000">
+        data-aos-duration="2000"
+      >
         <h2 className="profile-title">Profile Image</h2>
 
         <div className="image-section">
@@ -199,7 +200,8 @@ function page() {
               <div>
                 <label
                   className="upload-btn"
-                  onClick={() => setSelectImg(true)}>
+                  onClick={() => setSelectImg(true)}
+                >
                   Upload
                 </label>
                 {imagePreviews.length > 0 && (
@@ -273,7 +275,8 @@ function page() {
             <button
               className="overlay-link-button"
               onClick={handleUpdateProfile}
-              disabled={loadingUpdate}>
+              disabled={loadingUpdate}
+            >
               {loadingUpdate ? "Updating..." : "Update"}
             </button>
           </div>
@@ -292,7 +295,8 @@ function page() {
             className="overlay-container"
             data-aos="zoom-in"
             data-aos-delay="100"
-            data-aos-duration="500">
+            data-aos-duration="500"
+          >
             <section>
               <p className="pc" onClick={() => setSelectImg(false)}>
                 {icons.arrowback} Back
@@ -302,7 +306,8 @@ function page() {
                 <button
                   type="button"
                   className=" cp "
-                  onClick={() => setSelectImg(false)}>
+                  onClick={() => setSelectImg(false)}
+                >
                   {icons.exit}
                 </button>
               </h4>
@@ -322,7 +327,8 @@ function page() {
                     );
                     setImagePreviews(previews);
                   }
-                }}>
+                }}
+              >
                 {/* icon */}
                 <span>{icons.upload}</span>
 
@@ -360,15 +366,16 @@ function page() {
               <button
                 className="overlay-link-cancel "
                 id="cancel"
-                onClick={() => setSelectImg(false)}>
+                onClick={() => setSelectImg(false)}
+              >
                 Cancel
               </button>{" "}
-              <button
+              {/* <button
                 className=" overlay-link-button "
                 id="save-link"
                 onClick={() => setSelectImg(false)}>
                 Upload
-              </button>
+              </button> */}
             </div>
           </div>
         </section>

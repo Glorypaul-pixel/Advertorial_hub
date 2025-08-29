@@ -33,7 +33,7 @@ export default function SettingsPage() {
 
     try {
       const res = await fetch(
-        `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+        `https://connect.advertorialhub.net/api/auth/user/${userIdOrEmail}`,
         {
           method: "PUT",
           headers: {
@@ -70,7 +70,7 @@ export default function SettingsPage() {
 
     try {
       const res = await fetch(
-        `https://advertorial-backend.onrender.com/api/auth/forgot-password`,
+        `https://connect.advertorialhub.net/api/auth/forgot-password`,
         {
           method: "POST",
           headers: {
@@ -121,7 +121,7 @@ export default function SettingsPage() {
 
     try {
       const res = await fetch(
-        `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+        `https://connect.advertorialhub.net/api/auth/user/${userIdOrEmail}`,
         {
           method: "DELETE",
           headers: {
@@ -152,7 +152,7 @@ export default function SettingsPage() {
 
       try {
         const res = await fetch(
-          `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
+          `https://connect.advertorialhub.net/api/auth/user/${userIdOrEmail}`,
           {
             method: "GET",
             headers: {
@@ -190,6 +190,7 @@ export default function SettingsPage() {
                 placeholder={
                   user?.firstName + " " + user?.lastName || "John Doe"
                 }
+                readOnly
               />
               <div className=" subform">
                 <label htmlFor="email" className="label">
@@ -206,19 +207,19 @@ export default function SettingsPage() {
                 account.
               </p>
             </section>
-            <button
+            {/* <button
               className={state ? " button-active" : " button-inactive"}
               onClick={handleNameUpdate}
             >
               {firstNameLoading ? "Saving..." : "Save Changes"}
-            </button>
+            </button> */}
           </form>
         </section>
 
         {/* security  */}
         <section className=" my-information">
           <h4 className=" information-header  ">Security</h4>
-          <form className="settings-form">
+          <form className="settings-form-security">
             <section className=" settings-subform">
               <div className=" subform">
                 <label htmlFor="password" className="label">
@@ -242,7 +243,7 @@ export default function SettingsPage() {
                 </article>
               </div>
 
-              <div className=" security-detail">
+              {/* <div className=" security-detail">
                 <p className=" security-textc">
                   Multi-factor Authentication{" "}
                   <span>
@@ -253,11 +254,11 @@ export default function SettingsPage() {
                 <span onClick={() => setMultiF(!multiF)}>
                   {!multiF ? icons.click : icons.clickactive}
                 </span>
-              </div>
+              </div> */}
             </section>
-            <button className={multiF ? " button-active" : " button-inactive"}>
+            {/* <button className={multiF ? " button-active" : " button-inactive"}>
               Save Changes
-            </button>
+            </button> */}
           </form>
         </section>
 

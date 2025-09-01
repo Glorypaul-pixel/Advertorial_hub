@@ -16,10 +16,9 @@
   display: flex;
   align-items: center;
   gap: 4px;
- 
 }
 .dashboard-h1 h4 a {
- color: #0162d3;
+  color: #0162d3;
 }
 .dashboard-title {
   font-size: 20px;
@@ -93,7 +92,7 @@
     width: 250px;
     height: 100%;
     z-index: 999;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     overflow-y: auto;
   }
@@ -120,4 +119,5 @@
     font-weight: 600;
   }
 }
+
 

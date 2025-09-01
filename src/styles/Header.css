@@ -17,7 +17,6 @@ header {
   box-sizing: border-box;
 }
 
-
 /* Logo section */
 .header-logo-container {
   display: flex;
@@ -112,11 +111,9 @@ header {
 
 .navbtn:hover {
   font-weight: 500;
-   color: white;
+  color: white;
   background-color: #016ce8;
 }
-
-
 
 /* User info */
 .h-user-container {
@@ -151,7 +148,7 @@ header {
 }
 
 .login-btn {
-  padding: .4rem 1rem;
+  padding: 0.4rem 1rem;
   background: white;
   border: 1px solid #016ce8;
   color: #016ce8;
@@ -214,7 +211,7 @@ header {
 
   .login-btn,
   .HeaderbtnStart {
-    padding: .5rem 2rem;
+    padding: 0.5rem 2rem;
   }
 }
 
@@ -245,12 +242,17 @@ header {
   }
 
   .h-user-profile {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
   }
 }
 
 /* Padding for content below header */
 main {
   padding-top: 40px;
+}
+@media (max-width: 470px) {
+  .header-title {
+    display: none;
+  }
 }

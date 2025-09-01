@@ -798,6 +798,11 @@
   .Advertwork {
     padding: 0rem;
   }
+
+    .adpricemain-heading {
+        width: 100%;
+        padding-top: 1rem;
+    }
   .active {
     /* background-color: #4a90e2; */
     font-weight: bold;

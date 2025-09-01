@@ -119,7 +119,6 @@ body {
   box-shadow: 0 3px 8px rgba(0, 91, 255, 0.3);
 }
 
-
 .heroText h1 {
   font-size: 4rem;
   color: #f4f4f4;
@@ -189,7 +188,6 @@ body {
   }
 }
 
-
 /* 768px to 1023px (tablets) */
 @media (max-width: 1048px) {
   .heroText h1 {
@@ -200,14 +198,12 @@ body {
   .heroText p {
     font-size: 1.2rem;
   }
-
 }
 
 @media (max-width: 768px) {
   .heroSection {
     flex-direction: column;
   }
-
 
   .heroText h1 {
     font-size: 3rem;
@@ -218,10 +214,7 @@ body {
   }
 
   .heroImage {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    gap: 1.5rem;
+  display: none;
   }
 
   .image-overlay {
@@ -230,6 +223,10 @@ body {
   }
 
   .lady-img {
+    display: none;
+  }
+
+  .image-bg {
     display: none;
   }
 }

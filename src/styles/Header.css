@@ -26,8 +26,8 @@ header {
 }
 
 .header-logo {
-  height: 60px;
-  width: 60px;
+  height: 48px;
+  width: 48px;
   object-fit: contain;
   border-radius: 50%;
 }
@@ -242,8 +242,8 @@ header {
   }
 
   .h-user-profile {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
   }
 }
 

@@ -7,6 +7,7 @@ import ImageSkeleton from "./ImageSkeleton";
 import "../../styles/Seetingshome.css";
 import Loader from "./loading";
 import toast from "react-hot-toast";
+import AllPosts from "../components/AllPosts";
 
 export default function HomePage() {
   // Post Progress States
@@ -366,116 +367,9 @@ export default function HomePage() {
         </section>
         {/* container  */}
         {recentPosts ? (
-          <main
-            className="createpost-container mild-zoom"
-            data-aos="zoom-in"
-            data-aos-delay="400"
-            data-aos-duration="2000"
-          >
-            <h2 className="posth-text">Recent Post</h2>
-            {userPosts.map((post) => (
-              <section className=" recetpost-card" key={post._id}>
-                {/* post information  */}
-                <div className=" recentpost-info">
-                  <article>
-                    {/*  */}
-
-                    {post?.creator?.profilePicture ? (
-                      <img
-                        src={post?.creator?.profilePicture}
-                        alt="Profile"
-                        className="avatar-dummy-img"
-                      />
-                    ) : (
-                      <p className="avatar-dummy">
-                        {post?.creator?.firstName.slice(0, 1) +
-                          post?.creator?.lastName.slice(0, 1)}
-                      </p>
-                    )}
-
-                    {/*  */}
-
-                    <p>
-                      {post?.creator?.firstName + " " + post?.creator?.lastName}{" "}
-                      <span>
-                        {new Date() - new Date(post.createdAt) < 60000
-                          ? "Just now"
-                          : new Date(post.createdAt)
-                              .toLocaleString("en-US", {
-                                day: "numeric",
-                                month: "long",
-                                hour: "numeric",
-                                minute: "2-digit",
-                                hour12: true,
-                              })
-                              .replace(",", " at")}
-                      </span>
-                    </p>
-                  </article>
-                </div>
-                {/* post title  */}
-                <p
-                  style={{
-                    margin: "0",
-                    fontSize: "16px",
-                    fontWeight: "bolder",
-                  }}
-                >
-                  {post.title}
-                </p>
-                {/* post write up  */}
-                <p
-                  style={{
-                    margin: "0",
-                  }}
-                >
-                  {post.content}
-                </p>
-                <div>
-                  {/* post images  */}
-                  <ImageSkeleton images={post.images} />
-                </div>
-
-                <section>
-                  <div>
-                    <p
-                      onClick={() =>
-                        !isReacting[post._id] &&
-                        handlePostReaction(post._id, "like")
-                      }
-                      className="reaction-button"
-                    >
-                      {userReactions[post._id]?.liked
-                        ? icons.likesfill
-                        : icons.likes}
-                      {post?.likes}
-                    </p>
-
-                    <p
-                      onClick={() =>
-                        !isReacting[post._id] &&
-                        handlePostReaction(post._id, "dislike")
-                      }
-                      className="reaction-button"
-                    >
-                      {userReactions[post._id]?.disliked
-                        ? icons.dislikefill
-                        : icons.dislike}
-                      {post?.dislikes}
-                    </p>
-
-                    <button onClick={() => handleSharePost(post._id)}>
-                      {" "}
-                      Share {icons.sharepublic}
-                    </button>
-                  </div>
-                  <span onClick={(e) => handleViewPost(e, post._id)}>
-                    View Insight
-                  </span>
-                </section>
-              </section>
-            ))}
-          </main>
+          <div>
+         <AllPosts />
+          </div>
         ) : (
           <main
             className="createpost-container mild-zoom"

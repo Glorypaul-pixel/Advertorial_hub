@@ -1,0 +1,123 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 35px 20px;
+  /* border-bottom: 1px solid #ddd; */
+  /* margin-left: 250px; same width as your sidebar */
+  height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+.dashboard-h1 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+ 
+}
+.dashboard-h1 h4 a {
+ color: #0162d3;
+}
+.dashboard-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dashboard-search {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.dashboard-btn {
+  padding: 8px 15px;
+  background: #0162d3;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dashboard-btn:hover {
+  background: #2d1bfd;
+}
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+  margin-right: 1rem;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background: #dedede;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Show hamburger only on small screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 250px;
+    height: 100%;
+    z-index: 999;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .mobile-user {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .mobile-user-profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .mobile-user-name {
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+}
+

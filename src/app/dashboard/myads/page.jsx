@@ -5,6 +5,8 @@ import "../../../styles/Myads.css";
 import { icons } from "@/lib/Icons";
 import Loader from "../loading";
 import { toast } from "react-hot-toast";
+import DashboardHeader from "@/app/components/DashboardHeader";
+
 
 function page() {
   const [ads, setAds] = useState([]);
@@ -150,6 +152,7 @@ function page() {
   if (loadingAds) return <Loader />;
   return (
     <div className="myAdCont">
+      <DashboardHeader />
       <h1 className="heading-text " data-aos="fade-down">
         My Ads
       </h1>

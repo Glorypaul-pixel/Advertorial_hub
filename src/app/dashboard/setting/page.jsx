@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import "../../../styles/Settings.css";
 import { toast } from "react-hot-toast";
+import DashboardHeader from "@/app/components/DashboardHeader";
 
 export default function SettingsPage() {
   //  UI State
@@ -152,7 +153,7 @@ export default function SettingsPage() {
 
       try {
         const res = await fetch(
-          `https://connect.advertorialhub.net/api/auth/user/${userIdOrEmail}`,
+          `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
           {
             method: "GET",
             headers: {
@@ -172,7 +173,8 @@ export default function SettingsPage() {
   }, [userIdOrEmail, handleNameUpdate]);
   return (
     <div>
-      <h1 className="heading-text " data-aos="fade-down">
+      <DashboardHeader/>
+      <h1 className="Setheading-text " data-aos="fade-down">
         Settings
       </h1>
       {/* container  */}
@@ -260,6 +262,7 @@ export default function SettingsPage() {
               Save Changes
             </button> */}
           </form>
+          
         </section>
 
         {/* management  */}

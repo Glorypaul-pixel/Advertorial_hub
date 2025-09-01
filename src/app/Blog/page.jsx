@@ -1,5 +1,8 @@
 import React from "react";
 import "@/styles/Blog.css";
+import RecentPosts from "../components/RecentPosts";
+
+
 const Blog = () => {
   return (
     <div>
@@ -12,6 +15,8 @@ const Blog = () => {
               engagement and more.
             </p>
           </div>
+
+          <RecentPosts />
           <div className="blogSaas">
             <img src="/images/card4.png" alt=""  data-aos="flip-right"/>
             <div className="blogSaasText"  data-aos="fade-right">

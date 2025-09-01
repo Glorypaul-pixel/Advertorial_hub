@@ -4,38 +4,132 @@ body {
   box-sizing: border-box;
 }
 
+.heroText {
+  /* text-align: center; */
+  /* width: 75%; */
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background-color: #2d2d2d;
+}
+
+.heroText span {
+  color: #016ce8;
+  /* font-family:fantasy; */
+}
+
+.heroHeadlineContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.headline-text {
+  flex: 2;
+}
+
+.headline-text h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.headline-text h1 span {
+  color: #016ce8;
+  /* Accent color */
+}
+
+.headline-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroHeadlineContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .headline-text,
+  .headline-image {
+    flex: unset;
+    width: 100%;
+  }
+
+  .headline-image img {
+    max-width: 200px;
+    margin: 10px auto 0;
+  }
+}
+
 .heroSection {
   overflow: hidden;
 }
-.heroText {
-  text-align: center;
-  width: 75%;
-  margin: 0 auto;
-  padding: 1rem 0;
-}
-.heroText span {
-  color: #c6221f;
-  /* font-family:fantasy; */
-}
+
 .btnStart {
-  background-color: #016ce8;
-  border-radius: .6rem;
-  padding: .7rem 2rem;
-  color: white;
+  background: linear-gradient(135deg, #007bff, #0056d2);
   border: none;
-}
-.btnStart:hover {
+  border-radius: 0.6rem;
+  padding: 0.8rem 2.2rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  background-color: #4699f7;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  position: relative;
+  overflow: hidden;
 }
+
+.btnStart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.4s ease;
+}
+
+.btnStart:hover::after {
+  left: 100%;
+}
+
+.btnStart:hover {
+  background: linear-gradient(135deg, #0056d2, #0041a8);
+  box-shadow: 0 6px 18px rgba(0, 91, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btnStart:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 8px rgba(0, 91, 255, 0.3);
+}
+
+
 .heroText h1 {
-  font-size: 5rem;
-  color: #0a0d14;
+  font-size: 4rem;
+  color: #f4f4f4;
 }
+
 .heroText p {
-  font-size: 2rem;
-  color: #525866;
+  font-size: 1.6rem;
+  color: #dedede;
 }
+
 .heroImage {
   display: flex;
   align-items: center;
@@ -44,9 +138,11 @@ body {
   margin-left: 3rem;
   padding: 3rem 1rem;
 }
+
 .rightimg-container {
   position: relative;
-  display: inline-block; /* Ensures the container wraps around the images */
+  display: inline-block;
+  /* Ensures the container wraps around the images */
 }
 
 .image-bg {
@@ -60,11 +156,16 @@ body {
   padding: 4px 0 0 2rem;
   border-radius: 2rem 0 0 0;
   background: white;
-  top: 60%; /* Adjust this to center vertically */
-  left: 54%; /* Adjust this to center horizontally */
-  transform: translate(-50%, -50%); /* Centers the overlay image */
-  width: 90%; /* Adjust size as needed */
+  top: 60%;
+  /* Adjust this to center vertically */
+  left: 54%;
+  /* Adjust this to center horizontally */
+  transform: translate(-50%, -50%);
+  /* Centers the overlay image */
+  width: 90%;
+  /* Adjust size as needed */
 }
+
 /* ========== MEDIA QUERIES ========== */
 
 /* 1440px and above (large screens) */
@@ -95,22 +196,18 @@ body {
     font-size: 3rem;
     padding-top: 3rem;
   }
+
   .heroText p {
     font-size: 1.2rem;
   }
-  .heroText {
-  width: 90%;
 
 }
-}
+
 @media (max-width: 768px) {
   .heroSection {
     flex-direction: column;
   }
 
-  .heroText {
-    width: 90%;
-  }
 
   .heroText h1 {
     font-size: 3rem;
@@ -131,6 +228,7 @@ body {
     width: 80%;
     padding-left: 1rem;
   }
+
   .lady-img {
     display: none;
   }
@@ -139,7 +237,7 @@ body {
 /* 414px and below (mobile) */
 @media (max-width: 414px) {
   .heroText {
-    width: 95%;
+    /* width: 100%; */
     padding: 1rem 0;
   }
 
@@ -162,10 +260,12 @@ body {
     gap: 0rem;
     padding: 0;
   }
+
   .image-bg {
     /* padding: 3rem; */
     max-width: 100%;
   }
+
   .image-overlay {
     padding-right: 1rem;
   }

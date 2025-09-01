@@ -4,21 +4,17 @@ header {
   position: fixed !important;
   top: 0;
   left: 0;
-  right: 0; /* ensure it spans across */
-  width: 100%; /* full width */
+  right: 0;
+  width: 100%;
   z-index: 9999 !important;
-
-  background-color: white !important;
+  background-color: #2d2d2d !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0.5rem 1rem;
-  height: 70px;
-  
-  box-sizing: border-box; /* prevent padding from overflowing */
+  height: 80px;
+  box-sizing: border-box;
 }
 
 
@@ -31,17 +27,18 @@ header {
 }
 
 .header-logo {
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   object-fit: contain;
   border-radius: 50%;
 }
 
 .header-title {
-  font-size: 1rem;
+  font-size: 1.7rem;
   font-weight: bold;
-  color: #333;
+  color: #dedede;
   cursor: pointer;
+  font-family: IBM Plex Sans;
 }
 
 /* Hamburger menu */
@@ -57,16 +54,18 @@ header {
 .bar {
   height: 2.5px;
   width: 100%;
-  background-color: #333;
+  background-color: #dedede;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .hamburger.open .bar:nth-child(1) {
   transform: rotate(45deg) translate(4px, 4px);
 }
+
 .hamburger.open .bar:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.open .bar:nth-child(3) {
   transform: rotate(-45deg) translate(4px, -4px);
 }
@@ -74,10 +73,12 @@ header {
 /* Navigation menu */
 .header-nav {
   display: none;
-  position: fixed; /* fixed to viewport */
+  position: fixed;
+  /* fixed to viewport */
   top: 60px;
   right: 0;
-  left: 0; /* full width for mobile */
+  left: 0;
+  /* full width for mobile */
   background: white;
   flex-direction: column;
   gap: 1rem;
@@ -95,18 +96,24 @@ header {
 /* Nav buttons */
 .navbtn {
   text-decoration: none;
-  color: #016ce8;
+  color: #dedede;
   font-weight: 500;
   padding: 0.4rem 1.2rem;
-  border-radius: 0.4rem;
-  border: 1px #016ce8 solid;
   cursor: pointer;
 }
 
-.navbtn:hover {
-  color: white;
-  background-color: #016ce8;
+.active-route {
+  font-weight: 500;
+  border-bottom: 1px solid #dedede;
+  padding: 0.4rem;
 }
+
+.navbtn:hover {
+  font-weight: 500;
+  color: #016ce8;
+}
+
+
 
 /* User info */
 .h-user-container {
@@ -116,9 +123,9 @@ header {
 }
 
 .h-user-name {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: black;
+  color: #dedede;
 }
 
 .h-user-profile {
@@ -147,11 +154,12 @@ header {
   color: #016ce8;
   border-radius: 0.6rem;
   transition: background 0.3s, color 0.3s;
+  cursor: pointer;
 }
 
 .login-btn:hover {
-  background-color: #016ce8;
-  color: white;
+  background-color: #dedede;
+  color: #016ce8;
 }
 
 .HeaderbtnStart {
@@ -159,6 +167,7 @@ header {
   border-radius: 0.6rem;
   padding: 0.1rem 1rem;
   color: white;
+  cursor: pointer;
   border: none;
 }
 

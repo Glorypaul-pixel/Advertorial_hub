@@ -2,12 +2,13 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import "@/styles/Header.css";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const Header = () => {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname(); // 👈 current route
 
   const navRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -42,7 +43,7 @@ const Header = () => {
   // Fetch user details if logged in
   const getUser = async () => {
     const userIdOrEmail = localStorage.getItem("userId");
-    if (!userIdOrEmail) return; // ❌ Removed auto-redirect here
+    if (!userIdOrEmail) return;
 
     try {
       const res = await fetch(
@@ -63,6 +64,9 @@ const Header = () => {
   useEffect(() => {
     getUser();
   }, []);
+
+  // 👇 helper for active link
+  const isActive = (path) => (pathname === path ? "active-route" : "");
 
   return (
     <header className="header">
@@ -96,27 +100,30 @@ const Header = () => {
         ref={navRef}
         aria-hidden={!menuOpen}
       >
-         <button
-          className="my-link navbtn"
+        <div
+          className={`my-link navbtn ${isActive("/")}`}
           onClick={() => navigateTo("/")}
         >
           Home
-        </button>
-        <button
-          className="my-link navbtn"
+        </div>
+        <div
+          className={`my-link navbtn ${isActive("/AboutUs")}`}
           onClick={() => navigateTo("/AboutUs")}
         >
           About Us
-        </button>
-        <button className="my-link navbtn" onClick={() => navigateTo("/Blog")}>
+        </div>
+        <div
+          className={`my-link navbtn ${isActive("/Blog")}`}
+          onClick={() => navigateTo("/Blog")}
+        >
           Blog
-        </button>
-        <button
-          className="my-link navbtn"
+        </div>
+        <div
+          className={`my-link navbtn ${isActive("/Pricing")}`}
           onClick={() => navigateTo("/Pricing")}
         >
           Pricing
-        </button>
+        </div>
 
         <div className="mobile-buttons">
           <button

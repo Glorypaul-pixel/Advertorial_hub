@@ -5,6 +5,8 @@ import "@/styles/Pricing.css";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { toast } from "react-hot-toast";
+import DashboardHeader from "@/app/components/DashboardHeader";
+
 
 const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931"; // My own paystack public key
 const PaystackButton = dynamic(
@@ -152,6 +154,7 @@ export default function Pricing() {
   return (
     <div>
       <div className="Pricepage-container ">
+        <DashboardHeader />
         <main className="PriceMainContent">
           <section className="PriceHeadSection" data-aos="fade-down">
             <h1 className="Pricemain-heading">

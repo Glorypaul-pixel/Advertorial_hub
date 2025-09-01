@@ -4,8 +4,9 @@
 
 .page-container {
   height: fit-content;
-  width: 100%;
-  margin-left: auto;
+  /* width: 100%; */
+  /* max-width: 1200px; */
+  margin-left: 10%;
   margin-bottom: 50px;
 
 }
@@ -564,7 +565,7 @@ font-size: 2.5rem;
 }
 .recentpost-header button {
   position: absolute;
-  right: 10px;
+  /* right: 10px; */
   top: 20;
   background: #016ce8;
   border: none;
@@ -580,77 +581,6 @@ font-size: 2.5rem;
   cursor: pointer;
 }
 
-.recetpost-card {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background: #ffffff;
-  width: 51%;
-  border-radius: 16px;
-  padding: 32px 24px;
-}
-
-.recetpost-card p {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px;
-  color: #0a0d14;
-  letter-spacing: -0.5%;
-}
-
-.recetpost-card section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.recetpost-card section div {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.recetpost-card section p {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-}
-
-.recetpost-card section button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  padding: 8px 16px;
-  border: 1px solid #e2e4e9;
-  font-size: 16px;
-  font-weight: 500;
-  color: #525866;
-  cursor: pointer;
-  border-radius: 2rem;
-}
-
-.recetpost-card span {
-  color: #016ce8;
-  text-decoration: underline;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18px;
-  letter-spacing: -0.5%;
-  cursor: pointer;
-}
-
-.posth-text {
-  color: #0a0d14;
-  font-size: 24px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 100%;
-  letter-spacing: -0.5%;
-}
 
 /* ========================== */
 /* POST CREATOR INFO SECTION */
@@ -1028,8 +958,7 @@ font-size: 2.5rem;
 }
 
 @media (max-width: 768px) {
-  .verlay-container,
-  .recetpost-card {
+  .verlay-container {
     width: 100%;
   }
   .page-container h1 {
@@ -1127,8 +1056,7 @@ font-size: 2.5rem;
 }
 
 @media (max-width: 1200px) {
-  .verlay-container,
-  .recetpost-card {
+  .verlay-container {
     width: 80%;
   }
 

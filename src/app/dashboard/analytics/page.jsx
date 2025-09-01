@@ -1,10 +1,13 @@
 "use client";
 import { icons } from "@/lib/Icons";
 import "../../../styles/Analytics.css";
+import DashboardHeader from "@/app/components/DashboardHeader";
+
 
 export default function AnalyticsPage() {
   return (
     <div>
+      <DashboardHeader />
       <h1 className="heading-text">Analytics</h1>
 
       {/* container  */}

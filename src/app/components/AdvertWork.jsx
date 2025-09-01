@@ -14,7 +14,8 @@ const steps = [
   "Monitor inflow of traffic",
 ];
 
-const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931";
+const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY;
+
 const PaystackButton = dynamic(
   () => import("react-paystack").then((mod) => mod.PaystackButton),
   { ssr: false }
@@ -23,14 +24,9 @@ const PaystackButton = dynamic(
 const AdvertWork = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [billing, setBilling] = useState("monthly");
-  const [user, setUser] = useState({ email: "", plan: "PERSONAL" });
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const router = useRouter();
-
-  // Handle steps
-  const handleStepChange = (index) => {
-    setActiveStep(index);
-  };
 
   // Fetch user on mount
   useEffect(() => {
@@ -39,7 +35,7 @@ const AdvertWork = () => {
       const authToken = localStorage.getItem("token");
       setToken(authToken);
 
-      if (!userIdOrEmail) return
+      if (!userIdOrEmail) return;
 
       try {
         const res = await fetch(
@@ -48,7 +44,6 @@ const AdvertWork = () => {
         );
         const userData = await res.json();
         setUser(userData);
-        console.log(userData);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
@@ -60,8 +55,8 @@ const AdvertWork = () => {
   // adprices (for UI)
   const adprices = {
     personal: "Free",
-    business: billing === "monthly" ? "₦40k" : "₦480k",
-    team: billing === "monthly" ? "₦70k" : "₦840k",
+    business: billing === "monthly" ? "₦40,000" : "₦480,000",
+    team: billing === "monthly" ? "₦70,000" : "₦840,000",
   };
 
   // Amounts in kobo (for Paystack)
@@ -109,6 +104,21 @@ const AdvertWork = () => {
 
   // Paystack button generator
   const getPaystackButton = (planName) => {
+    if (!user) {
+      return (
+        <button
+          className="get-started-btn"
+          onClick={() => router.push("/authentication/Login")}
+        >
+          Login to Subscribe
+        </button>
+      );
+    }
+
+    if (user.plan === planName) {
+      return <button className="current-plan-btn">Current Plan</button>;
+    }
+
     if (user.plan === "PERSONAL" && planName === "TEAM") {
       return (
         <button className="get-started-btn" disabled>
@@ -118,12 +128,14 @@ const AdvertWork = () => {
     }
 
     const amount = amountsInKobo[planName.toLowerCase()];
+    if (!amount) return null;
+
     const componentadprops = {
       email: user.email,
       amount,
       publicKey,
       metadata: { planName },
-      text: "Get Started",
+      text: "Upgrade",
       onSuccess: (ref) => handlePaymentSuccess(ref.reference, planName),
       onClose: () => console.log("Payment closed"),
       className: "get-started-btn",
@@ -146,7 +158,7 @@ const AdvertWork = () => {
     "Media: Unlimited images",
     "Ads: 3 ads per month",
     "Social Sharing: Instagram, Facebook",
-    "Ideal For: Growing businesses and entreadpreneurs",
+    "Ideal For: Growing businesses and entrepreneurs",
   ];
 
   const teamPlan = [
@@ -177,7 +189,7 @@ const AdvertWork = () => {
               <div
                 key={index}
                 className={`step ${activeStep === index ? "active" : ""}`}
-                onClick={() => handleStepChange(index)}
+                onClick={() => setActiveStep(index)}
               >
                 {step}
               </div>
@@ -191,10 +203,7 @@ const AdvertWork = () => {
             style={{ transform: `translateX(-${activeStep * 100}%)` }}
           >
             <div className="slide">
-              <div
-                className="stepText stepsDiv stepAcoount"
-                data-aos="zoom-out"
-              >
+              <div className="stepText stepsDiv stepAcoount" data-aos="zoom-out">
                 <img
                   src="/images/createyouraccount.png"
                   alt="createaccount"
@@ -272,13 +281,7 @@ const AdvertWork = () => {
                     <span className="adpriceplan-subtitle">For a Lifetime</span>
                   </h1>
                 </div>
-                {user.plan === "PERSONAL" ? (
-                  <button className="current-plan-btn">Current Plan</button>
-                ) : (
-                  <button className="get-started-btn" disabled>
-                    Free Plan
-                  </button>
-                )}
+                {getPaystackButton("PERSONAL")}
               </section>
               <section className="adpriceplan-features">
                 {freePlan.map((feature, i) => (
@@ -307,14 +310,7 @@ const AdvertWork = () => {
                     </span>
                   </h1>
                 </div>
-                {user.plan === "BUSINESS" ? (
-                  <button className="get-started-btn">Current Plan</button>
-                ) : (
-                  // {getPaystackButton("BUSINESS")}
-                  <button className="current-plan-btn" disabled>
-                    Coming soon
-                  </button>
-                )}
+                {getPaystackButton("BUSINESS")}
               </section>
               <section className="adpriceplan-features">
                 {businessPlan.map((feature, i) => (
@@ -342,14 +338,7 @@ const AdvertWork = () => {
                     </span>
                   </h1>
                 </div>
-                {user.plan === "TEAM" ? (
-                  <button className="current-plan-btn">Current Plan</button>
-                ) : (
-                  // {getPaystackButton("TEAM")}
-                  <button className="current-plan-btn" disabled>
-                    Coming soon
-                  </button>
-                )}
+                {getPaystackButton("TEAM")}
               </section>
               <section className="adpriceplan-features">
                 {teamPlan.map((feature, i) => (

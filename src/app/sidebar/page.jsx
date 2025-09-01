@@ -26,9 +26,9 @@ function Sidebar({ setMenuOpen }) {
   };
   const navPages = [
     { name: "Home", path: "/dashboard", icon: icons.home },
-    { name: "Posts", path: "/dashboard/mypost", icon: icons.postimg },
+    { name: "My Posts", path: "/dashboard/mypost", icon: icons.postimg },
     { name: "My Ads", path: "/dashboard/myads", icon: icons.ads },
-    { name: "Pricing", path: "/dashboard/pricing", icon: icons.pricing },
+    { name: "Pricing", path: "/Pricing", icon: icons.pricing },
     { name: "Profile", path: "/dashboard/profile", icon: icons.profile },
     { name: "Settings", path: "/dashboard/setting", icon: icons.setting },
     { name: "Post", path: "/dashboard/posts/:id", icon: icons.post },
@@ -40,14 +40,14 @@ function Sidebar({ setMenuOpen }) {
       <aside className="sidebar">
         {/* head section */}
         <section className="sidebar-header">
-          <img
+          {/* <img
             src="/images/mainLogo.jpg"
             className="sidebar-logo"
             alt="Advertorial Hub Logo"
           />
           <h4 className="sidebar-title">
-            <a href="/">Advertorial Hub</a>
-          </h4>
+            <a href="/dashboard">Advertorial Hub</a>
+          </h4> */}
         </section>
 
         {/* nav */}
@@ -76,7 +76,7 @@ function Sidebar({ setMenuOpen }) {
             ))}
           </ul>
         </nav>
-        <button
+        {/* <button
           className="BackHomeBtn"
           onClick={() => {
             setMenuOpen(false);
@@ -84,7 +84,7 @@ function Sidebar({ setMenuOpen }) {
           }}
         >
           Back to home Page
-        </button>
+        </button> */}
 
         <button className="logout-button" onClick={() => setLogOut(true)}>
           {icons.logout} Logout

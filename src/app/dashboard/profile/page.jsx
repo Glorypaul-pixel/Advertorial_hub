@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import "../../../styles/Profile.css";
 import { icons } from "@/lib/Icons";
 import { toast } from "react-hot-toast";
+import DashboardHeader from "@/app/components/DashboardHeader";
+
 function page() {
   const [profileImage, setProfileImage] = useState(null);
   const [user, setUser] = useState(null);
@@ -14,6 +16,7 @@ function page() {
   const [successMessage, setSuccessMessage] = useState("");
   const [originalData, setOriginalData] = useState({});
   const [userLoaded, setUserLoaded] = useState(false);
+  
 
   //  Form states
   const [firstName, setFirstName] = useState("");
@@ -154,6 +157,7 @@ function page() {
 
   return (
     <>
+    <DashboardHeader />
       <h1 className="heading-text " data-aos="fade-down">
         Profile
       </h1>

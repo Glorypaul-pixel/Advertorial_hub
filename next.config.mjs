@@ -1,16 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: "https://connect.advertorialhub.net/api/:path*", // backend URL
-      },
-    ];
-  },
+  // ❌ Removed output: "export"
+  reactStrictMode: true,
 };
 
 export default nextConfig;

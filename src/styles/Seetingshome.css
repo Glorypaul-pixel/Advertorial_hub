@@ -1006,7 +1006,7 @@ input {
   }
 
   .page-h-text {
-    padding: 36px 0;
+    padding: 0;
   }
   .overlay-container {
     background: #ffffff;
@@ -1080,10 +1080,10 @@ input {
     border-radius: 0.4rem;
   }
   .posth-text {
-    font-size: 1.3rem;
+    font-size: 1.7rem !important;
   }
   .page-container h1 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
   .heading-text {
     font-size: 1.6rem;

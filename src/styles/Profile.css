@@ -11,7 +11,6 @@
   letter-spacing: -0.5%;
 }
 
-
 /* ============================= */
 /* ===== Profile Container ===== */
 /* ============================= */
@@ -30,9 +29,8 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #0A0D14;
+  color: #0a0d14;
 }
-
 
 /* ============================= */
 /* ===== Image Section ===== */
@@ -41,7 +39,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 1rem;
   border-radius: 12px;
   margin-bottom: 1.5rem;
@@ -108,14 +106,14 @@
 .image-headt {
   font-size: 16px;
   font-weight: 500;
-  color: #0A0D14;
+  color: #0a0d14;
   margin: 0%;
 }
 
 .image-note {
   font-size: 14px;
   font-weight: 400;
-  color: #0A0D14;
+  color: #0a0d14;
   margin: 0%;
 }
 
@@ -125,7 +123,7 @@
   font-size: 12px;
   font-weight: 500;
   color: #525866;
-  border: 1px solid #E2E4E9;
+  border: 1px solid #e2e4e9;
   margin: 0%;
   border-radius: 2rem;
   cursor: pointer;
@@ -136,13 +134,12 @@
   background: transparent;
   font-size: 12px;
   font-weight: 500;
-  color: #DF1C41;
-  border: 1px solid #DF1C41;
+  color: #df1c41;
+  border: 1px solid #df1c41;
   margin: 0%;
   border-radius: 2rem;
   cursor: pointer;
 }
-
 
 /* ============================= */
 /* ===== Counts ===== */
@@ -155,7 +152,7 @@
 .count-label {
   font-size: 16px;
   font-weight: 500;
-  color: #0A0D14;
+  color: #0a0d14;
 }
 
 .count-value {
@@ -165,15 +162,15 @@
   margin: 0%;
 }
 
-
 /* ============================= */
 /* ===== Form Section ===== */
 /* ============================= */
 .form-section {
-  width: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 10px;
   padding: 1.5rem;
+  width: 100%;
+
 }
 
 .input-row {
@@ -192,7 +189,7 @@
 .input-group label {
   font-size: 14px;
   font-weight: 500;
-  color: #0A0D14;
+  color: #0a0d14;
   margin-bottom: 6px;
   display: flex;
   align-items: center;
@@ -201,7 +198,7 @@
 
 .input-group input {
   padding: 10px 12px;
-  border: 1px solid #E2E4E9;
+  border: 1px solid #e2e4e9;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
@@ -212,17 +209,16 @@
   border: none;
   outline: none;
   border-radius: 8px;
-  background: #F6F8FA;
-  color: #CDD0D5;
+  background: #f6f8fa;
+  color: #cdd0d5;
   font-size: 16px;
   font-weight: 500;
 }
 
 .location-link {
-  color: #016CE8;
+  color: #016ce8;
   text-decoration: none;
 }
-
 
 /* ============================= */
 /* ===== Action Buttons ===== */
@@ -238,8 +234,8 @@
 .discard-btn {
   padding: 10px 32px;
   border-radius: 2rem;
-  background: #FFFFFF;
-  border: 1px solid #E2E4E9;
+  background: #ffffff;
+  border: 1px solid #e2e4e9;
   font-size: 14px;
   font-weight: 600;
   color: #525866;
@@ -249,14 +245,13 @@
 .update-btn {
   padding: 10px 32px;
   border-radius: 2rem;
-  background: #016CE8;
+  background: #016ce8;
   border: none;
   font-size: 14px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
 }
-
 
 /* ============================= */
 /* ===== Overlay Styles ===== */
@@ -293,7 +288,6 @@
   justify-content: space-between;
 }
 
-
 /* ============================= */
 /* ===== Image Select Card ===== */
 /* ============================= */
@@ -326,7 +320,6 @@
   line-height: 18px;
   text-align: center;
 }
-
 
 /* ============================= */
 /* ===== Link Input Fields ===== */
@@ -366,15 +359,14 @@
   padding: 10px;
 }
 
-
 /* ============================= */
 /* ===== Overlay Buttons ===== */
 /* ============================= */
-.link-buttons-container{
+.link-buttons-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content:flex-end;
+  justify-content: flex-end;
 }
 .overlay-link-cancel {
   border: 1px solid #e2e4e9;
@@ -399,7 +391,6 @@
   cursor: pointer;
 }
 
-
 /* ============================= */
 /* ===== Success Message ===== */
 /* ============================= */
@@ -408,7 +399,6 @@
   margin-top: 10px;
   font-weight: bold;
 }
-
 
 /* ========================== */
 /* DASHBOARD FOOTER */
@@ -431,8 +421,6 @@
   text-decoration: underline;
 }
 
-
-
 /* ============================ */
 /* ===== AOS Zoom Tweak ===== */
 /* ============================ */
@@ -445,7 +433,6 @@
   transform: scale(1);
 }
 
-
 /* ============================= */
 /* ===== Responsive Media ===== */
 /* ============================= */
@@ -454,45 +441,56 @@
     display: flex;
     flex-direction: column;
   }
-
+  .profile-container {
+    margin: 0.2rem auto;
+    padding: 0.2rem;
+  }
+  .heading-text {
+    font-size: 2rem;
+    line-height: 100%;
+    padding: 46px 0 0 0;
+  }
 }
 @media (max-width: 770px) {
-  
   .profile-container {
-  max-width: 90%;
-  width: 100%;
-}
-.overlay-container {
-  background: #ffffff;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  padding: 24px;
-  border-radius: 12px;
-}
+    max-width: 90%;
+    width: 100%;
+  }
+  .form-section{
+  width: 90%;
 
- .pc {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size:14px;
-  font-weight:400;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-   
-}
- .cp {
-  display: none;
-}
-.link-buttons-container{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.overlay-link-cancel,.overlay-link-button {
-  flex: 1;
-}
+  }
+  .overlay-container {
+    background: #ffffff;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+    border-radius: 12px;
+  }
+
+  .pc {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+  .cp {
+    display: none;
+  }
+  .link-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .overlay-link-cancel,
+  .overlay-link-button {
+    flex: 1;
+  }
 }

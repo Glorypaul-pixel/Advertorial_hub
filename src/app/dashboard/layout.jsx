@@ -39,9 +39,9 @@ export default function Layout({ children }) {
             className={`hamburger sideHeader ${menuOpen ? "open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
           >
+            {/* <div className="bar"></div>
             <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
+            <div className="bar"></div> */}
           </div>
         </section>
         {menuOpen && <Sidebar setMenuOpen={setMenuOpen} />}

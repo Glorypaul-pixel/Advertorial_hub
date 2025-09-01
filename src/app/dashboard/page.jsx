@@ -8,6 +8,7 @@ import "../../styles/Seetingshome.css";
 import Loader from "./loading";
 import toast from "react-hot-toast";
 import AllPosts from "../components/AllPosts";
+import DashboardHeader from "../components/DashboardHeader";
 
 export default function HomePage() {
   // Post Progress States
@@ -353,6 +354,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <DashboardHeader/>
       <div className="page-container">
         <section className="recentpost-header">
           <h1 className=" page-h-text" data-aos="fade-down">

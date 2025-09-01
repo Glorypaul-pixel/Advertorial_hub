@@ -8,7 +8,6 @@
   /* max-width: 1200px; */
   margin-left: 10%;
   margin-bottom: 50px;
-
 }
 
 .page-h-text {
@@ -561,7 +560,7 @@ input {
 }
 
 .recentpost-header h1 {
-font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 .recentpost-header button {
   position: absolute;
@@ -580,7 +579,6 @@ font-size: 2.5rem;
   border-radius: 100px;
   cursor: pointer;
 }
-
 
 /* ========================== */
 /* POST CREATOR INFO SECTION */
@@ -955,6 +953,11 @@ font-size: 2.5rem;
   .page-container {
     width: 100%;
   }
+
+  .page-container {
+    margin-left: 0 !important;
+    /* margin: 1rem !important; */
+  }
 }
 
 @media (max-width: 768px) {
@@ -964,6 +967,9 @@ font-size: 2.5rem;
   .page-container h1 {
     font-size: 1.6rem;
   }
+  .page-container {
+    margin-left: 0%;
+  }
   .heading-text {
     font-size: 1.6rem;
   }
@@ -971,7 +977,9 @@ font-size: 2.5rem;
     margin-right: 1rem;
     margin-left: 1rem;
   }
-
+  .createpost-container {
+    padding: 1rem;
+  }
   .recentpost-header {
     position: relative;
     align-items: center;
@@ -1066,18 +1074,18 @@ font-size: 2.5rem;
     padding: 24px;
   }
 }
-@media (max-width: 900px ){
- #createpost {
-    padding: .4rem;
+@media (max-width: 900px) {
+  #createpost {
+    padding: 0.4rem;
     border-radius: 0.4rem;
   }
   .posth-text {
     font-size: 1.3rem;
   }
-   .page-container h1 {
+  .page-container h1 {
     font-size: 1.7rem;
   }
-   .heading-text {
+  .heading-text {
     font-size: 1.6rem;
   }
 }

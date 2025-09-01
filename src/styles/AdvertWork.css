@@ -546,9 +546,7 @@
     gap: 16px;
   }
 
-  .adpricing-card {
-    width: 100%;
-  }
+ 
 
   .adpricemain-heading {
     font-size: 24px;
@@ -570,7 +568,7 @@
     margin: 0 auto;
   }
   .adpricing-card {
-    max-width: 80%;
+    max-width: 90%;
   }
 }
 
@@ -799,10 +797,10 @@
     padding: 0rem;
   }
 
-    .adpricemain-heading {
-        width: 100%;
-        padding-top: 1rem;
-    }
+  .adpricemain-heading {
+    width: 100%;
+    padding-top: 1rem;
+  }
   .active {
     /* background-color: #4a90e2; */
     font-weight: bold;

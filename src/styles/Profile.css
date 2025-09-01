@@ -447,7 +447,7 @@
   }
   .heading-text {
     font-size: 2rem;
-    line-height: 100%;
+    line-height: 10%;
     padding: 46px 0 0 0;
   }
 }

@@ -54,15 +54,14 @@ const AdvertWork = () => {
 
   // adprices (for UI)
   const adprices = {
-    personal: "Free",
-    business: billing === "monthly" ? "₦40,000" : "₦480,000",
-    team: billing === "monthly" ? "₦70,000" : "₦840,000",
+    personal: "₦0",
+    business: billing === "monthly" ? "₦1,000" : "₦12,000",
+    team: billing === "monthly" ? "₦3,000" : "₦36,000",
   };
 
-  // Amounts in kobo (for Paystack)
   const amountsInKobo = {
-    business: billing === "monthly" ? 40000 * 100 : 480000 * 100,
-    team: billing === "monthly" ? 70000 * 100 : 840000 * 100,
+    business: billing === "monthly" ? 1000 * 100 : 12000 * 100,
+    team: billing === "monthly" ? 3000 * 100 : 36000 * 100,
   };
 
   // Change plan API call

@@ -4,7 +4,7 @@
 .BackHomeBtn {
   background-color: #0162d3;
   color: white;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 2rem;
   border: none;
   cursor: pointer;
@@ -13,7 +13,7 @@
   display: none;
 }
 .sidebar-title a {
-    color: white;
+  color: white;
 }
 .sidebar-title a:hover {
   color: rgb(201, 201, 201);
@@ -269,6 +269,9 @@ a {
 /* MEDIA QUERY  */
 /* ========================== */
 @media (max-width: 768px) {
+  .sidebar-nav {
+    margin-top: 10%;
+  }
   .pc {
     display: flex;
     align-items: center;

@@ -120,4 +120,8 @@
   }
 }
 
-
+@media (max-width: 470px) {
+  .sidebar-title {
+    display: none;
+  }
+}

@@ -203,7 +203,10 @@ const AdvertWork = () => {
             style={{ transform: `translateX(-${activeStep * 100}%)` }}
           >
             <div className="slide">
-              <div className="stepText stepsDiv stepAcoount" data-aos="zoom-out">
+              <div
+                className="stepText stepsDiv stepAcoount"
+                data-aos="zoom-out"
+              >
                 <img
                   src="/images/createyouraccount.png"
                   alt="createaccount"
@@ -245,9 +248,10 @@ const AdvertWork = () => {
               We’ve got a plan that’s perfect <br /> for you
             </h1>
 
-            <div className="billing-buttons">
+            <div className="adbilling-toggle">
+              <div className="toggle-background" data-active={billing}></div>
               <button
-                className={`monthly-billing ${
+                className={`toggle-option ${
                   billing === "monthly" ? "active" : ""
                 }`}
                 onClick={() => setBilling("monthly")}
@@ -255,7 +259,7 @@ const AdvertWork = () => {
                 Monthly Billing
               </button>
               <button
-                className={`annual-billing ${
+                className={`toggle-option ${
                   billing === "annual" ? "active" : ""
                 }`}
                 onClick={() => setBilling("annual")}

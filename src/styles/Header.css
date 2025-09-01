@@ -96,21 +96,24 @@ header {
 /* Nav buttons */
 .navbtn {
   text-decoration: none;
-  color: #dedede;
+  color: #016ce8;
   font-weight: 500;
   padding: 0.4rem 1.2rem;
+  border-radius: 0.4rem;
+  border: 1px #016ce8 solid;
   cursor: pointer;
 }
 
 .active-route {
   font-weight: 500;
-  border-bottom: 1px solid #dedede;
+  /* border-bottom: 1px solid #dedede; */
   padding: 0.4rem;
 }
 
 .navbtn:hover {
   font-weight: 500;
-  color: #016ce8;
+   color: white;
+  background-color: #016ce8;
 }
 
 
@@ -148,7 +151,7 @@ header {
 }
 
 .login-btn {
-  padding: 0.1rem 1rem;
+  padding: .4rem 1rem;
   background: white;
   border: 1px solid #016ce8;
   color: #016ce8;
@@ -165,7 +168,7 @@ header {
 .HeaderbtnStart {
   background-color: #016ce8;
   border-radius: 0.6rem;
-  padding: 0.1rem 1rem;
+  padding: 0.4rem 1rem;
   color: white;
   cursor: pointer;
   border: none;

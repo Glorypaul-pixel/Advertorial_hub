@@ -3,7 +3,7 @@
 /* ======================== */
 
 .billing-buttons {
-  background-color: #f6f8fa;
+  /* background-color: #f6f8fa; */
   display: flex;
   align-items: center;
   gap: 12px;
@@ -14,7 +14,7 @@
 
 .annual-billing,
 .monthly-billing {
-  background-color: #f6f8fa;
+  /* background-color: #f6f8fa; */
   padding: 1rem 2rem;
   color: #016ce8;
   font-size: 14px;
@@ -219,13 +219,61 @@
 }
 
 .get-started-btn {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 /* ============================ */
 /* ===== Features ===== */
 /* ============================ */
+.adbilling-toggle {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px; /* adjust as needed */
+  height: 45px;
+  /* background: #f0f0f0; */
+  border-radius: 25px;
+  padding: 3px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
 
+.toggle-option {
+  flex: 1;
+  z-index: 2; /* stay above background */
+  text-align: center;
+  line-height: 39px; /* height - padding */
+  font-weight: 500;
+  color: #555;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.toggle-option.active {
+  color: #fff;
+}
+
+.toggle-background {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  width: calc(50% - 3px);
+  border-radius: 25px;
+  background: #007bff;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.toggle-background[data-active="monthly"] {
+  transform: translateX(0%);
+}
+
+.toggle-background[data-active="annual"] {
+  transform: translateX(100%);
+}
 .Priceplan-features {
   display: flex;
   flex-direction: column;
@@ -528,9 +576,18 @@
   }
 }
 /* Small Phones */
-@media (max-width: 414px) {
+@media (max-width: 504px) {
   .Pricemain-heading {
-    font-size: 24px;
+    font-size: 1.6rem !important;
+  }
+  .PriceMainContent {
+    gap: 4px;
+    margin: 1rem 0;
+  }
+
+  .features-section {
+    width: 90%;
+    /* margin: .2rem; */
   }
 
   .plan-price {

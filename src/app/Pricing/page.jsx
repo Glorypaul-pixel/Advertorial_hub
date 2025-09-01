@@ -49,13 +49,13 @@ export default function AdPricing() {
 
   const adprices = {
     personal: "₦0",
-    business: billing === "monthly" ? "₦40,000" : "₦480,000",
-    team: billing === "monthly" ? "₦70,000" : "₦840,000",
+    business: billing === "monthly" ? "₦1,000" : "₦12,000",
+    team: billing === "monthly" ? "₦3,000" : "₦36,000",
   };
 
   const amountsInKobo = {
-    business: billing === "monthly" ? 40000 * 100 : 480000 * 100,
-    team: billing === "monthly" ? 70000 * 100 : 840000 * 100,
+    business: billing === "monthly" ? 1000 * 100 : 12000 * 100,
+    team: billing === "monthly" ? 3000 * 100 : 36000 * 100,
   };
 
   const changeUserPlan = async ({ reference, planName }) => {
@@ -166,9 +166,10 @@ export default function AdPricing() {
               We’ve got a plan that’s perfect <br /> for you
             </h1>
 
-            <div className="billing-buttons">
+            <div className="adbilling-toggle">
+              <div className="toggle-background" data-active={billing}></div>
               <button
-                className={`monthly-billing ${
+                className={`toggle-option ${
                   billing === "monthly" ? "active" : ""
                 }`}
                 onClick={() => setBilling("monthly")}
@@ -176,7 +177,7 @@ export default function AdPricing() {
                 Monthly Billing
               </button>
               <button
-                className={`annual-billing ${
+                className={`toggle-option ${
                   billing === "annual" ? "active" : ""
                 }`}
                 onClick={() => setBilling("annual")}

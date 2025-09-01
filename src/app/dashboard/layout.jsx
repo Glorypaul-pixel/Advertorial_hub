@@ -27,14 +27,14 @@ export default function Layout({ children }) {
       </section>
       <main className="main-content ">
         <section className="main-section-container">
-          <section className="mobile-sidebar-header">
+          {/* <section className="mobile-sidebar-header">
             <img
               src="/images/logo.png"
               className="mobile-sidebar-logo"
               alt="Advertorial Hub Logo"
             />
             <h4 className="mobile-sidebar-title">Advertorial Hub</h4>
-          </section>
+          </section> */}
           <div
             className={`hamburger sideHeader ${menuOpen ? "open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}

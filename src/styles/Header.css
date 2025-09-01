@@ -45,8 +45,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 20px;
-  height: 15px;
+  width: 40px;
+  height: 20px;
   cursor: pointer;
 }
 

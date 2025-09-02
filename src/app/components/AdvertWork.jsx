@@ -270,7 +270,7 @@ const AdvertWork = () => {
 
           <section className="adpricing-section mild-zoom" data-aos="zoom-in">
             {/* Personal Plan */}
-            <div className="adpricing-card">
+            <div className="adpricing-card" >
               <section className="adpriceplan-details">
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-title">

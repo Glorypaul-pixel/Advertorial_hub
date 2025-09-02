@@ -298,7 +298,14 @@
   padding: 48px 1rem 1rem;
   border-radius: 10px;
   border: 1px solid #e2e4e9;
+  box-shadow: 0 6px 10px rgba(41, 41, 45, 0.6);
+  transition: all 0.3s ease;
 }
+.adpricing-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
 
 .adpricing-card h2 {
   font-size: 1.3rem;
@@ -597,7 +604,6 @@
     transparent 0%,
     rgba(234, 224, 224, 0.02) 100%
   );
-  padding: 1.25rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -608,16 +614,18 @@
 /* Inner card */
 .features-inner {
   width: 100%;
+
   max-width: 980px;
   background: linear-gradient(180deg, var(--card), rgba(224, 229, 236, 0.95));
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
-  box-shadow: 0 6px 20px rgba(41, 41, 45, 0.6);
+  box-shadow: 0 6px 10px rgba(41, 41, 45, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
   color: var(--text);
   animation: slideUpFade 0.45s ease both;
   border-radius: 20px;
+  margin: 0 auto;
 }
 
 /* Heading */
@@ -689,13 +697,13 @@
   font-weight: 500;
 } /* Responsive: make title and spacing smaller on narrow screens */
 @media (max-width: 1200px) {
-  .features-section {
+  /* .features-section {
     width: 80%;
-    margin: auto;
-  }
+    margin: 0 auto;
+  } */
   .features-inner {
     padding: 1rem;
-    width: 90%;
+    width: 100% !important;
   }
   .features-title {
     font-size: 1rem;
@@ -814,7 +822,7 @@
     width: 90%;
     margin: 0 auto;
     padding: 1rem;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .form-container {

@@ -194,7 +194,7 @@ export default function AdPricing() {
             data-aos-duration="2000"
           >
             {/* Personal Plan */}
-            <div className="adpricing-card">
+            <div className="adpricing-card" data-aos="zoom-in" >
               <section className="adpriceplan-details">
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-title">
@@ -292,13 +292,13 @@ export default function AdPricing() {
           </section>
 
           {/* Features Section */}
-          <section
-            className="features-section"
-            aria-labelledby="features-heading"
+          {/* <section
+            className="Prifeatures-section"
+            aria-labelledby="Prifeatures-heading"
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <div className="features-inner">
+            <div className="Prifeatures-inner">
               <h3
                 id="features-heading"
                 className="features-title"
@@ -308,19 +308,19 @@ export default function AdPricing() {
                 What’s included
               </h3>
 
-              <ul className="features-list">
+              <ul className="Prifeatures-list">
                 {features.map((f, i) => (
                   <li
-                    className="feature-item"
+                    className="Prifeature-item"
                     key={i}
                     data-aos="fade-up"
                     data-aos-delay={i * 150}
                     data-aos-duration="700"
                   >
-                    <span className="feature-icon" aria-hidden="true">
+                    <span className="Prifeature-icon" aria-hidden="true">
                       🔹
                     </span>
-                    <span className="feature-text">
+                    <span className="Prifeature-text">
                       <strong>{f.title}</strong>
                       {f.desc ? ` ${f.desc}` : ""}
                     </span>
@@ -328,7 +328,7 @@ export default function AdPricing() {
                 ))}
               </ul>
             </div>
-          </section>
+          </section> */}
         </main>
       </div>
 

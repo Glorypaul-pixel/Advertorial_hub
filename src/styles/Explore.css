@@ -11,10 +11,6 @@
   overflow: visible !important;
 }
 
-/*  */
-
-/*  */
-
 .ExploreIcons img {
   width: 50px;
   height: auto;
@@ -114,7 +110,7 @@
   margin-bottom: 3rem;
   text-align: center;
 }
-.exploreButton:hover{
+.exploreButton:hover {
   background-color: #97baf3;
 }
 /* Explore Icons Container */
@@ -182,7 +178,7 @@
   padding: 0.6rem 2rem;
   font-size: 1.1rem;
 }
-.ExbtnStart:hover{
+.ExbtnStart:hover {
   background-color: #609af8;
   cursor: pointer;
 }
@@ -308,5 +304,34 @@
     padding: 1rem 0;
     overflow: hidden;
     /* width: 100%; */
+  }
+  /* @keyframes moveIcon {
+  0% {
+    transform: translateX(100vw) scale(0.8);
+    opacity: 0.8;
+  }
+  30% {
+    transform: translateX(50vw) scale(1.2);
+    opacity: 1;
+  }
+   40% {
+    transform: translateX(50vw) scale(1.5);
+    opacity: 1;
+  }
+   60% {
+    transform: translateX(50vw) scale(2);
+    opacity: 1;
+  }
+   80% {
+    transform: translateX(50vw) scale(1.);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-10vw) scale(0.8);
+    opacity: 0.8;
+  } */
+  .ExbtnStart {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
   }
 }

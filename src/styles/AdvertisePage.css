@@ -148,7 +148,10 @@
   .advertGoals {
     grid-template-columns: 1fr; /* 1 item per row for smaller screens */
   }
+.advertGoals {
+  margin: 1rem;
 
+}
   .advertHead h2 {
     font-size: 2rem;
   }

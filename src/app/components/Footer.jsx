@@ -68,7 +68,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-green-600 hover:underline"
               >
-                +234 8065 137 645
+                +234 913 9013 186
               </a>
             </li>
             <li>

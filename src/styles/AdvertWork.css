@@ -292,7 +292,7 @@
 
 .adpricing-card {
   /* width: 100%; */
-  max-width: 350px;
+  max-width: 350px !important;
   display: flex;
   flex-direction: column;
   padding: 48px 1rem 1rem;
@@ -546,8 +546,6 @@
     gap: 16px;
   }
 
- 
-
   .adpricemain-heading {
     font-size: 24px;
     line-height: 2.5rem;
@@ -795,7 +793,12 @@
   .Advertwork {
     padding: 0rem;
   }
-
+  .worksHead h1 {
+    color: #fff;
+    text-align: center;
+    padding-top: 2rem !important;
+    font-size: 2rem;
+  }
   .adpricemain-heading {
     width: 100%;
     padding-top: 1rem;
@@ -810,7 +813,8 @@
   .worksSlot {
     width: 90%;
     margin: 0 auto;
-    padding: 0.5rem;
+    padding: 1rem;
+    font-size: .8rem;
   }
 
   .form-container {

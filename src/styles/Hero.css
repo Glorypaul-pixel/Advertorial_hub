@@ -120,12 +120,12 @@ body {
 }
 
 .heroText h1 {
-  font-size: 4rem;
+  font-size: 4.5rem !important;
   color: #f4f4f4;
 }
 
 .heroText p {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #dedede;
 }
 

@@ -21,7 +21,7 @@ const Hero = () => {
               With <span>Advertorial Hub</span>, you{"'"}ve got everything you need!
             </p>
             <Link href="/authentication/CreateAccount">
-              <button className="btnStart" data-aos="zoom-in">
+              <button className="HerobtnStart" data-aos="zoom-in">
                 Start Now
               </button>
             </Link>

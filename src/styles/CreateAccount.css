@@ -6,7 +6,7 @@
   background-color: #f6f8fa;
   padding: 20px;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 /* Form Container */
@@ -86,7 +86,6 @@ a {
 
 .input-field,
 .password-field {
-  /* width: 100%; */
   padding: 10px;
   border: 1px solid #e2e4e9;
   border-radius: 8px;

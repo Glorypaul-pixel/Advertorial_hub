@@ -9,6 +9,7 @@
   position: relative;
   z-index: 1;
   padding: 3rem 0 4rem 0;
+   margin-top: 3rem;
 }
 a {
   text-decoration: none;

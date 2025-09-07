@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "https://advertorial-backend.onrender.com/api/auth/login",
+        `https://advertorial-backend.onrender.com/api/auth/login`,
         {
           method: "POST",
           headers: {

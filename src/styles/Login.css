@@ -137,6 +137,35 @@ a {
   flex-direction: column;
   gap: 16px;
 }
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input {
+  width: 100%;
+  padding: 10px 40px 10px 12px; /* extra space on right for icon */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px; /* inside input field */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password:hover {
+  color: #111;
+}
 
 .auth-button {
   width: 100%;

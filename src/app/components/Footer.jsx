@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footerLogo" data-aos="fade-up" data-aos-delay="100">
           <div className="footerImg">
             <Link href="/">
-              <img src="/images/AH-BLUE-BG.jpg" alt="Logo" />
+              <img src="/images/favicon.jpg" alt="Logo" />
             </Link>
           </div>
           <p>The Payments Platform Designed to Put Merchants First</p>

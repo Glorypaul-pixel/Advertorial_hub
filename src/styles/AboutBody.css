@@ -2,7 +2,7 @@
 
 .aboutBodyText {
   text-align: center;
-  padding: 4rem 3rem;
+  padding: 4rem 1rem;
 }
 
 .aboutBodyHead {
@@ -145,7 +145,7 @@
   .aboutBodyMission p,
   .aboutBodyValue p {
     font-size: 1.8rem;
-    max-width: 60%;
+    /* max-width: 60%; */
   }
 }
 

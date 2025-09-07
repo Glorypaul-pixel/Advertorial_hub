@@ -230,7 +230,7 @@ body {
   }
 
   .blogSaas {
-    padding: 0 6rem;
+    padding: 0 3rem;
     gap: 2rem;
   }
 
@@ -244,7 +244,7 @@ body {
 
   .blogCard {
     grid-template-columns: repeat(3, 1fr);
-    padding: 3rem 6rem;
+    padding: 3rem;
     gap: 2rem;
   }
 

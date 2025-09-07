@@ -77,8 +77,8 @@ const Header = () => {
         role="button"
         tabIndex={0}
       >
-        <img src="/images/mainLogo.jpg" alt="Logo" className="header-logo" />
-        <h3 className="header-title my-link hubHeader">Advertorial Hub</h3>
+        <img src="/images/favicon.jpg" alt="Logo" className="header-logo" />
+        {/* <h3 className="header-title my-link hubHeader">Advertorial Hub</h3> */}
       </div>
 
       {/* Hamburger Menu */}

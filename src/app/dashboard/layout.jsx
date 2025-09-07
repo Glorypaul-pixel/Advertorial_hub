@@ -23,26 +23,14 @@ export default function Layout({ children }) {
   return (
     <div className="layout-container">
       <section className="sidebar-container">
-        <Sidebar setMenuOpen={setMenuOpen}/>
+        <Sidebar setMenuOpen={setMenuOpen} />
       </section>
       <main className="main-content ">
         <section className="main-section-container">
-          {/* <section className="mobile-sidebar-header">
-            <img
-              src="/images/logo.png"
-              className="mobile-sidebar-logo"
-              alt="Advertorial Hub Logo"
-            />
-            <h4 className="mobile-sidebar-title">Advertorial Hub</h4>
-          </section> */}
           <div
             className={`hamburger sideHeader ${menuOpen ? "open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {/* <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div> */}
-          </div>
+          ></div>
         </section>
         {menuOpen && <Sidebar setMenuOpen={setMenuOpen} />}
         {children}

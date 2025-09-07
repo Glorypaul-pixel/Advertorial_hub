@@ -60,7 +60,7 @@ body {
   .heroHeadlineContainer {
     flex-direction: column;
     text-align: center;
-    margin-top: .1rem;
+    margin-top: 0.1rem;
   }
 
   .headline-text,
@@ -212,11 +212,11 @@ body {
   }
 
   .heroText p {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .heroImage {
-  display: none;
+    display: none;
   }
 
   .image-overlay {
@@ -231,7 +231,9 @@ body {
   .image-bg {
     display: none;
   }
- 
+  .heroText p {
+    padding: 0 1rem ;
+  }
 }
 
 /* 414px and below (mobile) */

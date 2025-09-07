@@ -322,7 +322,7 @@
 }
 
 .adpriceplan-title,
-.plan-titlelight {
+.adpriceplan-titlelight {
   font-size: 20px;
   font-weight: 600;
   display: flex;
@@ -334,7 +334,7 @@
   color: #0a0d14;
 }
 
-.plan-titlelight {
+.adpriceplan-titlelight {
   color: #ffffff;
 }
 
@@ -388,7 +388,7 @@
   font-size: 14px;
   font-weight: 600;
   border-radius: 2rem;
-  border: 1px solid #e2e4e9;
+  border: 1px solid #aeafb2;
   color: #525866;
   line-height: 18px;
   cursor: pointer;
@@ -864,13 +864,14 @@
   }
 
   .adpricemain-heading {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .monthly-billing,
   .annual-billing {
     padding: 1rem 2rem;
   }
+  
 }
 
 /* 414px Screen */

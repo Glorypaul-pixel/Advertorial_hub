@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F6F8FA;
+  background-color: #f6f8fa;
   position: relative;
   z-index: 1;
   padding: 3rem 0 4rem 0;
@@ -14,7 +14,6 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-
 
 /* Form Container */
 .form-container {
@@ -160,10 +159,11 @@ a {
   .Loginpage-container {
     height: 100%;
   }
- 
+
   /* Form Container */
   .form-container {
-  margin:0 1rem;
+    margin: 0 2rem;
+    margin-top: 1rem;
     border-radius: 0;
     z-index: 10;
     display: flex;

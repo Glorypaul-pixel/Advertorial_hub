@@ -1,22 +1,29 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import "@/styles/Header.css";
+import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import "@/styles/Header.css";
 
 const Header = () => {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
-  const pathname = usePathname(); // 👈 current route
+  const pathname = usePathname();
 
   const navRef = useRef(null);
   const hamburgerRef = useRef(null);
 
-  const navigateTo = (path) => {
-    setMenuOpen(false);
-    router.push(path);
+  // 👇 improved helper for active link
+  const isActive = (path) => {
+    if (path === "/") {
+      return pathname === "/" ? "active-route" : "";
+    }
+    return pathname.startsWith(path) ? "active-route" : "";
   };
+
+  // Toggle mobile menu
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   // Close menu if click outside nav or hamburger
   useEffect(() => {
@@ -48,12 +55,8 @@ const Header = () => {
     try {
       const res = await fetch(
         `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        }
+        { headers: { "Content-Type": "application/json" } }
       );
-
       const userData = await res.json();
       setUser(userData);
     } catch (error) {
@@ -65,13 +68,15 @@ const Header = () => {
     getUser();
   }, []);
 
-  // 👇 helper for active link
-  const isActive = (path) => (pathname === path ? "active-route" : "");
-
   return (
     <header className="header">
       {/* Logo */}
-      <div className="header-logo-container" onClick={() => navigateTo("/")}>
+      <div
+        className="header-logo-container"
+        onClick={() => router.push("/")}
+        role="button"
+        tabIndex={0}
+      >
         <img src="/images/mainLogo.jpg" alt="Logo" className="header-logo" />
         <h3 className="header-title my-link hubHeader">Advertorial Hub</h3>
       </div>
@@ -79,14 +84,14 @@ const Header = () => {
       {/* Hamburger Menu */}
       <div
         className={`hamburger ${menuOpen ? "open" : ""}`}
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={toggleMenu}
         ref={hamburgerRef}
         aria-label="Toggle menu"
         aria-expanded={menuOpen}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") setMenuOpen(!menuOpen);
+          if (e.key === "Enter" || e.key === " ") toggleMenu();
         }}
       >
         <div className="bar"></div>
@@ -100,62 +105,68 @@ const Header = () => {
         ref={navRef}
         aria-hidden={!menuOpen}
       >
-        <div
+        <Link
+          href="/"
           className={`my-link navbtn ${isActive("/")}`}
-          onClick={() => navigateTo("/")}
+          onClick={() => setMenuOpen(false)}
         >
           Home
-        </div>
-        <div
+        </Link>
+        <Link
+          href="/AboutUs"
           className={`my-link navbtn ${isActive("/AboutUs")}`}
-          onClick={() => navigateTo("/AboutUs")}
+          onClick={() => setMenuOpen(false)}
         >
           About Us
-        </div>
-        <div
+        </Link>
+        <Link
+          href="/Blog"
           className={`my-link navbtn ${isActive("/Blog")}`}
-          onClick={() => navigateTo("/Blog")}
+          onClick={() => setMenuOpen(false)}
         >
           Blog
-        </div>
-        <div
+        </Link>
+        <Link
+          href="/Pricing"
           className={`my-link navbtn ${isActive("/Pricing")}`}
-          onClick={() => navigateTo("/Pricing")}
+          onClick={() => setMenuOpen(false)}
         >
           Pricing
-        </div>
+        </Link>
 
+        {/* Mobile Buttons */}
         <div className="mobile-buttons">
-          <button
-            className="login-btn"
-            onClick={() => navigateTo("/authentication/Login")}
-          >
-            Log In
-          </button>
-          <button
-            className="HeaderbtnStart"
-            onClick={() => navigateTo("/authentication/CreateAccount")}
-          >
-            Start Now
-          </button>
+          <Link href="/authentication/Login">
+            <button className="login-btn" onClick={() => setMenuOpen(false)}>
+              Log In
+            </button>
+          </Link>
+          <Link href="/authentication/CreateAccount">
+            <button
+              className="HeaderbtnStart"
+              onClick={() => setMenuOpen(false)}
+            >
+              Start Now
+            </button>
+          </Link>
         </div>
       </nav>
 
-      {/* User info */}
+      {/* User Info / Auth Buttons */}
       {user ? (
         <div className="h-user-container">
           <p className="h-user-name">{user?.firstName}</p>
           {user?.profilePicture ? (
             <img
               src={user?.profilePicture}
-              alt={user.profilePicture}
+              alt={user?.firstName}
               className="h-user-profile"
-              onClick={() => navigateTo("/dashboard")}
+              onClick={() => router.push("/dashboard")}
             />
           ) : (
             <p
               className="h-user-profile"
-              onClick={() => navigateTo("/dashboard")}
+              onClick={() => router.push("/dashboard")}
             >
               {user?.firstName?.[0] + user?.lastName?.[0]}
             </p>
@@ -163,18 +174,12 @@ const Header = () => {
         </div>
       ) : (
         <div className="header-buttons">
-          <button
-            className="login-btn"
-            onClick={() => navigateTo("/authentication/Login")}
-          >
-            Log In
-          </button>
-          <button
-            className="HeaderbtnStart"
-            onClick={() => navigateTo("/authentication/CreateAccount")}
-          >
-            Start Now
-          </button>
+          <Link href="/authentication/Login">
+            <button className="login-btn">Log In</button>
+          </Link>
+          <Link href="/authentication/CreateAccount">
+            <button className="HeaderbtnStart">Start Now</button>
+          </Link>
         </div>
       )}
     </header>

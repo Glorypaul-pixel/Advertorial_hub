@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import ImageSkeleton from "../../ImageSkeleton";
 import Loader from "../../loading";
 import MakeAds from "@/app/components/MakeAds";
-import { icons } from "@/lib/Icons"; // assuming you have this import for like/dislike icons
+import { icons } from "@/lib/Icons"; 
 import { statesAndCapitals } from "./statesAndCapitals";
 import DashboardHeader from "@/app/components/DashboardHeader";
-
 
 export default function Post() {
   const [post, setPost] = useState(null);
@@ -17,11 +16,10 @@ export default function Post() {
   const [menu, setMenu] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
-  const [reactions, setReactions] = useState({ liked: false, disliked: false }); // store user reactions
+  const [reactions, setReactions] = useState({ liked: false, disliked: false });
   const [isReacting, setIsReacting] = useState(false);
   const [makeAds, setMakeAds] = useState(false);
   const [makeAdLoading, setMakeAdLoading] = useState(false);
-
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -47,7 +45,9 @@ export default function Post() {
         const analyticsRes = await fetch(
           `https://advertorial-backend.onrender.com/api/posts/analytics/${postId}`
         );
-        const analyticsData = analyticsRes.ok ? await analyticsRes.json() : null;
+        const analyticsData = analyticsRes.ok
+          ? await analyticsRes.json()
+          : null;
 
         // Fetch poster data
         const posterRes = await fetch(
@@ -125,7 +125,12 @@ export default function Post() {
       return;
     }
 
-    if (!adData.minAge || !adData.maxAge || !adData.location || !adData.gender) {
+    if (
+      !adData.minAge ||
+      !adData.maxAge ||
+      !adData.location ||
+      !adData.gender
+    ) {
       console.error("Please fill all ad targeting fields.");
       setMakeAdLoading(false);
       return;
@@ -168,13 +173,12 @@ export default function Post() {
     setMakeAdLoading(false);
   };
 
-
   const handleSharePost = () => {
     if (navigator.share) {
       navigator.share({
         title: post.title,
-        text: "Check out this post!",
-        url: window.location.href,
+        text: "I found this post interesting, thought you might like it too",
+        url: `https://advertorialhub.net/dashboard/posts/${postId}`,
       });
     } else {
       navigator.clipboard.writeText(window.location.href);
@@ -197,9 +201,15 @@ export default function Post() {
     let next = { ...prevReactions };
 
     if (reactionType === "like") {
-      next = { liked: !prevReactions.liked, disliked: prevReactions.liked ? false : prevReactions.disliked };
+      next = {
+        liked: !prevReactions.liked,
+        disliked: prevReactions.liked ? false : prevReactions.disliked,
+      };
     } else if (reactionType === "dislike") {
-      next = { liked: prevReactions.disliked ? prevReactions.liked : false, disliked: !prevReactions.disliked };
+      next = {
+        liked: prevReactions.disliked ? prevReactions.liked : false,
+        disliked: !prevReactions.disliked,
+      };
     }
 
     // Update local post counts optimistically
@@ -229,7 +239,10 @@ export default function Post() {
         `https://advertorial-backend.onrender.com/api/posts/${post._id}/reactions`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${userToken}` },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userToken}`,
+          },
           body: JSON.stringify({ reactionType }),
         }
       );
@@ -238,7 +251,9 @@ export default function Post() {
 
       // Update with actual server counts
       setPost((p) =>
-        p._id === post._id ? { ...p, likes: data.likes, dislikes: data.dislikes } : p
+        p._id === post._id
+          ? { ...p, likes: data.likes, dislikes: data.dislikes }
+          : p
       );
     } catch (err) {
       console.error(err);
@@ -253,7 +268,7 @@ export default function Post() {
 
   return (
     <div className="post-layout" onClick={() => setMenu(false)}>
-     <DashboardHeader />
+      <DashboardHeader />
       {/* LEFT: Post content */}
       <section className="post-main">
         <p className="post-title">{post.title}</p>
@@ -286,14 +301,14 @@ export default function Post() {
               {new Date() - new Date(post.createdAt) < 60000
                 ? "Just now"
                 : new Date(post.createdAt)
-                  .toLocaleString("en-US", {
-                    day: "numeric",
-                    month: "long",
-                    hour: "numeric",
-                    minute: "2-digit",
-                    hour12: true,
-                  })
-                  .replace(",", " at")}
+                    .toLocaleString("en-US", {
+                      day: "numeric",
+                      month: "long",
+                      hour: "numeric",
+                      minute: "2-digit",
+                      hour12: true,
+                    })
+                    .replace(",", " at")}
             </span>
           </div>
         </div>
@@ -336,15 +351,19 @@ export default function Post() {
                 className={`reaction-btn ${reactions.liked ? "liked" : ""}`}
                 aria-label="Like"
               >
-                {reactions.liked ? icons.likesfill : icons.likes} {post.likes ?? 0}
+                {reactions.liked ? icons.likesfill : icons.likes}{" "}
+                {post.likes ?? 0}
               </button>
               <button
                 onClick={() => handlePostReaction("dislike")}
                 disabled={isReacting}
-                className={`reaction-btn ${reactions.disliked ? "disliked" : ""}`}
+                className={`reaction-btn ${
+                  reactions.disliked ? "disliked" : ""
+                }`}
                 aria-label="Dislike"
               >
-                {reactions.disliked ? icons.dislikefill : icons.dislike} {post.dislikes ?? 0}
+                {reactions.disliked ? icons.dislikefill : icons.dislike}{" "}
+                {post.dislikes ?? 0}
               </button>
             </div>
           </div>
@@ -354,7 +373,10 @@ export default function Post() {
           <div className="post-actions">
             <button onClick={handleSharePost}>Share</button>
             <button onClick={() => setMakeAds(true)}>Make Ads</button>
-            <button onClick={() => setShowDeleteConfirm(true)} disabled={deleting}>
+            <button
+              onClick={() => setShowDeleteConfirm(true)}
+              disabled={deleting}
+            >
               {deleting ? "Deleting..." : "Delete"}
             </button>
           </div>
@@ -368,8 +390,6 @@ export default function Post() {
           makeAdLoading={makeAdLoading}
           statesAndCapitals={statesAndCapitals}
         />
-
-
       </aside>
 
       {/* Delete Confirmation Modal */}
@@ -378,7 +398,10 @@ export default function Post() {
           <div className="modal-content">
             <p>Are you sure you want to delete this post?</p>
             <div className="modal-actions">
-              <button onClick={() => setShowDeleteConfirm(false)} disabled={deleting}>
+              <button
+                onClick={() => setShowDeleteConfirm(false)}
+                disabled={deleting}
+              >
                 Cancel
               </button>
               <button onClick={handleDeletePost} disabled={deleting}>

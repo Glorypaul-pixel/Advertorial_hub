@@ -171,6 +171,7 @@
 @media (max-width: 768px) {
   .aboutBodyText {
     padding: 2rem 1rem;
+    margin-top: 2rem;
   }
   .aboutBodyHead h2 {
     font-size: 0.8rem;
@@ -178,11 +179,18 @@
     width: auto;
   }
   .aboutBodyText h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+  }
+
+  .aboutBodyHub h4 {
+    font-size: 1.3rem;
+  }
+  .aboutBodyHub {
+    padding: 0.9rem;
   }
   .aboutBodyText p {
     font-size: 1.1rem;
-    padding: 0 2rem;
+    padding: 0 0.3rem;
   }
   .aboutBodyHub {
     align-items: center;
@@ -201,12 +209,12 @@
   }
   .aboutBodyMission h1,
   .aboutBodyValue h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     padding: 1rem;
   }
   .aboutBodyMission p,
   .aboutBodyValue p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     max-width: 90%;
   }
 }

@@ -32,6 +32,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Advertorial Hub",
   description: "Welcome To Adevrtorial Hub",
+  icons: {
+    icon: "/favicon.jpg", 
+  },
 };
 
 export default function RootLayout({ children }) {

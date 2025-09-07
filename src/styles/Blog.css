@@ -148,6 +148,21 @@ body {
   .blogCard {
     grid-template-columns: 1fr 1fr;
   }
+  .BlogHead h1 {
+    font-size: 1.8rem;
+   
+}
+
+.BlogHead p {
+    color: #666;
+
+    font-size: 1.1rem;
+}
+.BlogHead {
+ 
+    margin-bottom: 1rem;
+    padding: 4rem 1rem 0rem;
+}
 }
 
 /* Mobile Small: max-width 480px */

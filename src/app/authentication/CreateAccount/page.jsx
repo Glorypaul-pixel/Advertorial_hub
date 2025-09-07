@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-// import { icons } from "@/app/lib/Icons";
-// import { signIn } from "next-auth/react"; // Added for Google/Facebook signup
 import "@/styles/CreateAccount.css";
 
 const CreateAccount = () => {
@@ -12,15 +10,22 @@ const CreateAccount = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const router = useRouter();
 
   const validateForm = () => {
-    if (!email || !firstName || !lastName || !password) {
+    if (!email || !firstName || !lastName || !password || !confirmPassword) {
       setError("Please fill in all fields.");
+      return false;
+    }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return false;
     }
     if (!termsAccepted) {
@@ -67,7 +72,6 @@ const CreateAccount = () => {
         "Account successfully created! Please check your email or spam for verification."
       );
 
-      // Redirect to success/login page after short delay
       setTimeout(() => {
         router.push("/authentication/Success");
       }, 1500);
@@ -77,16 +81,6 @@ const CreateAccount = () => {
       setLoading(false);
     }
   };
-
-  // // Google signup
-  // const handleGoogleSignup = () => {
-  //   signIn("google", { callbackUrl: "/authentication/Success" });
-  // };
-
-  // Facebook signup
-  // const handleFacebookSignup = () => {
-  //   signIn("facebook", { callbackUrl: "/authentication/Success" });
-  // };
 
   return (
     <div className="Create-container">
@@ -160,14 +154,115 @@ const CreateAccount = () => {
               <label htmlFor="password" className="label">
                 Password
               </label>
-              <input
-                type="password"
-                id="password"
-                className="password-field password-input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <div className="password-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  className="password-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className="toggle-password"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13.875 18.825A10.05 10.05 0 0112 19c-7 0-10-7-10-7a19.48 19.48 0 014.133-5.111m3.746-2.431A9.953 9.953 0 0112 5c7 0 10 7 10 7a19.476 19.476 0 01-4.134 5.111M15 12a3 3 0 11-6 0 3 3 0 016 0zM3 3l18 18"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4.5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 11a4 4 0 100-8 4 4 0 000 8z"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* Confirm Password */}
+            <div className="input-group">
+              <label htmlFor="confirm_password" className="label">
+                Confirm Password
+              </label>
+              <div className="password-wrapper">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  id="confirm_password"
+                  className="password-input"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className="toggle-password"
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  aria-label={
+                    showConfirmPassword ? "Hide password" : "Show password"
+                  }
+                >
+                  {showConfirmPassword ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13.875 18.825A10.05 10.05 0 0112 19c-7 0-10-7-10-7a19.48 19.48 0 014.133-5.111m3.746-2.431A9.953 9.953 0 0112 5c7 0 10 7 10 7a19.476 19.476 0 01-4.134 5.111M15 12a3 3 0 11-6 0 3 3 0 016 0zM3 3l18 18"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4.5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 11a4 4 0 100-8 4 4 0 000 8z"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
 
             {/* Terms */}
@@ -197,40 +292,13 @@ const CreateAccount = () => {
             <p className="text-green-500 font-medium mt-2">{success}</p>
           )}
 
-          {/* Other signup methods */}
-          <section className="auth-other-means">
-            <button
-              type="submit"
-              className="create-account-button"
-              disabled={loading}
-            >
-              {loading ? "Creating Account..." : "Create Account"}
-            </button>
-
-            <div className="or-divider">
-              <span className="divider-line"></span>
-              <span className="or-text">OR</span>
-              <span className="divider-line"></span>
-            </div>
-
-            <div className="auth-buttons">
-              {/* <button
-                type="button"
-                className="auth-button"
-                onClick={handleGoogleSignup}
-              >
-                <span>{icons.google}</span> Sign up with Google
-              </button> */}
-
-              {/* <button
-                type="button"
-                className="auth-button"
-                onClick={handleFacebookSignup}
-              >
-                <span>{icons.facebook}</span> Sign up with Facebook
-              </button> */}
-            </div>
-          </section>
+          <button
+            type="submit"
+            className="create-account-button"
+            disabled={loading}
+          >
+            {loading ? "Creating Account..." : "Create Account"}
+          </button>
         </form>
       </section>
     </div>

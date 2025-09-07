@@ -231,7 +231,7 @@ export default function AdPricing() {
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-titlelight">
                     Business Plan
-                    <br />
+                    <br /> <br />
                     <span className="plan-subtitlelight">
                       For users who want to do more
                     </span>

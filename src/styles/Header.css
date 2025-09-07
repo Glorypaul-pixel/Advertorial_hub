@@ -17,6 +17,18 @@ header {
   box-sizing: border-box;
 }
 
+/* Highlight active route */
+.active-route {
+  font-weight: bold;
+  color: #dce0e3 !important;
+  background-color: #016ce8;
+}
+
+/* Optional hover effect for consistency */
+.navbtn:hover {
+  color: #251af5;
+}
+
 /* Logo section */
 .header-logo-container {
   display: flex;
@@ -73,11 +85,9 @@ header {
 .header-nav {
   display: none;
   position: fixed;
-  /* fixed to viewport */
   top: 60px;
   right: 0;
   left: 0;
-  /* full width for mobile */
   background: white;
   flex-direction: column;
   gap: 1rem;
@@ -100,13 +110,14 @@ header {
   padding: 0.4rem 1.2rem;
   border-radius: 0.4rem;
   border: 1px #016ce8 solid;
+  background-color: #fff;
   cursor: pointer;
 }
 
 .active-route {
   font-weight: 500;
-  /* border-bottom: 1px solid #dedede; */
-  padding: 0.4rem;
+  border-bottom: 1px solid #dedede;
+  background-color: #016ce8;
 }
 
 .navbtn:hover {

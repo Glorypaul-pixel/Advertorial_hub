@@ -245,4 +245,7 @@
   .post-images {
     max-height: 250px;
   }
+  .no-posts {
+    margin: 0 auto;
+  }
 }

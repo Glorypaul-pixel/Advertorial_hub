@@ -39,16 +39,7 @@ function Sidebar({ setMenuOpen }) {
       {/* container */}
       <aside className="sidebar">
         {/* head section */}
-        <section className="sidebar-header">
-          {/* <img
-            src="/images/mainLogo.jpg"
-            className="sidebar-logo"
-            alt="Advertorial Hub Logo"
-          />
-          <h4 className="sidebar-title">
-            <a href="/dashboard">Advertorial Hub</a>
-          </h4> */}
-        </section>
+      
 
         {/* nav */}
         <nav>
@@ -76,15 +67,7 @@ function Sidebar({ setMenuOpen }) {
             ))}
           </ul>
         </nav>
-        {/* <button
-          className="BackHomeBtn"
-          onClick={() => {
-            setMenuOpen(false);
-            router.push("/");
-          }}
-        >
-          Back to home Page
-        </button> */}
+      
 
         <button className="logout-button" onClick={() => setLogOut(true)}>
           {icons.logout} Logout

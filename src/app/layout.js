@@ -33,7 +33,25 @@ export const metadata = {
   title: "Advertorial Hub",
   description: "Welcome To Adevrtorial Hub",
   icons: {
-    icon: "/favicon.jpg", 
+    icon: [
+      { url: "/favicon.jpg", sizes: "16x16", type: "image/jpeg" },
+      { url: "/favicon.jpg", sizes: "32x32", type: "image/jpeg" },
+    ],
+    apple: [{ url: "/favicon.jpg", sizes: "180x180", type: "image/jpeg" }],
+    other: [
+      {
+        rel: "android-chrome",
+        url: "/favicon.jpg",
+        sizes: "192x192",
+        type: "image/jpeg",
+      },
+      {
+        rel: "android-chrome",
+        url: "/favicon.jpg",
+        sizes: "512x512",
+        type: "image/jpeg",
+      },
+    ],
   },
 };
 

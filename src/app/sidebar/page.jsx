@@ -39,7 +39,6 @@ function Sidebar({ setMenuOpen }) {
       {/* container */}
       <aside className="sidebar">
         {/* head section */}
-      
 
         {/* nav */}
         <nav>
@@ -67,7 +66,6 @@ function Sidebar({ setMenuOpen }) {
             ))}
           </ul>
         </nav>
-      
 
         <button className="logout-button" onClick={() => setLogOut(true)}>
           {icons.logout} Logout

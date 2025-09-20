@@ -44,6 +44,7 @@ a {
   z-index: 10;
   top: 0%;
   left: 0;
+
   bottom: 0;
   /* height: 100vh; Optional full height */
   background-color: #1b1440;
@@ -89,6 +90,7 @@ a {
   padding: 26px 0;
   list-style-type: none;
   margin: 0%;
+  padding-top: 30%;
   width: 100%;
 }
 

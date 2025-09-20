@@ -194,7 +194,7 @@ export default function AdPricing() {
             data-aos-duration="2000"
           >
             {/* Personal Plan */}
-            <div className="adpricing-card" data-aos="zoom-in" >
+            <div className="adpricing-card" data-aos="zoom-in">
               <section className="adpriceplan-details">
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-title">

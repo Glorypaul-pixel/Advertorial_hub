@@ -167,27 +167,6 @@ const Login = () => {
               {loading ? "Logging in..." : "Log In"}
             </button>
 
-            {/* Social buttons (commented out) */}
-            <div className="auth-buttons">
-              {/* <button
-                type="button"
-                className="auth-button"
-                disabled={socialLoading}
-                onClick={() => handleSocialLogin("google")}
-              >
-                <span>{icons?.google || "🔵"}</span>{" "}
-                {socialLoading ? "Connecting..." : "Sign in with Google"}
-              </button> */}
-              {/* <button
-                type="button"
-                className="auth-button"
-                disabled={socialLoading}
-                onClick={() => handleSocialLogin("facebook")}
-              >
-                <span>{icons?.facebook || "🔵"}</span>{" "}
-                {socialLoading ? "Connecting..." : "Sign in with Facebook"}
-              </button> */}
-            </div>
           </section>
         </form>
       </section>

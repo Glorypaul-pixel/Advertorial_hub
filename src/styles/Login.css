@@ -9,7 +9,8 @@
   position: relative;
   z-index: 1;
   padding: 3rem 0 4rem 0;
-   margin-top: 3rem;
+  margin-top: 3rem;
+  min-height: 100dvh;
 }
 a {
   text-decoration: none;
@@ -184,11 +185,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  /* Page Container */
-  .Loginpage-container {
-    height: 100%;
-  }
-
   /* Form Container */
   .form-container {
     margin: 0 2rem;
@@ -200,7 +196,7 @@ a {
     gap: 20px;
   }
   .Loginpage-container {
-    height: 100vh;
+    min-height: 100dvh;
     display: block;
     align-items: center;
     justify-content: center;

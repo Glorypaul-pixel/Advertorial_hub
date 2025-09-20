@@ -57,7 +57,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 40px;
+  width: 26px;
   height: 20px;
   cursor: pointer;
 }
@@ -159,8 +159,9 @@ header {
 }
 
 .login-btn {
-  padding: 0.4rem 1rem;
+  padding: 0.5rem;
   background: white;
+  width: 100%;
   border: 1px solid #016ce8;
   color: #016ce8;
   border-radius: 0.6rem;
@@ -176,8 +177,9 @@ header {
 .HeaderbtnStart {
   background-color: #016ce8;
   border-radius: 0.6rem;
-  padding: 0.4rem 1rem;
+  padding: .5rem;
   color: white;
+  width: 100%;
   cursor: pointer;
   border: none;
 }

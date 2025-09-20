@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif !important;
 }
 
 /* Blog Head Section */
@@ -18,10 +19,12 @@ body {
   font-weight: bold;
   color: #333;
   margin-bottom: 1rem;
+  font-family: "Inter", sans-serif !important;
 }
 
 .BlogHead p {
   font-size: 1.5rem;
+  font-family: "Inter", sans-serif !important;
   color: #666;
   max-width: 700px;
   margin: 0 auto;
@@ -33,6 +36,7 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   padding: 0 3rem;
+   font-family: "Inter", sans-serif !important;
 }
 
 .blogSaas img {
@@ -48,30 +52,35 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   cursor: default;
+   font-family: "Inter", sans-serif !important;
 }
 
 .blogSaasText h5 {
   font-size: 1rem;
   font-weight: 600;
   color: #666;
+   font-family: "Inter", sans-serif !important;
 }
 
 .blogSaasText h1 {
   font-size: 1.75rem;
   font-weight: bold;
   color: #03132c;
+   font-family: "Inter", sans-serif !important;
 }
 
 .blogSaasText p {
   font-size: 1rem;
   color: #666;
   line-height: 1.6;
+   font-family: "Inter", sans-serif !important;
 }
 
 .blogSaasText h6 {
   font-size: 0.875rem;
   color: #999;
   margin-top: 1rem;
+   font-family: "Inter", sans-serif !important;
 }
 
 /* Blog Cards Section */
@@ -90,6 +99,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   font-family: "Inter", sans-serif !important;
 }
 
 .blogCard div:hover {
@@ -109,6 +119,7 @@ body {
   margin: 1rem 0;
   color: #333;
   text-align: center;
+   font-family: "Inter", sans-serif !important;
 }
 
 .blogCard p {
@@ -117,6 +128,7 @@ body {
   line-height: 1.6;
   text-align: center;
   margin-bottom: 1rem;
+   font-family: "Inter", sans-serif !important;
 }
 
 /* Blog Card Padding Classes */
@@ -150,19 +162,17 @@ body {
   }
   .BlogHead h1 {
     font-size: 1.8rem;
-   
-}
+  }
 
-.BlogHead p {
+  .BlogHead p {
     color: #666;
 
     font-size: 1.1rem;
-}
-.BlogHead {
- 
+  }
+  .BlogHead {
     margin-bottom: 1rem;
     padding: 4rem 1rem 0rem;
-}
+  }
 }
 
 /* Mobile Small: max-width 480px */

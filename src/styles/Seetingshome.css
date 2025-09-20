@@ -4,13 +4,14 @@
 
 .page-container {
   height: fit-content;
-  /* width: 100%; */
-  /* max-width: 1200px; */
+  margin-top: 3rem;
   margin-left: 5%;
   margin-bottom: 50px;
+  font-family: "Inter", sans-serif !important;
 }
 
 .page-h-text {
+  font-family: "Inter", sans-serif !important;
   padding: 20px 0;
   color: #0a0d14;
   font-size: 2.5rem;
@@ -35,6 +36,7 @@
 
 .h4-text {
   color: #0a0d14;
+  font-family: "Inter", sans-serif !important;
   font-size: 24px;
   font-weight: 500;
   line-height: 28px;
@@ -490,7 +492,7 @@ input {
 /* CREATE POST MAIN SECTION */
 /* ========================== */
 
-.createpost-container {
+.Home-createpost-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -977,9 +979,7 @@ input {
     margin-right: 1rem;
     margin-left: 1rem;
   }
-  .createpost-container {
-    padding: 1rem;
-  }
+
   .recentpost-header {
     position: relative;
     align-items: center;

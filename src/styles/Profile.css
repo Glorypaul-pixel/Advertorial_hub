@@ -9,6 +9,7 @@
   line-height: 100%;
   padding: 36px 0;
   letter-spacing: -0.5%;
+    font-family: "Inter", sans-serif !important;
 }
 
 /* ============================= */
@@ -29,6 +30,7 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 1rem;
+    font-family: "Inter", sans-serif !important;
   color: #0a0d14;
 }
 

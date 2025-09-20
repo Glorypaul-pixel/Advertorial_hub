@@ -2,6 +2,7 @@
   background-color: #1b1440;
   border-radius: 2rem 2rem 0 0;
   /* padding: 0; */
+  font-family: "Inter", sans-serif !important;
 }
 #AdvertWork {
   overflow: hidden;
@@ -11,6 +12,7 @@
   color: white;
   text-align: center;
   padding: 2rem;
+    font-family: "Inter", sans-serif !important;
   padding-top: 8rem;
   font-size: 3rem;
 }
@@ -62,6 +64,7 @@
   justify-content: center;
   padding: 1rem;
   flex-direction: column;
+  font-family: "Inter", sans-serif !important;
 }
 .form-container {
   background-color: #ffffff;
@@ -82,9 +85,11 @@
   margin: 0 auto;
   margin-top: 2rem;
   border-radius: 2rem 2rem 0 0;
+    font-family: "Inter", sans-serif !important;
 }
 .Createtitle {
   line-height: 0.1rem;
+
 }
 .createSubtitle {
   line-height: 0.1px;
@@ -214,6 +219,7 @@
 .adpricemain-heading h1 {
   font-size: 2rem;
   margin-top: 0;
+   font-family: "Inter", sans-serif !important;
 }
 
 .adpricemain-heading {
@@ -222,6 +228,7 @@
   font-weight: 600;
   text-align: center;
   line-height: 100%;
+   font-family: "Inter", sans-serif !important;
 }
 
 /* ============================ */
@@ -303,9 +310,8 @@
 }
 .adpricing-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
-
 
 .adpricing-card h2 {
   font-size: 1.3rem;
@@ -805,6 +811,7 @@
     color: #fff;
     text-align: center;
     padding-top: 2rem !important;
+      font-family: "Inter", sans-serif !important;
     font-size: 2rem;
   }
   .adpricemain-heading {
@@ -871,7 +878,6 @@
   .annual-billing {
     padding: 1rem 2rem;
   }
-  
 }
 
 /* 414px Screen */

@@ -3,12 +3,14 @@
   margin-top: 2rem;
   text-align: center;
   margin-bottom: 8rem;
+   font-family: "Inter", sans-serif !important;
 }
 
 .integration h1 {
   font-size: 3rem;
   font-weight: bold;
   color: #333;
+   font-family: "Inter", sans-serif !important;
   margin-bottom: 1rem;
 }
 
@@ -17,6 +19,7 @@
   color: #666;
   /* max-width: 800px; */
   /* margin: 0 auto 3rem auto; */
+   font-family: "Inter", sans-serif !important;
 }
 
 .integrateCard {
@@ -57,6 +60,7 @@
   background-color: #f3f6fb;
   padding: 1rem;
   border-radius: 50%;
+   font-family: "Inter", sans-serif !important;
 }
 
 .integrateCard p {
@@ -66,6 +70,7 @@
   padding-bottom: 2rem;
   padding-top: 4px;
   text-align: left;
+   font-family: "Inter", sans-serif !important;
 }
 
 @media (max-width: 768px) {

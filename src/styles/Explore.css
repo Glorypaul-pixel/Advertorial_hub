@@ -9,6 +9,7 @@
   width: 100%;
   text-align: center;
   overflow: visible !important;
+   font-family: "Inter", sans-serif !important;
 }
 
 .ExploreIcons img {
@@ -83,6 +84,7 @@
   z-index: -1;
   gap: 2rem;
   animation: scroll 10s linear infinite;
+   font-family: "Inter", sans-serif !important;
 }
 
 /* Keyframe for smooth infinite loop */
@@ -109,6 +111,7 @@
   display: block;
   margin-bottom: 3rem;
   text-align: center;
+   font-family: "Inter", sans-serif !important;
 }
 .exploreButton:hover {
   background-color: #97baf3;
@@ -123,6 +126,7 @@
   left: 0%;
   transform: translate(-50%, -50%);
   width: 100%;
+   font-family: "Inter", sans-serif !important;
   z-index: 1;
 }
 
@@ -143,6 +147,7 @@
   position: relative;
   z-index: 2;
   margin-bottom: 8rem;
+   font-family: "Inter", sans-serif !important;
 }
 
 .exploreContent h1 {
@@ -150,6 +155,7 @@
   font-size: 2rem;
   text-align: center;
   max-width: 80%;
+   font-family: "Inter", sans-serif !important;
 }
 /* Style for the Link component */
 .custom-link {

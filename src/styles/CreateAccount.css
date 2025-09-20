@@ -7,10 +7,12 @@
   padding: 20px;
   flex-direction: column;
   margin-top: 3rem;
+    font-family: "Inter", sans-serif !important;
 }
 
 /* Form Container */
 .Create-form-container {
+    font-family: "Inter", sans-serif !important;
   background-color: #ffffff;
   width: 100%;
   max-width: 500px;
@@ -35,16 +37,19 @@ a {
   flex-direction: column;
   gap: 8px;
   text-align: center;
+    font-family: "Inter", sans-serif !important;
 }
 
 .title {
   color: #0a0d14;
   font-size: 28px;
   font-weight: 600;
+    font-family: "Inter", sans-serif !important;
 }
 
 .subtitle {
   color: #525866;
+    font-family: "Inter", sans-serif !important;
   font-size: 16px;
 }
 
@@ -56,6 +61,7 @@ a {
   color: red;
   margin-top: 0.5rem;
   font-size: 0.875rem;
+    font-family: "Inter", sans-serif !important;
 }
 
 /* Form */
@@ -68,6 +74,7 @@ a {
 /* Input Section */
 .input-section {
   display: flex;
+    font-family: "Inter", sans-serif !important;
   flex-direction: column;
   gap: 16px;
 }
@@ -80,6 +87,7 @@ a {
 
 .label {
   font-size: 14px;
+    font-family: "Inter", sans-serif !important;
   font-weight: 500;
   color: #0a0d14;
 }
@@ -103,6 +111,7 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
+    font-family: "Inter", sans-serif !important;
   border: 1px solid #e2e4e9;
   border-radius: 8px;
   padding: 10px;

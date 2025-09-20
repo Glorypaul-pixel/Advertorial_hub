@@ -7,6 +7,7 @@
   min-height: 100vh;
   background-color: #f9f9f9;
   padding: 2rem;
+  font-family: "Inter", sans-serif !important;
 }
 
 .verify-card {
@@ -33,15 +34,18 @@
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
+  font-family: "Inter", sans-serif !important;
 }
 
 .verify-body {
+  font-family: "Inter", sans-serif !important;
   padding: 2rem;
 }
 
 .verify-message {
   font-size: 1rem;
   color: #444;
+  font-family: "Inter", sans-serif !important;
   margin-bottom: 1rem;
 }
 

@@ -12,6 +12,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+    font-family: "Inter", sans-serif !important;
 }
 
 .NFmain {
@@ -22,12 +23,14 @@
   justify-content: space-between;
   padding: 0 6rem;
   gap: 2rem;
+    font-family: "Inter", sans-serif !important;
 }
 
 
 .NFcontent {
   max-width: 500px;
   flex: 1;
+    font-family: "Inter", sans-serif !important;
 }
 
 .NFcode {
@@ -38,11 +41,13 @@
   border-radius: 6px;
   font-weight: bold;
   margin-bottom: 1rem;
+    font-family: "Inter", sans-serif !important;
   font-size: 1.6rem;
 }
 
 .NFtitle {
   font-size: 4rem;
+    font-family: "Inter", sans-serif !important;
   font-weight: bold;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -56,6 +61,7 @@
 .NFdescription {
   margin-bottom: 2rem;
   line-height: 1.6;
+    font-family: "Inter", sans-serif !important;
   color: #f0f4ff;
   font-size: 1rem;
 }

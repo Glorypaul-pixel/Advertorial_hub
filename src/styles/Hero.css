@@ -10,10 +10,12 @@ body {
   margin: 0 auto;
   padding: 1rem 3rem;
   background-color: #1b1440;
+   font-family: "Inter", sans-serif !important;
 }
 
 .heroText span {
   color: #016ce8;
+   font-family: "Inter", sans-serif !important;
   /* font-family:fantasy; */
 }
 
@@ -23,20 +25,24 @@ body {
   gap: 20px;
   margin-bottom: 20px;
   margin-top: 1.5rem;
+   font-family: "Inter", sans-serif !important;
 }
 
 .headline-text {
   flex: 2;
+   font-family: "Inter", sans-serif !important;
 }
 
 .headline-text h1 {
   font-size: 2rem;
   line-height: 1.3;
   font-weight: bold;
+   font-family: "Inter", sans-serif !important;
 }
 
 .headline-text h1 span {
   color: #016ce8;
+   font-family: "Inter", sans-serif !important;
   /* Accent color */
 }
 

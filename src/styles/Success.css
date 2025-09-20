@@ -5,6 +5,7 @@
   /* min-height: ; */
   padding: 5rem 1rem;
   background-color: #f4f0fa;
+    font-family: "Inter", sans-serif !important;
 }
 
 .success-box {
@@ -21,11 +22,13 @@
   color: #016ce8;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+    font-family: "Inter", sans-serif !important;
 }
 
 .success-box p {
   font-size: 1rem;
   margin-bottom: 2rem;
+    font-family: "Inter", sans-serif !important;
   color: #333;
 }
 

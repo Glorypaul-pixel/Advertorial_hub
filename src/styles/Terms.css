@@ -5,8 +5,9 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
+  font-family: "Inter", sans-serif !important;
+
 }
 
 /* Terms Wrapper */
@@ -21,6 +22,7 @@
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: #016ce8;
+    font-family: "Inter", sans-serif !important;
   text-align: center;
 }
 
@@ -29,6 +31,7 @@
   margin-top: 2rem;
   padding: 0.6rem 1rem;
   background:#016ce8;
+    font-family: "Inter", sans-serif !important;
   color: #fff;
   border-radius: 6px;
 }
@@ -39,12 +42,14 @@
   font-style: italic;
   color: #555;
   text-align: center;
+    font-family: "Inter", sans-serif !important;
   margin-bottom: 1.5rem;
 }
 
 /* Paragraphs */
 .terms-wrapper p {
   font-size: 1rem;
+    font-family: "Inter", sans-serif !important;
   color: #444;
   line-height: 1.6;
   margin-top: 0.8rem;
@@ -54,11 +59,13 @@
 .terms-wrapper ul {
   margin-top: 0.8rem;
   padding-left: 1.2rem;
+    font-family: "Inter", sans-serif !important;
 }
 
 .terms-wrapper ul li {
   font-size: 1rem;
   margin-bottom: 0.6rem;
+    font-family: "Inter", sans-serif !important;
   color: #333;
   line-height: 1.5;
 }
@@ -68,6 +75,7 @@
   color: #016ce8;
   text-decoration: none;
   font-weight: 600;
+
 }
 
 .terms-wrapper a:hover {
@@ -79,6 +87,7 @@
   background: #f9f9f9;
   padding: 1.2rem 1.5rem;
   border-radius: 8px;
+    font-family: "Inter", sans-serif !important;
   margin-top: 1.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }

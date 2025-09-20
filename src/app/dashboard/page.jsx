@@ -374,7 +374,7 @@ export default function HomePage() {
           </div>
         ) : (
           <main
-            className="createpost-container mild-zoom"
+            className="Home-createpost-container mild-zoom"
             data-aos="zoom-in"
             data-aos-delay="400"
             data-aos-duration="2000"

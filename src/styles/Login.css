@@ -1,16 +1,14 @@
 /* Page Container */
 .Loginpage-container {
   width: 100%;
-  padding-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f6f8fa;
   position: relative;
   z-index: 1;
-  padding: 3rem 0 4rem 0;
-  margin-top: 3rem;
-  min-height: 100dvh;
+  padding: 0 0 4rem 0;
+  /* min-height: 100dvh; */
 }
 a {
   text-decoration: none;
@@ -18,7 +16,7 @@ a {
 }
 
 /* Form Container */
-.form-container {
+.login-form-container {
   background-color: white;
   padding: 32px;
   border-radius: 24px;
@@ -186,7 +184,7 @@ a {
 
 @media (max-width: 768px) {
   /* Form Container */
-  .form-container {
+  .login-form-container {
     margin: 0 2rem;
     margin-top: 1rem;
     border-radius: 0;
@@ -196,8 +194,10 @@ a {
     gap: 20px;
   }
   .Loginpage-container {
-    min-height: 100dvh;
+    /* min-height: 100dvh; */
     display: block;
+    padding-top: 3rem;
+    margin-top: 3rem;
     align-items: center;
     justify-content: center;
     position: relative;

@@ -65,7 +65,7 @@ const Login = () => {
         <div className="gradient-overlay"></div>
       </span>
 
-      <section className="form-container">
+      <section className="login-form-container">
         <div className="head-section" data-aos="fade-up">
           <h1 className="title">Log In</h1>
           <div className="subtitle">

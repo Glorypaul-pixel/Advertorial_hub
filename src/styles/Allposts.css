@@ -1,16 +1,13 @@
-
 .createpost-container {
-  /* max-width: 1200px;  */
   margin: 2rem auto;
   padding: 0 1rem;
   font-family: "Inter", sans-serif;
   color: #222;
-
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
-
 
 .community-section {
   text-align: center;
@@ -88,7 +85,6 @@
   text-transform: uppercase;
 }
 
-
 .recentpost-info article p {
   display: flex;
   flex-direction: column;
@@ -122,14 +118,12 @@
   text-overflow: ellipsis;
 }
 
-
 /* Post content */
 .recetpost-card > p:nth-of-type(2) {
   font-size: 0.95rem;
   color: #444;
   line-height: 1.5;
   margin: 0.2rem 0 0.8rem;
-  
 }
 
 /* Post image */
@@ -144,7 +138,7 @@
 }
 
 /* Reactions section */
-.recetpost-card section  {
+.recetpost-card section {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -187,14 +181,9 @@
   cursor: pointer;
 }
 
-
-
-
 .recetpost-card button:hover {
   opacity: 0.8;
 }
-
-
 
 .recetpost-card span:hover {
   text-decoration: underline;
@@ -235,13 +224,14 @@
   color: #555;
 }
 
-
 /* Responsive */
 @media (max-width: 500px) {
   .recetpost-card {
     padding: 1rem;
   }
-
+  .createpost-container {
+    grid-template-columns: 1fr;
+  }
   .post-images {
     max-height: 250px;
   }

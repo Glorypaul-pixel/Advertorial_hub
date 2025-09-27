@@ -1,4 +1,4 @@
-\ import React from "react";
+import React from "react";
 import "@/styles/AboutBody.css";
 const AboutBody = () => {
   return (

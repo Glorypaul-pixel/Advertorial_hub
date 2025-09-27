@@ -48,7 +48,7 @@ export default function AdPricing() {
   }, []);
 
   const adprices = {
-    personal: "₦0",
+   personal: "₦0",
     business: billing === "monthly" ? "₦1,000" : "₦12,000",
     team: billing === "monthly" ? "₦3,000" : "₦36,000",
   };
@@ -194,7 +194,7 @@ export default function AdPricing() {
             data-aos-duration="2000"
           >
             {/* Personal Plan */}
-            <div className="adpricing-card" data-aos="zoom-in">
+            <div className="adpricing-card">
               <section className="adpriceplan-details">
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-title">
@@ -231,7 +231,7 @@ export default function AdPricing() {
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-titlelight">
                     Business Plan
-                    <br /> <br />
+                    <br />
                     <span className="plan-subtitlelight">
                       For users who want to do more
                     </span>
@@ -292,13 +292,13 @@ export default function AdPricing() {
           </section>
 
           {/* Features Section */}
-          {/* <section
-            className="Prifeatures-section"
-            aria-labelledby="Prifeatures-heading"
+          <section
+            className="features-section"
+            aria-labelledby="features-heading"
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <div className="Prifeatures-inner">
+            <div className="features-inner">
               <h3
                 id="features-heading"
                 className="features-title"
@@ -308,19 +308,19 @@ export default function AdPricing() {
                 What’s included
               </h3>
 
-              <ul className="Prifeatures-list">
+              <ul className="features-list">
                 {features.map((f, i) => (
                   <li
-                    className="Prifeature-item"
+                    className="feature-item"
                     key={i}
                     data-aos="fade-up"
                     data-aos-delay={i * 150}
                     data-aos-duration="700"
                   >
-                    <span className="Prifeature-icon" aria-hidden="true">
+                    <span className="feature-icon" aria-hidden="true">
                       🔹
                     </span>
-                    <span className="Prifeature-text">
+                    <span className="feature-text">
                       <strong>{f.title}</strong>
                       {f.desc ? ` ${f.desc}` : ""}
                     </span>
@@ -328,7 +328,7 @@ export default function AdPricing() {
                 ))}
               </ul>
             </div>
-          </section> */}
+          </section>
         </main>
       </div>
 

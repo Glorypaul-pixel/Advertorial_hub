@@ -8,6 +8,7 @@ import "@/styles/Header.css";
 const Header = () => {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -50,8 +51,10 @@ const Header = () => {
   // Fetch user details if logged in
   const getUser = async () => {
     const userIdOrEmail = localStorage.getItem("userId");
-    if (!userIdOrEmail) return;
-
+    if (!userIdOrEmail) {
+      setLoading(false);
+      return;
+    }
     try {
       const res = await fetch(
         `https://advertorial-backend.onrender.com/api/auth/user/${userIdOrEmail}`,
@@ -61,6 +64,8 @@ const Header = () => {
       setUser(userData);
     } catch (error) {
       console.error("Error fetching user:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -133,27 +138,85 @@ const Header = () => {
         >
           Pricing
         </Link>
-
         {/* Mobile Buttons */}
         <div className="mobile-buttons">
-          <Link href="/authentication/Login">
-            <button className="login-btn" onClick={() => setMenuOpen(false)}>
-              Log In
-            </button>
-          </Link>
-          <Link href="/authentication/CreateAccount">
-            <button
-              className="HeaderbtnStart"
-              onClick={() => setMenuOpen(false)}
+          {loading ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
-              Start Now
-            </button>
-          </Link>
+              <div
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  border: "4px solid #ccc",
+                  borderTop: "4px solid #4a90e2",
+                  borderRadius: "50%",
+                  animation: "spin 1s linear infinite",
+                }}
+              />
+              <style>{`
+       @keyframes spin {
+         0% { transform: rotate(0deg); }
+         100% { transform: rotate(360deg); }
+       }
+     `}</style>
+            </div> // 👈 loader while checking
+          ) : user ? (
+            <p className="mobile-user">Hi, {user.firstName}</p>
+          ) : (
+            <>
+              <Link href="/authentication/Login">
+                <button
+                  className="login-btn"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Log In
+                </button>
+              </Link>
+              <Link href="/authentication/CreateAccount">
+                <button
+                  className="HeaderbtnStart"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Start Now
+                </button>
+              </Link>
+            </>
+          )}
         </div>
       </nav>
 
-      {/* User Info / Auth Buttons */}
-      {user ? (
+      {/* Desktop User Info / Auth Buttons */}
+      {loading ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              width: "30px",
+              height: "30px",
+              border: "4px solid #ccc",
+              borderTop: "4px solid #4a90e2",
+              borderRadius: "50%",
+              animation: "spin 1s linear infinite",
+            }}
+          />
+          <style>{`
+       @keyframes spin {
+         0% { transform: rotate(0deg); }
+         100% { transform: rotate(360deg); }
+       }
+     `}</style>
+        </div> // 👈 same loader for desktop
+      ) : user ? (
         <div className="h-user-container">
           <p className="h-user-name">{user?.firstName}</p>
           {user?.profilePicture ? (

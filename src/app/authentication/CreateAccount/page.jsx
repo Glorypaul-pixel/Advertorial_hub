@@ -68,13 +68,18 @@ const CreateAccount = () => {
         throw new Error(responseBody.message || "Account creation failed!");
       }
 
-      setSuccess(
-        "Account successfully created! Please check your email or spam for verification."
-      );
+      // ✅ COMMENTING OUT EMAIL VERIFICATION MESSAGE
+      // setSuccess(
+      //   "Account successfully created! Please check your email or spam for verification."
+      // );
+
+      // ✅ Instead, show success and send user straight to login
+      setSuccess("Account successfully created! Redirecting to login...");
 
       setTimeout(() => {
-        router.push("/authentication/Success");
+        router.push("/authentication/Login");
       }, 1500);
+
     } catch (err) {
       setError(err.message || "An error occurred. Please try again.");
     } finally {
@@ -103,6 +108,7 @@ const CreateAccount = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="form" data-aos="flip-right">
+       
           <section className="input-section">
             {/* Email */}
             <div className="input-group">
@@ -163,6 +169,7 @@ const CreateAccount = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+            
                 <button
                   type="button"
                   className="toggle-password"
@@ -286,6 +293,8 @@ const CreateAccount = () => {
               </p>
             </div>
           </section>
+
+         
 
           {error && <p className="error-text">{error}</p>}
           {success && (

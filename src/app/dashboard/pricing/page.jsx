@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import DashboardHeader from "@/app/components/DashboardHeader";
 
 
-const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931"; // My own paystack public key
+const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931";
 const PaystackButton = dynamic(
   () => import("react-paystack").then((mod) => mod.PaystackButton),
   { ssr: false }

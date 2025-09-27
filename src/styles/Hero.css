@@ -176,14 +176,15 @@ body {
 @media (max-width: 768px) {
   .heroText h1 {
     font-size: 2rem !important;
-  
- 
   }
-.heroText {
+  .heroText {
     max-width: 900px;
     margin: 0 auto;
     padding: 0;
-}
+  }
+  .heroBgSection {
+    height: 80vh;
+  }
   .heroText p {
     font-size: 1rem !important;
   }

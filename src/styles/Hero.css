@@ -175,11 +175,17 @@ body {
 
 @media (max-width: 768px) {
   .heroText h1 {
-    font-size: 1.8rem !important;
+    font-size: 2rem !important;
+  
+ 
   }
-
+.heroText {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+}
   .heroText p {
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
 
   .heroImage {
@@ -211,7 +217,7 @@ body {
 /* 414px and below (mobile) */
 @media (max-width: 414px) {
   .heroText h1 {
-    font-size: 2rem;
+    font-size: 1.5rem !important;
   }
 
   .heroText p {

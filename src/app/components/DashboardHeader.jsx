@@ -37,7 +37,7 @@ const DashboardHeader = ({ onSearch, currentPage }) => {
   }, []);
 
   const handleSearch = (e) => {
-    const value = e.target.value;
+    const value = e.target.value || "";
     setQuery(value);
     if (onSearch) onSearch(value);
   };
@@ -66,7 +66,7 @@ const DashboardHeader = ({ onSearch, currentPage }) => {
           {(currentPage === "dashboard" || currentPage === "myposts") && (
             <input
               type="text"
-              value={query}
+              value={query || ""}
               onChange={handleSearch}
               placeholder="Search..."
               className="dashboard-search"

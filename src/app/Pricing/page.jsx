@@ -3,14 +3,7 @@ import { useState, useEffect } from "react";
 import { icons } from "@/lib/Icons";
 import "@/styles/AdvertWork.css";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import { toast } from "react-hot-toast";
-
-const publicKey = "pk_test_f0190a4895e6aa1d75d8f0d8aaab22bceecf0931";
-const PaystackButton = dynamic(
-  () => import("react-paystack").then((mod) => mod.PaystackButton),
-  { ssr: false }
-);
 
 export default function AdPricing() {
   const [billing, setBilling] = useState("monthly");
@@ -23,7 +16,6 @@ export default function AdPricing() {
       const userIdOrEmail = localStorage.getItem("userId");
       setToken(localStorage.getItem("token"));
 
-      // ✅ Do NOT redirect if user is not logged in
       if (!userIdOrEmail) return;
 
       try {
@@ -38,6 +30,7 @@ export default function AdPricing() {
         );
         const userData = await res.json();
         setUser(userData);
+        console.log("USER DATA", userData);
         console.log(userData);
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -47,81 +40,53 @@ export default function AdPricing() {
     getUser();
   }, []);
 
+  //  Start payment flow (redirect to backend)
+  const handleBackendPayment = (planName) => {
+    if (!user?.email) {
+      router.push("/authentication/Login");
+      return;
+    }
+
+    // Prevent jumping directly to Team from Personal
+    if (user.plan === "PERSONAL" && planName === "TEAM") {
+      toast.error("Please upgrade to Business first.");
+      return;
+    }
+
+    try {
+      const backendUrl = `https://connect.advertorialhub.net/?plan=${planName}&billing=${billing}&user=${user.email}`;
+      window.open(backendUrl, "_blank");
+    } catch (error) {
+      console.error("Redirect error:", error);
+      toast.error("Unable to start payment. Try again.");
+    }
+  };
+
+  // Backend payment button option
+  const getPlanButton = (planName) => {
+    if (user.plan === planName) {
+      return <button className="current-plan-btn">Current Plan</button>;
+    }
+
+    return (
+      <button
+        className="get-started-btn"
+        onClick={() => handleBackendPayment(planName)}
+      >
+        Get Started
+      </button>
+    );
+  };
+
   const adprices = {
-   personal: "₦0",
-    business: billing === "monthly" ? "₦1,000" : "₦12,000",
-    team: billing === "monthly" ? "₦3,000" : "₦36,000",
+    personal: "₦0",
+    business: billing === "monthly" ? "₦40,000" : "₦48,000",
+    team: billing === "monthly" ? "₦70,000" : "₦84,000",
   };
 
   const amountsInKobo = {
-    business: billing === "monthly" ? 1000 * 100 : 12000 * 100,
-    team: billing === "monthly" ? 3000 * 100 : 36000 * 100,
-  };
-
-  const changeUserPlan = async ({ reference, planName }) => {
-    const res = await fetch(
-      "https://advertorial-backend.onrender.com/api/v1/plan/change-plan",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${token}`,
-        },
-        body: JSON.stringify({ reference, planName }),
-      }
-    );
-
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message || "Something went wrong");
-    return data;
-  };
-
-  const handlePaymentSuccess = async (reference, planName) => {
-    try {
-      const res = await changeUserPlan({ reference, planName });
-      console.log(res.message);
-      toast.success("Payment successful. Plan updated!");
-      window.location.reload();
-    } catch (err) {
-      console.error(err);
-      toast.error("Payment succeeded, but plan update failed.");
-    }
-  };
-
-  const getPaystackButton = (planName) => {
-    if (!user?.email) {
-      return (
-        <button
-          className="get-started-btn"
-          onClick={() => router.push("/authentication/Login")}
-        >
-          Login to Subscribe
-        </button>
-      );
-    }
-
-    if (user.plan === "PERSONAL" && planName === "TEAM") {
-      return (
-        <button className="get-started-btn" disabled>
-          Upgrade to Business First
-        </button>
-      );
-    }
-
-    const amount = amountsInKobo[planName.toLowerCase()];
-
-    const componentadprops = {
-      email: user.email,
-      amount,
-      publicKey,
-      metadata: { planName },
-      text: "Get Started",
-      onSuccess: (ref) => handlePaymentSuccess(ref.reference, planName),
-      onClose: () => console.log("Payment closed"),
-      className: "get-started-btn",
-    };
-
-    return <PaystackButton {...componentadprops} />;
+    business: billing === "monthly" ? 4000 * 100 : 48000 * 100,
+    team: billing === "monthly" ? 4000 * 100 : 84000 * 100,
   };
 
   const freePlan = [
@@ -131,7 +96,6 @@ export default function AdPricing() {
     "No social media support",
     "Ideal for personal projects, testing, and casual use.",
   ];
-
   const businessPlan = [
     "Post Limit: 100 per month",
     "Media: Unlimited images",
@@ -156,7 +120,6 @@ export default function AdPricing() {
     },
     { title: "Upgrade anytime", desc: "as your needs grow!" },
   ];
-
   return (
     <div>
       <div className="adpricepage-container ">
@@ -165,26 +128,71 @@ export default function AdPricing() {
             <h1 className="adpricemain-heading">
               We’ve got a plan that’s perfect <br /> for you
             </h1>
+            <div className="Bankdetails">
+              <h1>For Direct Transfer</h1>
+              <h5>Use this details below, for instant payment</h5>
+              <div className="account-wrapper">
+                {/* Left Side - ATM Card */}
+                <div className="account-card">
+                  <div className="card-header">
+                    <h2 className="bank-name">Wema Bank</h2>
+                    <div className="card-chip">₦</div>
+                  </div>
+                  <p className="card-number">0127016229</p>
+                  <div className="card-footer">
+                    <p>
+                      Account Name
+                      <br />
+                      <strong>Advertorial hub ltd</strong>
+                    </p>
+                    <p>
+                      Currency
+                      <br />
+                      <strong>Naira</strong>
+                    </p>
+                  </div>
+                </div>
 
-            <div className="adbilling-toggle">
+                {/* Right Side - Details */}
+                <div className="account-card">
+                  <div className="card-header">
+                    <h2 className="bank-name">Wema Bank</h2>
+                    <div className="card-chip"> $</div>
+                  </div>
+                  <p className="card-number">0622028220</p>
+                  <div className="card-footer">
+                    <p>
+                      Account Name
+                      <br />
+                      <strong>Advertorial hub ltd</strong>
+                    </p>
+                    <p>
+                      Currency
+                      <br />
+                      <strong>Dollars</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div className="adbilling-toggle">
               <div className="toggle-background" data-active={billing}></div>
               <button
                 className={`toggle-option ${
                   billing === "monthly" ? "active" : ""
                 }`}
-                onClick={() => setBilling("monthly")}
-              >
+                onClick={() => setBilling("monthly")}>
                 Monthly Billing
               </button>
               <button
                 className={`toggle-option ${
                   billing === "annual" ? "active" : ""
                 }`}
-                onClick={() => setBilling("annual")}
-              >
+                onClick={() => setBilling("annual")}>
                 Annual Billing
               </button>
-            </div>
+            </div> */}
+            <h2 className="adpricemain-heading">Monthly Billing</h2>
           </section>
 
           <section
@@ -194,7 +202,7 @@ export default function AdPricing() {
             data-aos-duration="2000"
           >
             {/* Personal Plan */}
-            <div className="adpricing-card">
+            <div className="adpricing-card" data-aos="zoom-in">
               <section className="adpriceplan-details">
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-title">
@@ -231,7 +239,7 @@ export default function AdPricing() {
                 <div className="adpriceplan-header">
                   <h2 className="adpriceplan-titlelight">
                     Business Plan
-                    <br />
+                    <br /> <br />
                     <span className="plan-subtitlelight">
                       For users who want to do more
                     </span>
@@ -246,7 +254,7 @@ export default function AdPricing() {
                 {user.plan === "BUSINESS" ? (
                   <button className="get-started-btn">Current Plan</button>
                 ) : (
-                  getPaystackButton("BUSINESS")
+                  getPlanButton("BUSINESS")
                 )}
               </section>
               <section className="adpriceplan-features">
@@ -278,7 +286,7 @@ export default function AdPricing() {
                 {user.plan === "TEAM" ? (
                   <button className="current-plan-btn">Current Plan</button>
                 ) : (
-                  getPaystackButton("TEAM")
+                  getPlanButton("TEAM")
                 )}
               </section>
               <section className="adpriceplan-features">
@@ -292,13 +300,13 @@ export default function AdPricing() {
           </section>
 
           {/* Features Section */}
-          <section
-            className="features-section"
-            aria-labelledby="features-heading"
+          {/* <section
+            className="Prifeatures-section"
+            aria-labelledby="Prifeatures-heading"
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <div className="features-inner">
+            <div className="Prifeatures-inner">
               <h3
                 id="features-heading"
                 className="features-title"
@@ -308,19 +316,19 @@ export default function AdPricing() {
                 What’s included
               </h3>
 
-              <ul className="features-list">
+              <ul className="Prifeatures-list">
                 {features.map((f, i) => (
                   <li
-                    className="feature-item"
+                    className="Prifeature-item"
                     key={i}
                     data-aos="fade-up"
                     data-aos-delay={i * 150}
                     data-aos-duration="700"
                   >
-                    <span className="feature-icon" aria-hidden="true">
+                    <span className="Prifeature-icon" aria-hidden="true">
                       🔹
                     </span>
-                    <span className="feature-text">
+                    <span className="Prifeature-text">
                       <strong>{f.title}</strong>
                       {f.desc ? ` ${f.desc}` : ""}
                     </span>
@@ -328,7 +336,7 @@ export default function AdPricing() {
                 ))}
               </ul>
             </div>
-          </section>
+          </section> */}
         </main>
       </div>
 

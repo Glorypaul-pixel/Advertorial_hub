@@ -12,7 +12,7 @@
   color: white;
   text-align: center;
   padding: 2rem;
-    font-family: "Inter", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   padding-top: 8rem;
   font-size: 3rem;
 }
@@ -85,11 +85,10 @@
   margin: 0 auto;
   margin-top: 2rem;
   border-radius: 2rem 2rem 0 0;
-    font-family: "Inter", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 .Createtitle {
   line-height: 0.1rem;
-
 }
 .createSubtitle {
   line-height: 0.1px;
@@ -219,7 +218,7 @@
 .adpricemain-heading h1 {
   font-size: 2rem;
   margin-top: 0;
-   font-family: "Inter", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .adpricemain-heading {
@@ -228,7 +227,7 @@
   font-weight: 600;
   text-align: center;
   line-height: 100%;
-   font-family: "Inter", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 /* ============================ */
@@ -462,6 +461,60 @@
 /* ============================ */
 /* ===== Responsive Media Queries ===== */
 /* ============================ */
+.Bankdetails {
+  width: 80%;
+  margin: 4px auto;
+  padding: 25px 30px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.Bankdetails h1 {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px;
+  color: #1f2937;
+}
+
+.Bankdetails h5 {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+.WEMA {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.WEMA:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.WEMA h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 6px 0;
+}
+
+.WEMA h3 span {
+  font-weight: 400;
+  font-family: monospace;
+  color: #111827;
+}
 
 /* Large Desktops */
 @media (min-width: 1440px) {
@@ -701,7 +754,128 @@
   display: block;
   margin-top: 0.25rem;
   font-weight: 500;
-} /* Responsive: make title and spacing smaller on narrow screens */
+}
+
+/* Account details section  */
+
+.account-wrapper {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ATM Card */
+.account-card {
+  background: linear-gradient(135deg, #016ce8, #4da6ff);
+  border-radius: 16px;
+  padding: 28px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.account-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bank-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card-chip {
+  width: 50px;
+  height: 36px;
+  background: radial-gradient(circle, #ddd, #bbb);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #016ce8;
+}
+
+/* Card body */
+.card-number {
+  font-size: 22px;
+  letter-spacing: 3px;
+  margin: 24px 0;
+  font-weight: 600;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.card-footer p {
+  margin: 0;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Details Section */
+.WEMA {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.account-details {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.account-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.account-info p {
+  font-size: 16px;
+  margin: 0;
+  padding: 10px 14px;
+  background: #f9fafb;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-info strong {
+  color: #00796b;
+}
+
+/* Responsive: make title and spacing smaller on narrow screens */
 @media (max-width: 1200px) {
   /* .features-section {
     width: 80%;
@@ -800,6 +974,16 @@
   br {
     display: none;
   }
+
+  .account-wrapper {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    font-family: "Inter", "Segoe UI", sans-serif;
+  }
 }
 
 /* 768px Screen */
@@ -811,7 +995,7 @@
     color: #fff;
     text-align: center;
     padding-top: 2rem !important;
-      font-family: "Inter", sans-serif !important;
+    font-family: "Inter", sans-serif !important;
     font-size: 2rem;
   }
   .adpricemain-heading {

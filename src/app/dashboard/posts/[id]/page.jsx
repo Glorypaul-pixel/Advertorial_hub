@@ -99,11 +99,11 @@ export default function Post() {
         `https://advertorial-backend.onrender.com/api/posts/${post._id}`,
         {
           method: "DELETE",
-          headers: { Authorization: `Bearer ${userToken}` },
+          headers: { Authorization: `${userToken}` },
         }
       );
       if (!res.ok) throw new Error("Failed to delete post");
-      window.location.href = "/dashboard/posts";
+      window.location.href = "/dashboard/mypost";
     } catch (err) {
       console.error(err);
       setDeleting(false);
